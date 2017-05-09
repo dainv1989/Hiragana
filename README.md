@@ -1,1 +1,1 @@
-# Hiragana
+## Android application to learn Japanese basic characters Hiragana and Katakana# # Update history# 09-May-2017       Start project on GitHub
