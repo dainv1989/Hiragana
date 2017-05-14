@@ -1,23 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".HiraganaActivity">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/hiraBotNav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/botnav_height"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/thumb_up"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/thumb_up"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/thumb_up"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/thumb_up"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrHiraView"
+        android:layout_above="@+id/hiraBotNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_large"
-        android:text="@string/app_name"/>
-    <GridView
-        android:id="@+id/gridChart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="5"
-        android:stretchMode="columnWidth"
-        android:gravity="center">
-    </GridView>
-</LinearLayout>
+        android:layout_alignParentTop="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:text="@string/app_name"/>
+
+            <com.dainv.hiragana.view.StaticGridView
+                android:id="@+id/gridBasic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="5"
+                android:stretchMode="columnWidth"
+                android:isScrollContainer="false"
+                android:gravity="center">
+            </com.dainv.hiragana.view.StaticGridView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:text="@string/app_name"/>
+
+            <com.dainv.hiragana.view.StaticGridView
+                android:id="@+id/gridDakuten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="5"
+                android:stretchMode="columnWidth"
+                android:isScrollContainer="false"
+                android:gravity="center">
+            </com.dainv.hiragana.view.StaticGridView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large"
+                android:text="@string/app_name"/>
+
+            <com.dainv.hiragana.view.StaticGridView
+                android:id="@+id/gridCombo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"
+                android:isScrollContainer="false"
+                android:gravity="center">
+            </com.dainv.hiragana.view.StaticGridView>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
