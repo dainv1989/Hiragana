@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hiragana &amp; Katakana</string>
+
+    <string name="button_hiragana">hiragana</string>
+    <string name="button_katakana">katakana</string>
+    <string name="button_exercise">exercise</string>
+</resources>
