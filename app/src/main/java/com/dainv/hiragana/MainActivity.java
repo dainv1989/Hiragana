@@ -10,6 +10,9 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private final static String TAG="MainActivity";
 
+    private static final int HIRAGANA_CHART = 1;
+    private static final int KATAKANA_CHART = 2;
+
     private Button btnHira;
     private Button btnKata;
     private Button btnExer;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, HiraganaActivity.class);
+                intent.putExtra("CHART_TYPE", HIRAGANA_CHART);
                 context.startActivity(intent);
             }
         });
@@ -35,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         btnKata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: open katakana chart
+                Intent intent = new Intent(context, HiraganaActivity.class);
+                intent.putExtra("CHART_TYPE", KATAKANA_CHART);
+                context.startActivity(intent);
             }
         });
 

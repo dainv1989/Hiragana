@@ -17,25 +17,26 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:padding="@dimen/padding_large"
-            android:src="@drawable/thumb_up"/>
+            android:src="@drawable/home"/>
+        <ImageView
+            android:id="@+id/btnSwitch"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/change"/>
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:padding="@dimen/padding_large"
-            android:src="@drawable/thumb_up"/>
+            android:src="@drawable/mind"/>
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:padding="@dimen/padding_large"
-            android:src="@drawable/thumb_up"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:padding="@dimen/padding_large"
-            android:src="@drawable/thumb_up"/>
+            android:src="@drawable/pencil"/>
     </LinearLayout>
 
     <ScrollView

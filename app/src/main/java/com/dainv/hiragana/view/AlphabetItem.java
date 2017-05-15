@@ -8,11 +8,6 @@ public class AlphabetItem {
     private String strJpchar;
     private String strRomaji;
 
-    public AlphabetItem() {
-        this.strJpchar = "null";
-        this.strRomaji = "null";
-    }
-
     public AlphabetItem(String jpchar, String romaji) {
         this.strJpchar = jpchar;
         this.strRomaji = romaji;
