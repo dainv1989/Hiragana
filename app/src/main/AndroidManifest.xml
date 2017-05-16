@@ -20,8 +20,13 @@
         </activity>
 
         <activity android:name=".HiraganaActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".WritingActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ExcerciseActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

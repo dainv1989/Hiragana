@@ -48,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         btnExer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: oopen exercise activity
+                Intent intent = new Intent(context, ExcerciseActivity.class);
+                intent.putExtra("EXERCISE_TYPE", 0);
+                context.startActivity(intent);
             }
         });
     }

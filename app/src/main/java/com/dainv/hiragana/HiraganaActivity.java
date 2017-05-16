@@ -1,5 +1,6 @@
 package com.dainv.hiragana;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -120,7 +121,7 @@ public class HiraganaActivity extends AppCompatActivity {
             "リャ", "リュ", "リョ",
             "ギャ", "ギュ", "ギョ",
             "ジャ",  "ジュ", "ジョ",
-            "ビャ", "", "ビョ",
+            "ビャ", "ビュ", "ビョ",
             "ピャ", "ピュ", "ピョ"
     };
 
@@ -132,6 +133,9 @@ public class HiraganaActivity extends AppCompatActivity {
     private GridView gvComboChart;
 
     private ImageView btnSwitchChart;
+    private ImageView btnWriting;
+    private ImageView btnExercise;
+    private ImageView btnPlaySound;
 
     private static List<AlphabetItem> lstHiraBasic;
     private static List<AlphabetItem> lstHiraDakuten;
@@ -142,6 +146,7 @@ public class HiraganaActivity extends AppCompatActivity {
     private static List<AlphabetItem> lstKataCombo;
 
     private static boolean is_init = false;
+    private static boolean is_playing = false;
     private static int current_chart = HIRAGANA_CHART;
 
     @Override
@@ -154,6 +159,9 @@ public class HiraganaActivity extends AppCompatActivity {
         gvComboChart = (StaticGridView)findViewById(R.id.gridCombo);
 
         btnSwitchChart = (ImageView)findViewById(R.id.btnSwitch);
+        btnPlaySound = (ImageView)findViewById(R.id.btnPlayAll);
+        btnExercise = (ImageView)findViewById(R.id.btnHiraExer);
+        btnWriting = (ImageView)findViewById(R.id.btnPencil);
 
         if (is_init == false) {
             lstHiraBasic = new ArrayList<>();
@@ -172,6 +180,7 @@ public class HiraganaActivity extends AppCompatActivity {
         if ((chart_type == HIRAGANA_CHART) || (chart_type == KATAKANA_CHART))
             showChart(chart_type);
 
+        final Context context = this;
         btnSwitchChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,6 +191,40 @@ public class HiraganaActivity extends AppCompatActivity {
                     showChart(HIRAGANA_CHART);
                     current_chart = HIRAGANA_CHART;
                 }
+            }
+        });
+
+        btnPlaySound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (is_playing == false) {
+                    // TODO: play all sounds
+                    btnPlaySound.setImageResource(R.drawable.stop);
+                    is_playing = true;
+                } else {
+                    stopPlaySound();
+                    is_playing = false;
+                }
+            }
+        });
+
+        btnExercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopPlaySound();
+                Intent intent = new Intent(context, ExcerciseActivity.class);
+                // TODO: send type of exercise
+                context.startActivity(intent);
+            }
+        });
+
+        btnWriting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopPlaySound();
+                Intent intent = new Intent(context, WritingActivity.class);
+                intent.putExtra("CHAR_TYPE", current_chart);
+                context.startActivity(intent);
             }
         });
     }
@@ -201,7 +244,7 @@ public class HiraganaActivity extends AppCompatActivity {
             adapterBasic = new AlphabetAdapter(this, gvBasicChart.getId(), lstHiraBasic);
             adapterDakuten = new AlphabetAdapter(this, gvBasicChart.getId(), lstHiraDakuten);
             adapterCombo = new AlphabetAdapter(this, gvBasicChart.getId(), lstHiraCombo);
-            current_chart = KATAKANA_CHART;
+            current_chart = HIRAGANA_CHART;
         }
         gvBasicChart.setAdapter(adapterBasic);
         gvDakutenChart.setAdapter(adapterDakuten);
@@ -224,5 +267,14 @@ public class HiraganaActivity extends AppCompatActivity {
             lstHiraDakuten.add(new AlphabetItem(dakuten_hira[i], dakuten_chars[i]));
             lstKataDakuten.add(new AlphabetItem(dakuten_kata[i], dakuten_chars[i]));
         }
+    }
+
+    private void playAllSounds() {
+        // TODO:
+    }
+
+    private void stopPlaySound() {
+        // TODO:
+        btnPlaySound.setImageResource(R.drawable.play);
     }
 }

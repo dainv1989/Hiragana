@@ -13,11 +13,12 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
         <ImageView
+            android:id="@+id/btnPlayAll"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:padding="@dimen/padding_large"
-            android:src="@drawable/home"/>
+            android:src="@drawable/play"/>
         <ImageView
             android:id="@+id/btnSwitch"
             android:layout_width="0dp"
@@ -26,12 +27,14 @@
             android:padding="@dimen/padding_large"
             android:src="@drawable/change"/>
         <ImageView
+            android:id="@+id/btnHiraExer"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:padding="@dimen/padding_large"
             android:src="@drawable/mind"/>
         <ImageView
+            android:id="@+id/btnPencil"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
