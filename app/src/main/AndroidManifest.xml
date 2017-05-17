@@ -22,7 +22,8 @@
         <activity android:name=".HiraganaActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".WritingActivity"
+        <activity android:name=".CharActivity"
+            android:hardwareAccelerated="false"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".ExcerciseActivity"

@@ -222,7 +222,7 @@ public class HiraganaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 stopPlaySound();
-                Intent intent = new Intent(context, WritingActivity.class);
+                Intent intent = new Intent(context, CharActivity.class);
                 intent.putExtra("CHAR_TYPE", current_chart);
                 context.startActivity(intent);
             }
