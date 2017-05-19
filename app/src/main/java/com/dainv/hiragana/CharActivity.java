@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dainv.hiragana.view.GifImageView;
+
 public class CharActivity extends AppCompatActivity {
 
     private static final int HIRAGANA_CHART = 1;
@@ -33,6 +35,7 @@ public class CharActivity extends AppCompatActivity {
     private static int display_char_type = 0;
 
     private RecyclerView bottomCharScroll;
+    private GifImageView gifCharDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,11 @@ public class CharActivity extends AppCompatActivity {
         Intent intent = getIntent();
         display_char_type = intent.getIntExtra("CHAR_TYPE", 0);
 
+        gifCharDisplay = (GifImageView)findViewById(R.id.gifCharDisplay);
         bottomCharScroll = (RecyclerView)findViewById(R.id.bottomCharScroll);
+
+        gifCharDisplay.setGifImageResource(R.drawable.hira_a);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false); /* horizontal display list */
         bottomCharScroll.setLayoutManager(layoutManager);
