@@ -1,15 +1,18 @@
 package com.dainv.hiragana;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dainv.hiragana.view.GifImageView;
 
@@ -56,16 +59,30 @@ public class CharActivity extends AppCompatActivity {
 
         CharAdapter adapter = new CharAdapter(basic_chars);
         bottomCharScroll.setAdapter(adapter);
+        bottomCharScroll.setHasFixedSize(true);
     }
 
     public class CharAdapter extends RecyclerView.Adapter<CharAdapter.ViewHolder> {
         private String[] dataset;
 
-        public class ViewHolder extends RecyclerView.ViewHolder {
+        public class ViewHolder extends RecyclerView.ViewHolder
+                implements View.OnClickListener {
             public TextView view;
-            public ViewHolder(TextView view) {
+            private Context context;
+
+            public ViewHolder(Context context, TextView view) {
                 super(view);
                 this.view = view;
+                this.context = context;
+                view.setOnClickListener(this);
+            }
+
+            @Override
+            public void onClick(View view) {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    Toast.makeText(context, this.view.getText(), Toast.LENGTH_SHORT).show();
+                }
             }
         }
 
@@ -75,9 +92,10 @@ public class CharActivity extends AppCompatActivity {
 
         @Override
         public CharAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            TextView view = (TextView) LayoutInflater.from(parent.getContext())
+            Context context = parent.getContext();
+            TextView view = (TextView) LayoutInflater.from(context)
                     .inflate(R.layout.bottom_text_bar, parent, false);
-            ViewHolder viewHolder = new ViewHolder(view);
+            ViewHolder viewHolder = new ViewHolder(context, view);
             return viewHolder;
         }
 

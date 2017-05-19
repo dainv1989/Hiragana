@@ -19,11 +19,15 @@
         android:layout_above="@id/bottomCharScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
         <com.dainv.hiragana.view.GifImageView
             android:id="@+id/gifCharDisplay"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="@dimen/size_small"
+            android:layout_height="@dimen/size_small"
+            android:src="@drawable/speaker"/>
     </LinearLayout>
 </RelativeLayout>
