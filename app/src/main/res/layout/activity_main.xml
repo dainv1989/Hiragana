@@ -86,7 +86,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:padding="@dimen/padding_small"
-            android:src="@drawable/thumb_up"/>
+            android:src="@drawable/vote"/>
         <ImageView
             android:layout_width="@dimen/botnav_height"
             android:layout_height="match_parent"
@@ -98,6 +98,6 @@
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:padding="@dimen/padding_small"
-            android:src="@drawable/information"/>
+            android:src="@drawable/info"/>
     </LinearLayout>
 </RelativeLayout>

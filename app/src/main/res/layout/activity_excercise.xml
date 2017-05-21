@@ -4,6 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dainv.hiragana.ExcerciseActivity">
+    tools:context=".ExcerciseActivity">
 
+    <TextView
+        android:id="@+id/txtScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_large"
+        android:gravity="center"
+        android:text="0/0"
+        android:textSize="@dimen/text_large"/>
+
+    <LinearLayout
+        android:id="@+id/groupQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_xlarge"
+            android:gravity="center"
+            android:text="null"
+            android:textSize="100sp"
+            android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/soundQuestion"
+            android:layout_width="@dimen/size_xxlarge"
+            android:layout_height="@dimen/size_xxlarge"
+            android:padding="@dimen/padding_xlarge"
+            android:src="@drawable/speaker"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/groupAnswers"
+        android:layout_below="@id/groupQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/txtAnswer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_xlarge"
+            android:text="null"
+            android:textSize="@dimen/text_large"/>
+        <TextView
+            android:id="@+id/txtAnswer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_xlarge"
+            android:text="null"
+            android:textSize="@dimen/text_large"/>
+        <TextView
+            android:id="@+id/txtAnswer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_xlarge"
+            android:text="null"
+            android:textSize="@dimen/text_large"/>
+    </LinearLayout>
 </RelativeLayout>
