@@ -3,17 +3,17 @@ package com.dainv.hiragana;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.dainv.hiragana.view.AlphabetAdapter;
-import com.dainv.hiragana.view.AlphabetItem;
-import com.dainv.hiragana.view.StaticGridView;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.dainv.hiragana.model.JPChar;
+import com.dainv.hiragana.view.ChartFragment;
 
 public class HiraganaActivity extends AppCompatActivity {
 
@@ -125,71 +125,54 @@ public class HiraganaActivity extends AppCompatActivity {
             "ピャ", "ピュ", "ピョ"
     };
 
-    private static final int HIRAGANA_CHART = 1;
-    private static final int KATAKANA_CHART = 2;
-
-    private GridView gvBasicChart;
-    private GridView gvDakutenChart;
-    private GridView gvComboChart;
-
     private ImageView btnSwitchChart;
     private ImageView btnWriting;
     private ImageView btnExercise;
     private ImageView btnPlaySound;
 
-    private static List<AlphabetItem> lstHiraBasic;
-    private static List<AlphabetItem> lstHiraDakuten;
-    private static List<AlphabetItem> lstHiraCombo;
+    private TabLayout tabChartType;
+    private ViewPager pagerChart;
+    private PagerAdapter pagerAdapter;
 
-    private static List<AlphabetItem> lstKataBasic;
-    private static List<AlphabetItem> lstKataDakuten;
-    private static List<AlphabetItem> lstKataCombo;
-
-    private static boolean is_init = false;
     private static boolean is_playing = false;
-    private static int current_chart = HIRAGANA_CHART;
+    private static int current_chart = JPChar.HIRAGANA_CHART;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hiragana);
 
-        gvBasicChart = (StaticGridView)findViewById(R.id.gridBasic);
-        gvDakutenChart = (StaticGridView)findViewById(R.id.gridDakuten);
-        gvComboChart = (StaticGridView)findViewById(R.id.gridCombo);
-
         btnSwitchChart = (ImageView)findViewById(R.id.btnSwitch);
         btnPlaySound = (ImageView)findViewById(R.id.btnPlayAll);
         btnExercise = (ImageView)findViewById(R.id.btnHiraExer);
         btnWriting = (ImageView)findViewById(R.id.btnPencil);
 
-        if (is_init == false) {
-            lstHiraBasic = new ArrayList<>();
-            lstHiraCombo = new ArrayList<>();
-            lstHiraDakuten = new ArrayList<>();
-            lstKataCombo = new ArrayList<>();
-            lstKataDakuten = new ArrayList<>();
-            lstKataBasic = new ArrayList<>();
-
-            initAlphabetChart();
-            is_init = true;
-        }
-
         Intent intent = getIntent();
-        int chart_type = intent.getIntExtra("CHART_TYPE", HIRAGANA_CHART);
-        if ((chart_type == HIRAGANA_CHART) || (chart_type == KATAKANA_CHART))
-            showChart(chart_type);
+        int chart_type = intent.getIntExtra("CHART_TYPE", JPChar.HIRAGANA_CHART);
+        //if ((chart_type == HIRAGANA_CHART) || (chart_type == KATAKANA_CHART))
+        //    showChart(chart_type);
+
+        /* tablayout implement */
+        tabChartType = (TabLayout)findViewById(R.id.tabChartType);
+        tabChartType.addTab(tabChartType.newTab().setText(R.string.basic_header));
+        tabChartType.addTab(tabChartType.newTab().setText(R.string.dakuten_header));
+        tabChartType.addTab(tabChartType.newTab().setText(R.string.combo_header));
+
+        pagerChart = (ViewPager)findViewById(R.id.pagerChart);
+        pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        pagerChart.setAdapter(pagerAdapter);
+        pagerChart.addOnPageChangeListener(
+                new TabLayout.TabLayoutOnPageChangeListener(tabChartType));
+        /* end tablayout */
 
         final Context context = this;
         btnSwitchChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (current_chart == HIRAGANA_CHART) {
-                    showChart(KATAKANA_CHART);
-                    current_chart = KATAKANA_CHART;
+                if (current_chart == JPChar.HIRAGANA_CHART) {
+                    current_chart = JPChar.KATAKANA_CHART;
                 } else {
-                    showChart(HIRAGANA_CHART);
-                    current_chart = HIRAGANA_CHART;
+                    current_chart = JPChar.HIRAGANA_CHART;
                 }
             }
         });
@@ -229,46 +212,6 @@ public class HiraganaActivity extends AppCompatActivity {
         });
     }
 
-    private void showChart(int chartType) {
-        AlphabetAdapter adapterBasic = null;
-        AlphabetAdapter adapterDakuten = null;
-        AlphabetAdapter adapterCombo = null;
-
-        if(chartType == KATAKANA_CHART) {
-            adapterBasic = new AlphabetAdapter(this, gvBasicChart.getId(), lstKataBasic);
-            adapterDakuten = new AlphabetAdapter(this, gvBasicChart.getId(), lstKataDakuten);
-            adapterCombo = new AlphabetAdapter(this, gvBasicChart.getId(), lstKataCombo);
-            current_chart = KATAKANA_CHART;
-        }
-        if(chartType == HIRAGANA_CHART) {
-            adapterBasic = new AlphabetAdapter(this, gvBasicChart.getId(), lstHiraBasic);
-            adapterDakuten = new AlphabetAdapter(this, gvBasicChart.getId(), lstHiraDakuten);
-            adapterCombo = new AlphabetAdapter(this, gvBasicChart.getId(), lstHiraCombo);
-            current_chart = HIRAGANA_CHART;
-        }
-        gvBasicChart.setAdapter(adapterBasic);
-        gvDakutenChart.setAdapter(adapterDakuten);
-        gvComboChart.setAdapter(adapterCombo);
-    }
-
-    private void initAlphabetChart() {
-        int i = 0;
-        for (i = 0; i < basic_chars.length; i++) {
-            lstHiraBasic.add(new AlphabetItem(basic_hira[i], basic_chars[i]));
-            lstKataBasic.add(new AlphabetItem(basic_kata[i], basic_chars[i]));
-        }
-
-        for (i = 0; i < combo_chars.length; i++) {
-            lstHiraCombo.add(new AlphabetItem(combo_hira[i], combo_chars[i]));
-            lstKataCombo.add(new AlphabetItem(combo_kata[i], combo_chars[i]));
-        }
-
-        for (i = 0; i < dakuten_chars.length; i++) {
-            lstHiraDakuten.add(new AlphabetItem(dakuten_hira[i], dakuten_chars[i]));
-            lstKataDakuten.add(new AlphabetItem(dakuten_kata[i], dakuten_chars[i]));
-        }
-    }
-
     private void playAllSounds() {
         // TODO:
     }
@@ -276,5 +219,25 @@ public class HiraganaActivity extends AppCompatActivity {
     private void stopPlaySound() {
         // TODO:
         btnPlaySound.setImageResource(R.drawable.play);
+    }
+
+    private final static int NUMBER_OF_TABS = 3;
+    private class PagerAdapter extends FragmentStatePagerAdapter {
+        private int numTabs = NUMBER_OF_TABS;
+        public PagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            ChartFragment fragment = new ChartFragment();
+            fragment.setChart(current_chart, position);
+            return fragment;
+        }
+
+        @Override
+        public int getCount() {
+            return numTabs;
+        }
     }
 }

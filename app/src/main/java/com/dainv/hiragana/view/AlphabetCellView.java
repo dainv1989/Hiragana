@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dainv.hiragana.R;
+import com.dainv.hiragana.model.AlphabetItem;
 
 /**
  * Created by Hong-Quyen on 5/14/2017.

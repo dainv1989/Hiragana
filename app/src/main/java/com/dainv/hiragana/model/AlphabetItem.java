@@ -1,4 +1,4 @@
-package com.dainv.hiragana.view;
+package com.dainv.hiragana.model;
 
 /**
  * Created by Dai Nguyen on 5/14/2017.

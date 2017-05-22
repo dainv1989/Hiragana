@@ -18,16 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".HiraganaActivity"
+        <activity
+            android:name=".HiraganaActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".CharActivity"
+        <activity
+            android:name=".CharActivity"
             android:hardwareAccelerated="false"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".ExcerciseActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExcerciseActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.ChartFragment"></activity>
     </application>
 
 </manifest>

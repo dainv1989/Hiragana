@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="botnav_height">60dp</dimen>
+    <dimen name="topnav_height">30dp</dimen>
+
     <dimen name="padding_small">5dp</dimen>
     <dimen name="padding_large">10dp</dimen>
     <dimen name="padding_xlarge">15dp</dimen>

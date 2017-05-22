@@ -1,9 +1,11 @@
-package com.dainv.hiragana.view;
+package com.dainv.hiragana.model;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
+import com.dainv.hiragana.view.AlphabetCellView;
 
 import java.util.List;
 

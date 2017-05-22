@@ -5,7 +5,7 @@
     <string name="button_katakana">katakana</string>
     <string name="button_exercise">exercise</string>
 
-    <string name="basic_header">basic chars</string>
+    <string name="basic_header">basic</string>
     <string name="combo_header">combo</string>
     <string name="dakuten_header">dakuten</string>
 </resources>

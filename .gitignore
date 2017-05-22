@@ -2,8 +2,8 @@
 .gradle
 /.idea
 /local.properties
-/app
+/app/build
 /gradle
 /build
-/gradlew
-/gradlew.bat
+gradlew
+gradlew.bat

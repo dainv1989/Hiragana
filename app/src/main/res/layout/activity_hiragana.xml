@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/botnav_height"
         android:orientation="horizontal"
-        android:background="@color/colorGrey"
         android:layout_alignParentBottom="true">
         <ImageView
             android:id="@+id/btnPlayAll"
@@ -43,69 +42,19 @@
             android:src="@drawable/pencil"/>
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/scrHiraView"
-        android:layout_above="@+id/hiraBotNav"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabChartType"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_large"
-                android:gravity="center"
-                android:text="@string/basic_header"
-                android:textSize="@dimen/text_small"/>
+        android:layout_height="@dimen/topnav_height"
+        android:layout_alignParentTop="true"
+        app:tabGravity="fill"
+        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"/>
 
-            <com.dainv.hiragana.view.StaticGridView
-                android:id="@+id/gridBasic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:numColumns="5"
-                android:stretchMode="columnWidth"
-                android:isScrollContainer="false"
-                android:gravity="center">
-            </com.dainv.hiragana.view.StaticGridView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_large"
-                android:gravity="center"
-                android:text="@string/dakuten_header"
-                android:textSize="@dimen/text_small"/>
-
-            <com.dainv.hiragana.view.StaticGridView
-                android:id="@+id/gridDakuten"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:numColumns="5"
-                android:stretchMode="columnWidth"
-                android:isScrollContainer="false"
-                android:gravity="center">
-            </com.dainv.hiragana.view.StaticGridView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_large"
-                android:gravity="center"
-                android:text="@string/combo_header"
-                android:textSize="@dimen/text_small"/>
-
-            <com.dainv.hiragana.view.StaticGridView
-                android:id="@+id/gridCombo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:numColumns="3"
-                android:stretchMode="columnWidth"
-                android:isScrollContainer="false"
-                android:gravity="center">
-            </com.dainv.hiragana.view.StaticGridView>
-        </LinearLayout>
-    </ScrollView>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pagerChart"
+        android:layout_below="@id/tabChartType"
+        android:layout_above="@id/hiraBotNav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>
 
