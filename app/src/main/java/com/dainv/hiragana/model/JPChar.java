@@ -161,4 +161,23 @@ public final class JPChar {
         }
         is_init = true;
     }
+
+    public static List<String> getFullChars() {
+        int i = 0;
+        ArrayList<String> lstFullChars = new ArrayList<>();
+
+        for (i = 0; i < basic_chars.length; i++) {
+            if (basic_chars[i] != "") {
+                lstFullChars.add(basic_chars[i]);
+            }
+        }
+        for (i = 0; i < dakuten_chars.length; i++) {
+            lstFullChars.add(dakuten_chars[i]);
+        }
+        for (i = 0; i < combo_chars.length; i++) {
+            lstFullChars.add(combo_chars[i]);
+        }
+
+        return lstFullChars;
+    }
 }
