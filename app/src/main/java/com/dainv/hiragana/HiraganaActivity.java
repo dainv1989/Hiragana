@@ -9,8 +9,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.view.ChartFragment;
@@ -147,10 +149,11 @@ public class HiraganaActivity extends AppCompatActivity {
         btnExercise = (ImageView)findViewById(R.id.btnHiraExer);
         btnWriting = (ImageView)findViewById(R.id.btnPencil);
 
+        final Context context = this;
         Intent intent = getIntent();
         int chart_type = intent.getIntExtra("CHART_TYPE", JPChar.HIRAGANA_CHART);
-        //if ((chart_type == HIRAGANA_CHART) || (chart_type == KATAKANA_CHART))
-        //    showChart(chart_type);
+        if ((chart_type == JPChar.HIRAGANA_CHART) || (chart_type == JPChar.KATAKANA_CHART))
+            current_chart = chart_type;
 
         /* tablayout implement */
         tabChartType = (TabLayout)findViewById(R.id.tabChartType);
@@ -163,17 +166,34 @@ public class HiraganaActivity extends AppCompatActivity {
         pagerChart.setAdapter(pagerAdapter);
         pagerChart.addOnPageChangeListener(
                 new TabLayout.TabLayoutOnPageChangeListener(tabChartType));
+
+        tabChartType.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                updateChartView();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                /* Do nothing */
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                /* Do nothing */
+            }
+        });
         /* end tablayout */
 
-        final Context context = this;
         btnSwitchChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (current_chart == JPChar.HIRAGANA_CHART) {
+                if (current_chart == JPChar.HIRAGANA_CHART)
                     current_chart = JPChar.KATAKANA_CHART;
-                } else {
+                else
                     current_chart = JPChar.HIRAGANA_CHART;
-                }
+                updateChartView();
+                pagerAdapter.notifyDataSetChanged();
             }
         });
 
@@ -221,23 +241,36 @@ public class HiraganaActivity extends AppCompatActivity {
         btnPlaySound.setImageResource(R.drawable.play);
     }
 
+    private void updateChartView() {
+        int tab_index = tabChartType.getSelectedTabPosition();
+        pagerChart.setCurrentItem(tab_index);
+    }
+
     private final static int NUMBER_OF_TABS = 3;
     private class PagerAdapter extends FragmentStatePagerAdapter {
         private int numTabs = NUMBER_OF_TABS;
+
         public PagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            ChartFragment fragment = new ChartFragment();
-            fragment.setChart(current_chart, position);
+            ChartFragment fragment = ChartFragment.newInstance(current_chart, position);
             return fragment;
         }
 
         @Override
         public int getCount() {
             return numTabs;
+        }
+
+        /**
+         * This function helps force to switch chart table from hiragana to katakana
+         * and vice versa
+         */
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
         }
     }
 }

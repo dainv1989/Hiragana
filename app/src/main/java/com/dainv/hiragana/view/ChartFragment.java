@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChartFragment extends Fragment {
+
+    private static final String CHART_KEY = "CHART_TYPE";
+    private static final String TABLE_KEY = "TABLE_TYPE";
+
     private AlphabetAdapter adapter;
     private GridView gvChart;
 
@@ -33,9 +37,12 @@ public class ChartFragment extends Fragment {
         JPChar.initAlphabetChart();
 
         gvChart = (GridView)view.findViewById(R.id.gridChart);
-        gvChart.setNumColumns(5);
 
+        chartType = getArguments().getInt(CHART_KEY);
+        table = getArguments().getInt(TABLE_KEY);
         setChart(chartType, table);
+
+        gvChart.setNumColumns(5);
         if (table == JPChar.TABLE_COMBO)
             gvChart.setNumColumns(3);
 
@@ -45,7 +52,18 @@ public class ChartFragment extends Fragment {
         return view;
     }
 
-    public void setChart(int chartType, int table) {
+    public static ChartFragment newInstance(int chartType, int table) {
+        ChartFragment fragment = new ChartFragment();
+
+        Bundle args = new Bundle();
+        args.putInt(CHART_KEY, chartType);
+        args.putInt(TABLE_KEY, table);
+        fragment.setArguments(args);
+
+        return fragment;
+    }
+
+    private void setChart(int chartType, int table) {
         if (chartType == JPChar.HIRAGANA_CHART) {
             switch (table) {
                 case JPChar.TABLE_BASIC:
