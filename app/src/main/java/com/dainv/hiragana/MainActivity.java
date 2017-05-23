@@ -4,12 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.view.GifImageView;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG="MainActivity";
@@ -27,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView imgLight;
 
+    private static ArrayList<String> lstRoma = null;
+    private static ArrayList<String> lstHira = null;
+    private static ArrayList<String> lstKata = null;
+    private static boolean is_init = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
         tvMemoRoma = (TextView)findViewById(R.id.txtMemoRoma);
 
         imgLight = (ImageView)findViewById(R.id.iconLight);
+
+        if (is_init == false) {
+            lstRoma = new ArrayList<>();
+            lstHira = new ArrayList<>();
+            lstKata = new ArrayList<>();
+            JPChar.getFullChars(lstRoma, lstHira, lstKata);
+            is_init = true;
+        }
+        generateMemo();     /* show a random char for memo panel */
 
         final Context context = this;
         btnHira.setOnClickListener(new View.OnClickListener() {
@@ -69,5 +88,31 @@ public class MainActivity extends AppCompatActivity {
                 context.startActivity(intent);
             }
         });
+
+        /* gerenate new memo when user clicks on image */
+        imgLight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generateMemo();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        generateMemo();
+        super.onBackPressed();
+    }
+
+    private void generateMemo() {
+        if (is_init == false)
+            return;
+
+        Random random = new Random();
+        int index = random.nextInt(lstRoma.size()); /* min is 0, max is 103 */
+
+        tvMemoRoma.setText(lstRoma.get(index));
+        tvMemoHira.setText(lstHira.get(index));
+        tvMemoKata.setText(lstKata.get(index));
     }
 }

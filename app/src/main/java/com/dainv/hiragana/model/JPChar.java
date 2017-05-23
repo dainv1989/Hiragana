@@ -162,22 +162,29 @@ public final class JPChar {
         is_init = true;
     }
 
-    public static List<String> getFullChars() {
+    private static final int TOTAL_CHARS = 104;
+    public static void getFullChars(List<String> lstRoma,
+                                    List<String> lstHira,
+                                    List<String> lstKata) {
         int i = 0;
-        ArrayList<String> lstFullChars = new ArrayList<>();
-
         for (i = 0; i < basic_chars.length; i++) {
             if (basic_chars[i] != "") {
-                lstFullChars.add(basic_chars[i]);
+                lstRoma.add(basic_chars[i]);
+                lstHira.add(basic_hira[i]);
+                lstKata.add(basic_kata[i]);
             }
         }
+
         for (i = 0; i < dakuten_chars.length; i++) {
-            lstFullChars.add(dakuten_chars[i]);
-        }
-        for (i = 0; i < combo_chars.length; i++) {
-            lstFullChars.add(combo_chars[i]);
+            lstRoma.add(dakuten_chars[i]);
+            lstHira.add(dakuten_hira[i]);
+            lstKata.add(dakuten_kata[i]);
         }
 
-        return lstFullChars;
+        for (i = 0; i < combo_chars.length; i++) {
+            lstRoma.add(combo_chars[i]);
+            lstHira.add(combo_hira[i]);
+            lstKata.add(combo_kata[i]);
+        }
     }
 }
