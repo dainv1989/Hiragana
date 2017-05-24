@@ -8,4 +8,7 @@
     <string name="basic_header">basic</string>
     <string name="combo_header">combo</string>
     <string name="dakuten_header">dakuten</string>
+    <string name="stroke_header">stroke order</string>
+
+    <string name="null_string">null</string>
 </resources>
