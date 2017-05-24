@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,9 @@ public class CharActivity extends AppCompatActivity {
     private RecyclerView bottomCharScroll;
     private GifImageView gifCharDisplay;
 
+    private ImageView imgReplayChar;
+    private ImageView imgPlaySound;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,9 @@ public class CharActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         display_char_type = intent.getIntExtra("CHAR_TYPE", 0);
+
+        imgReplayChar = (ImageView)findViewById(R.id.imgCharAnimate);
+        imgPlaySound = (ImageView)findViewById(R.id.imgCharSound);
 
         gifCharDisplay = (GifImageView)findViewById(R.id.gifCharDisplay);
         bottomCharScroll = (RecyclerView)findViewById(R.id.bottomCharScroll);
@@ -60,6 +67,20 @@ public class CharActivity extends AppCompatActivity {
         CharAdapter adapter = new CharAdapter(basic_chars);
         bottomCharScroll.setAdapter(adapter);
         bottomCharScroll.setHasFixedSize(true);
+
+        imgReplayChar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gifCharDisplay.replay();
+            }
+        });
+
+        imgPlaySound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: play sound of a char
+            }
+        });
     }
 
     public class CharAdapter extends RecyclerView.Adapter<CharAdapter.ViewHolder> {

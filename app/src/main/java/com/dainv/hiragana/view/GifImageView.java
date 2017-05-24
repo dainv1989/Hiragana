@@ -7,7 +7,10 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Hong-Quyen on 5/17/2017.
@@ -16,13 +19,18 @@ import java.io.InputStream;
  */
 
 public class GifImageView extends View {
-    private InputStream inputStream;
-    private Movie movie;
+    private InputStream inputStream = null;
+    private Movie movie = null;
+    private int resID = 0;
     private int height, width;
-    private long start;
+    private long start = 0;
     private Context context;
 
+    private Timer gifTimer;
+    private GifTimer gifStop;
+
     private static final int DURATION = 1000;
+    private static boolean is_stopped = false;
 
     public GifImageView(Context context) {
         super(context);
@@ -49,6 +57,11 @@ public class GifImageView extends View {
         height = movie.height();
 
         requestLayout();
+
+        /* set timer to play gif once */
+        gifStop = new GifTimer();
+        gifTimer = new Timer();
+        gifTimer.schedule(gifStop, movie.duration(), DURATION);
     }
 
     @Override
@@ -58,6 +71,12 @@ public class GifImageView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        if (is_stopped == true) {
+            /* show gif image without animation */
+            movie.draw(canvas, 0, 0);
+            return;
+        }
+
         long now = SystemClock.uptimeMillis();
         if (start == 0) {
             start = now;
@@ -77,7 +96,34 @@ public class GifImageView extends View {
     }
 
     public void setGifImageResource(int id) {
+        resID = id;
         inputStream = context.getResources().openRawResource(id);
         init();
+    }
+
+    public void replay() {
+        /* return if gif is animating */
+        if (is_stopped == false)
+            return;
+
+        /* re-play gif animation */
+        is_stopped = false;
+        start = 0;
+        setGifImageResource(resID);
+        this.invalidate();
+    }
+
+    class GifTimer extends TimerTask {
+        public void run() {
+            /* force cleanup gif data */
+            this.cancel();
+            try {
+                this.finalize();
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
+            }
+            /* stop itself at 1st run */
+            is_stopped = true;
+        }
     }
 }

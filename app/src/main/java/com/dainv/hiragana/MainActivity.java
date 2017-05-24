@@ -99,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
+    public void onResume() {
+        super.onResume();
         generateMemo();
-        super.onBackPressed();
     }
 
     private void generateMemo() {

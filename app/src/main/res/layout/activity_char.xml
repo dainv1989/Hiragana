@@ -14,20 +14,30 @@
         android:layout_alignParentBottom="true"
         android:scrollbars="none" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/charDisplay"
         android:layout_above="@id/bottomCharScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center">
         <com.dainv.hiragana.view.GifImageView
             android:id="@+id/gifCharDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
+            android:id="@+id/imgCharSound"
+            android:layout_below="@id/gifCharDisplay"
             android:layout_width="@dimen/size_small"
             android:layout_height="@dimen/size_small"
+            android:padding="@dimen/padding_small"
             android:src="@drawable/speaker"/>
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/imgCharAnimate"
+            android:layout_below="@id/gifCharDisplay"
+            android:layout_toRightOf="@id/imgCharSound"
+            android:layout_width="@dimen/size_small"
+            android:layout_height="@dimen/size_small"
+            android:padding="@dimen/padding_small"
+            android:src="@drawable/replay"/>
+    </RelativeLayout>
 </RelativeLayout>
