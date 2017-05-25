@@ -33,7 +33,7 @@
             android:id="@+id/gifCharDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,13 +54,6 @@
                 android:layout_height="@dimen/size_small"
                 android:padding="@dimen/padding_small"
                 android:src="@drawable/speaker"/>
-
-            <ImageView
-                android:id="@+id/imgCharAnimate"
-                android:layout_width="@dimen/size_small"
-                android:layout_height="@dimen/size_small"
-                android:padding="@dimen/padding_small"
-                android:src="@drawable/replay"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

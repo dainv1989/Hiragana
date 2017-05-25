@@ -32,11 +32,7 @@ public class GifImageView extends View {
     private int height, width;
     private long start = 0;
 
-    private Timer gifTimer;
-    private GifTimer gifStop;
-
-    private static final int DURATION = 3000;
-    private static boolean is_stopped = false;
+    private static final int DURATION = 1000;
 
     public GifImageView(Context context) {
         super(context);
@@ -50,10 +46,6 @@ public class GifImageView extends View {
     public GifImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         this.context = context;
-        if (attrs.getAttributeName(1).equals("background")) {
-            int id = Integer.parseInt(attrs.getAttributeValue(1).substring(1));
-            setGifImageAsset(asset);
-        }
     }
 
     private void init() {
@@ -63,11 +55,6 @@ public class GifImageView extends View {
         height = movie.height();
 
         requestLayout();
-
-        /* set timer to play gif once */
-        gifStop = new GifTimer();
-        gifTimer = new Timer();
-        gifTimer.schedule(gifStop, movie.duration(), DURATION);
     }
 
     @Override
@@ -77,12 +64,6 @@ public class GifImageView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (is_stopped == true) {
-            /* show gif image without animation */
-            movie.draw(canvas, 0, 0);
-            return;
-        }
-
         long now = SystemClock.uptimeMillis();
         if (start == 0) {
             start = now;
@@ -112,41 +93,5 @@ public class GifImageView extends View {
             return;
         }
         init();
-    }
-
-    public void replay() {
-        /* return if gif is animating */
-        if (is_stopped == false)
-            return;
-
-        /* re-play gif animation */
-        is_stopped = false;
-        try {
-            inputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.v(TAG, "close asset failed");
-        }
-        start = 0;
-        gifTimer.cancel();
-        gifStop.cancel();
-        this.destroyDrawingCache();
-
-        setGifImageAsset(asset);
-        this.invalidate();
-    }
-
-    class GifTimer extends TimerTask {
-        public void run() {
-            /* force cleanup gif data */
-            this.cancel();
-            try {
-                this.finalize();
-            } catch (Throwable throwable) {
-                throwable.printStackTrace();
-            }
-            /* stop itself at 1st run */
-            is_stopped = true;
-        }
     }
 }
