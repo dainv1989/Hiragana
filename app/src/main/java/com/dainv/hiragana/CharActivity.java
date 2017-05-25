@@ -44,6 +44,8 @@ public class CharActivity extends AppCompatActivity {
     private ImageView imgReplayChar;
     private ImageView imgPlaySound;
 
+    private String currentCharAsset = "hira/a.gif";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,7 @@ public class CharActivity extends AppCompatActivity {
         gifCharDisplay = (GifImageView)findViewById(R.id.gifCharDisplay);
         bottomCharScroll = (RecyclerView)findViewById(R.id.bottomCharScroll);
 
-        gifCharDisplay.setGifImageResource(R.drawable.hira_a);
+        gifCharDisplay.setGifImageAsset(currentCharAsset);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false); /* horizontal display list */
@@ -83,6 +85,24 @@ public class CharActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        gifCharDisplay.replay();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        this.finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
+
     public class CharAdapter extends RecyclerView.Adapter<CharAdapter.ViewHolder> {
         private String[] dataset;
 
@@ -102,7 +122,12 @@ public class CharActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
-                    Toast.makeText(context, this.view.getText(), Toast.LENGTH_SHORT).show();
+                    currentCharAsset = "hira/" + this.view.getText() + ".gif";
+                    Toast.makeText(context, currentCharAsset, Toast.LENGTH_SHORT).show();
+
+                    gifCharDisplay.setGifImageAsset(currentCharAsset);
+                    gifCharDisplay.destroyDrawingCache();
+                    gifCharDisplay.replay();
                 }
             }
         }

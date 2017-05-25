@@ -1,10 +1,12 @@
 package com.dainv.hiragana.view;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Movie;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.io.IOException;
@@ -19,17 +21,21 @@ import java.util.TimerTask;
  */
 
 public class GifImageView extends View {
+
+    private final static String TAG = "GifImageView";
+
     private InputStream inputStream = null;
     private Movie movie = null;
-    private int resID = 0;
+    private String asset;
+    private Context context;
+
     private int height, width;
     private long start = 0;
-    private Context context;
 
     private Timer gifTimer;
     private GifTimer gifStop;
 
-    private static final int DURATION = 1000;
+    private static final int DURATION = 3000;
     private static boolean is_stopped = false;
 
     public GifImageView(Context context) {
@@ -46,7 +52,7 @@ public class GifImageView extends View {
         this.context = context;
         if (attrs.getAttributeName(1).equals("background")) {
             int id = Integer.parseInt(attrs.getAttributeValue(1).substring(1));
-            setGifImageResource(id);
+            setGifImageAsset(asset);
         }
     }
 
@@ -95,9 +101,16 @@ public class GifImageView extends View {
         }
     }
 
-    public void setGifImageResource(int id) {
-        resID = id;
-        inputStream = context.getResources().openRawResource(id);
+    public void setGifImageAsset(String assetPath) {
+        AssetManager assetManager = context.getAssets();
+        this.asset = assetPath;
+        try {
+            inputStream = assetManager.open(assetPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.v(TAG, "open asset failed");
+            return;
+        }
         init();
     }
 
@@ -108,8 +121,18 @@ public class GifImageView extends View {
 
         /* re-play gif animation */
         is_stopped = false;
+        try {
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.v(TAG, "close asset failed");
+        }
         start = 0;
-        setGifImageResource(resID);
+        gifTimer.cancel();
+        gifStop.cancel();
+        this.destroyDrawingCache();
+
+        setGifImageAsset(asset);
         this.invalidate();
     }
 
