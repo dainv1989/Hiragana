@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity" >
+
+    <TextView
+        android:id="@+id/txtAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/padding_small"
+        android:text="@string/about_description" />
+
+    <TextView
+        android:id="@+id/txtLogo"
+        android:layout_above="@id/txtAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/txtAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:text="@string/about_author"/>
+
+    <TextView
+        android:id="@+id/txtVersion"
+        android:layout_above="@id/txtAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/null_string" />
+
+    <LinearLayout
+        android:id="@+id/aboutBotNav"
+        android:layout_above="@id/txtVersion"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/botnav_height"
+        android:gravity="center" >
+        <ImageView
+            android:id="@+id/aboutRateApp"
+            android:layout_width="@dimen/botnav_height"
+            android:layout_height="@dimen/botnav_height"
+            android:src="@drawable/vote"
+            android:padding="@dimen/padding_small"/>
+
+        <ImageView
+            android:id="@+id/aboutShare"
+            android:layout_width="@dimen/botnav_height"
+            android:layout_height="@dimen/botnav_height"
+            android:src="@drawable/share"
+            android:padding="@dimen/padding_small"/>
+    </LinearLayout>
+</RelativeLayout>

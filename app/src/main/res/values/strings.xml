@@ -11,4 +11,10 @@
     <string name="stroke_header">stroke order</string>
 
     <string name="null_string">null</string>
+
+    <string name="about_author">Dai Nguyen \u00a9 2017</string>
+    <string name="about_description">It does not matter how slowly you go as long as you do not stop. \
+        (Confucius)</string>
+    <string name="share_content">Great app to learn Japanese Hiragana and Katakana characters. \
+        Get it on Google Play at: </string>
 </resources>

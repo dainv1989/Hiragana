@@ -1,7 +1,10 @@
 package com.dainv.hiragana;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvMemoKata;
 
     private ImageView imgLight;
+    private ImageView imgVote;
+    private ImageView imgShare;
+    private ImageView imgInfo;
 
     private static ArrayList<String> lstRoma = null;
     private static ArrayList<String> lstHira = null;
@@ -51,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         tvMemoRoma = (TextView)findViewById(R.id.txtMemoRoma);
 
         imgLight = (ImageView)findViewById(R.id.iconLight);
+        imgInfo = (ImageView)findViewById(R.id.mainInfo);
+        imgShare = (ImageView)findViewById(R.id.mainShare);
+        imgVote = (ImageView)findViewById(R.id.mainVote);
 
         if (is_init == false) {
             lstRoma = new ArrayList<>();
@@ -94,6 +103,50 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 generateMemo();
+            }
+        });
+
+        /* open app information window */
+        imgInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AboutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /* open Google play market for voting app */
+        imgVote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String packageName = getApplicationContext().getPackageName();
+                Uri uri = Uri.parse("market://details?id=" + packageName);
+                Intent market = new Intent(Intent.ACTION_VIEW, uri);
+                try {
+                    startActivity(market);
+                }
+                catch (ActivityNotFoundException e) {
+                    uri = Uri.parse("http://play.google.com/store/apps/details?id=" + packageName);
+                    market = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(market);
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        /* sharing app on social */
+        imgShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String shareText = context.getResources().getString(R.string.share_content);
+                String appUrl = "http://play.google.com/store/apps/details?id=" +
+                        context.getPackageName();
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/html");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareText + appUrl);
+
+                startActivity(Intent.createChooser(shareIntent, "Share via"));
             }
         });
     }
