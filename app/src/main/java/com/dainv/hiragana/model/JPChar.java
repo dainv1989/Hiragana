@@ -1,5 +1,12 @@
 package com.dainv.hiragana.model;
 
+import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
+import android.util.Log;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +15,8 @@ import java.util.List;
  */
 
 public final class JPChar {
+
+    private final static String TAG = "JPChar";
 
     public static final String basic_chars[] = {
             "a", "i", "u", "e", "o",
@@ -185,6 +194,28 @@ public final class JPChar {
             lstRoma.add(combo_chars[i]);
             lstHira.add(combo_hira[i]);
             lstKata.add(combo_kata[i]);
+        }
+    }
+
+    public static void playSound(String fileName, Context context) {
+        AssetManager assetManager = context.getAssets();
+        final MediaPlayer player = new MediaPlayer();
+        try {
+            AssetFileDescriptor fd = assetManager.openFd("sound/" + fileName + ".mp3");
+            player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
+            player.prepare();
+            player.start();
+
+            /* release resource after playing audio */
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    player.release();
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.v(TAG, "open sound file failed");
         }
     }
 }

@@ -1,11 +1,12 @@
 package com.dainv.hiragana.view;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.dainv.hiragana.R;
@@ -13,7 +14,6 @@ import com.dainv.hiragana.model.AlphabetAdapter;
 import com.dainv.hiragana.model.AlphabetItem;
 import com.dainv.hiragana.model.JPChar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ChartFragment extends Fragment {
@@ -48,6 +48,17 @@ public class ChartFragment extends Fragment {
 
         adapter = new AlphabetAdapter(view.getContext(), gvChart.getId(), lstChart);
         gvChart.setAdapter(adapter);
+
+        if (table == JPChar.TABLE_BASIC) {
+            final Context context = this.getContext();
+            gvChart.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    /* play sound on click an item */
+                    JPChar.playSound(lstChart.get(position).getRomaji(), context);
+                }
+            });
+        }
 
         return view;
     }

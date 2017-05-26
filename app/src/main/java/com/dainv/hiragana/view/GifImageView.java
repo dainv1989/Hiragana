@@ -11,8 +11,6 @@ import android.view.View;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by Hong-Quyen on 5/17/2017.

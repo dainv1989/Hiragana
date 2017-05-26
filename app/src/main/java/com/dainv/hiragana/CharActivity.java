@@ -2,18 +2,17 @@ package com.dainv.hiragana;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.view.GifImageView;
 
 public class CharActivity extends AppCompatActivity {
@@ -36,6 +35,7 @@ public class CharActivity extends AppCompatActivity {
     };
 
     private static int display_char_type = 0;
+    private static String current_char = "a";
 
     private RecyclerView bottomCharScroll;
     private GifImageView gifCharDisplay;
@@ -69,7 +69,7 @@ public class CharActivity extends AppCompatActivity {
         imgPlaySound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: play sound of a char
+                JPChar.playSound(current_char, getApplicationContext());
             }
         });
     }
@@ -95,6 +95,7 @@ public class CharActivity extends AppCompatActivity {
                 if (position != RecyclerView.NO_POSITION) {
                     currentCharAsset = "hira/" + this.view.getText() + ".gif";
                     gifCharDisplay.setGifImageAsset(currentCharAsset);
+                    current_char = "" + this.view.getText();
                 }
             }
         }
