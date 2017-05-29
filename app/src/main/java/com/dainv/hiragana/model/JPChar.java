@@ -8,7 +8,9 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Hong-Quyen on 5/22/2017.
@@ -217,5 +219,71 @@ public final class JPChar {
             e.printStackTrace();
             Log.v(TAG, "open sound file failed");
         }
+    }
+
+    public static final int QTYPE_READ_HIRA = 0;
+    public static final int QTYPE_READ_KATA = 1;
+    public static final int TOTAL_ANSWERS = 3;
+
+    public static List<QuestionItem> generateQuestions(int count, int type) {
+        int question_count = 0;
+        Random random = new Random();
+        ArrayList<QuestionItem> questions  = new ArrayList<>();
+        ArrayList<AlphabetItem> dictionary = new ArrayList<>();
+
+        if (is_init == false)
+            initAlphabetChart();
+
+        switch (type) {
+            case QTYPE_READ_HIRA:
+                dictionary.addAll(lstHiraBasic);
+                dictionary.addAll(lstHiraDakuten);
+                dictionary.addAll(lstHiraCombo);
+                break;
+            case QTYPE_READ_KATA:
+                dictionary.addAll(lstKataBasic);
+                dictionary.addAll(lstKataDakuten);
+                dictionary.addAll(lstKataCombo);
+                break;
+            default:
+                break;
+        }
+
+        /* randomize dictionary */
+        Collections.shuffle(dictionary);
+
+        /* build questions and answers */
+        int i = 0;
+        question_count = 0;
+        while (question_count < count) {
+            if (dictionary.get(i).getRomaji() != "") {
+                QuestionItem question = new QuestionItem();
+                question.setQuestion(dictionary.get(i).getJpchar());
+                question.setCorrectAnswer(dictionary.get(i).getRomaji());
+
+                ArrayList<String> answers = new ArrayList<>();
+                answers.add(dictionary.get(i).getRomaji());
+
+                int answer_count = 1;
+                while (answer_count < TOTAL_ANSWERS) {
+                    int index = random.nextInt(TOTAL_CHARS);
+                    String romaji = dictionary.get(index).getRomaji();
+                    if ((index != i) && (romaji != "")) {
+                        answers.add(romaji);
+                        answer_count++;
+                    }
+                }
+
+                /* randomize answer list */
+                Collections.shuffle(answers);
+                question.setAnswers(answers);
+                questions.add(question);
+
+                question_count++;
+            }
+            i++;
+        }
+
+        return questions;
     }
 }
