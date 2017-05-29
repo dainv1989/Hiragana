@@ -39,8 +39,10 @@ public class CharActivity extends AppCompatActivity {
 
     private RecyclerView bottomCharScroll;
     private GifImageView gifCharDisplay;
+    private TextView tvStroke;
 
     private ImageView imgPlaySound;
+    private ImageView imgSwitchChar;
 
     private String currentCharAsset = "hira/a.gif";
 
@@ -52,9 +54,11 @@ public class CharActivity extends AppCompatActivity {
         Intent intent = getIntent();
         display_char_type = intent.getIntExtra("CHAR_TYPE", 0);
 
+        imgSwitchChar = (ImageView)findViewById(R.id.imgSwitchKana);
         imgPlaySound = (ImageView)findViewById(R.id.imgCharSound);
         gifCharDisplay = (GifImageView)findViewById(R.id.gifCharDisplay);
         bottomCharScroll = (RecyclerView)findViewById(R.id.bottomCharScroll);
+        tvStroke = (TextView)findViewById(R.id.txtStroke);
 
         gifCharDisplay.setGifImageAsset(currentCharAsset);
 

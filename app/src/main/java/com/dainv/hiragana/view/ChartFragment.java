@@ -49,16 +49,14 @@ public class ChartFragment extends Fragment {
         adapter = new AlphabetAdapter(view.getContext(), gvChart.getId(), lstChart);
         gvChart.setAdapter(adapter);
 
-        if (table == JPChar.TABLE_BASIC) {
-            final Context context = this.getContext();
-            gvChart.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    /* play sound on click an item */
-                    JPChar.playSound(lstChart.get(position).getRomaji(), context);
-                }
-            });
-        }
+        final Context context = this.getContext();
+        gvChart.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /* play sound on click an item */
+                JPChar.playSound(lstChart.get(position).getRomaji(), context);
+            }
+        });
 
         return view;
     }

@@ -62,7 +62,7 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String shareText = context.getResources().getString(R.string.share_content);
-                String appUrl = "http://play.google.com/store/apps/details?id=" +
+                String appUrl = " http://play.google.com/store/apps/details?id=" +
                         context.getPackageName();
 
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
