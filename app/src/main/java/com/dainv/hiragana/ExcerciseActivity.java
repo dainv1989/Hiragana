@@ -69,15 +69,6 @@ public class ExcerciseActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (is_generated == false) {
-            questions = JPChar.generateQuestions(TOTAL_QUESTION, JPChar.QTYPE_READ_HIRA);
-            is_generated = true;
-        }
-    }
-
     private void showQuestion(QuestionItem question) {
         tvQuestion.setText(question.getQuestion());
         tvAnswer1.setText(question.getAnswers().get(0));
@@ -87,18 +78,24 @@ public class ExcerciseActivity extends AppCompatActivity {
     }
 
     private void checkAnswer(String answer) {
-        if (answer == questions.get(question_index).getQuestion())
+        QuestionItem question = questions.get(question_index);
+        if (question.isCorrect(answer))
             score++;
 
         if (question_index == (questions.size() - 1)) {
+            /* show score screen */
             Intent intent = new Intent(this, ScoreActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             intent.putExtra("SCORE", score);
             intent.putExtra("TOTAL", questions.size());
             startActivity(intent);
 
+            /* reset information */
             is_generated = false;
+            question_index = 0;
+            score = 0;
         } else {
+            /* show next question in question list */
             question_index++;
             showQuestion(questions.get(question_index));
         }

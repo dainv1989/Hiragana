@@ -11,9 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:padding="@dimen/padding_xxlarge"
         android:gravity="center"
-        android:text="@string/null_string"
-        android:textSize="@dimen/text_huge"/>
+        android:text="10/10"
+        android:textSize="@dimen/text_extreme"/>
 
     <TextView
         android:layout_above="@id/txtTotalScore"
@@ -21,5 +22,24 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="your score:"
-        android:textSize="@dimen/text_small"/>
+        android:textSize="@dimen/text_large"/>
+
+    <LinearLayout
+        android:layout_below="@id/txtTotalScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/imgReplay"
+            android:layout_width="@dimen/size_large"
+            android:layout_height="@dimen/size_large"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/replay"/>
+        <ImageView
+            android:id="@+id/imgGoHome"
+            android:layout_width="@dimen/size_large"
+            android:layout_height="@dimen/size_large"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/replay"/>
+    </LinearLayout>
 </RelativeLayout>

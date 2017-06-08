@@ -107,7 +107,7 @@ public class HiraganaActivity extends AppCompatActivity {
                 stopPlaySound();
                 Intent intent = new Intent(context, ExcerciseActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                // TODO: send type of exercise
+                intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
                 context.startActivity(intent);
             }
         });
