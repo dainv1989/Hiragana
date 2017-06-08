@@ -6,13 +6,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
         android:id="@+id/txtAppName"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_large"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:text="@string/app_name" />
+        android:padding="@dimen/padding_large"
+        android:src="@drawable/logo"/>
 
     <LinearLayout
         android:id="@+id/topNav"
@@ -116,21 +115,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
+            android:paddingLeft="@dimen/padding_xxlarge"
+            android:paddingRight="@dimen/padding_xxlarge"
             android:text="hiragana"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:background="@drawable/button_bkg"/>
         <Button
             android:id="@+id/btnKata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
+            android:paddingLeft="@dimen/padding_xxlarge"
+            android:paddingRight="@dimen/padding_xxlarge"
             android:text="katakana"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:background="@drawable/button_bkg"/>
         <Button
             android:id="@+id/btnExer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding_xxlarge"
+            android:paddingRight="@dimen/padding_xxlarge"
             android:layout_margin="@dimen/margin_small"
             android:text="excercise"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:background="@drawable/button_bkg"/>
     </LinearLayout>
 </RelativeLayout>

@@ -6,6 +6,7 @@
     <dimen name="padding_small">5dp</dimen>
     <dimen name="padding_large">10dp</dimen>
     <dimen name="padding_xlarge">15dp</dimen>
+    <dimen name="padding_xxlarge">25dp</dimen>
     <dimen name="margin_small">5dp</dimen>
     <dimen name="margin_large">10dp</dimen>
 
@@ -14,7 +15,7 @@
     <dimen name="size_xlarge">100dp</dimen>
     <dimen name="size_xxlarge">150dp</dimen>
 
-    <dimen name="text_giant">180sp</dimen>
+    <dimen name="text_giant">120sp</dimen>
     <dimen name="text_huge">48sp</dimen>
     <dimen name="text_large">30sp</dimen>
     <dimen name="text_normal">24sp</dimen>

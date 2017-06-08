@@ -14,13 +14,13 @@
         android:padding="@dimen/padding_small"
         android:text="@string/about_description" />
 
-    <TextView
-        android:id="@+id/txtLogo"
+    <ImageView
+        android:id="@+id/imgLogo"
         android:layout_above="@id/txtAbout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/app_name"/>
+        android:layout_height="@dimen/size_xlarge"
+        android:padding="@dimen/padding_large"
+        android:src="@drawable/logo"/>
 
     <TextView
         android:id="@+id/txtAuthor"
