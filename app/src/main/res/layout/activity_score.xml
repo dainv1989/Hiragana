@@ -40,6 +40,6 @@
             android:layout_width="@dimen/size_large"
             android:layout_height="@dimen/size_large"
             android:padding="@dimen/padding_large"
-            android:src="@drawable/replay"/>
+            android:src="@drawable/home"/>
     </LinearLayout>
 </RelativeLayout>
