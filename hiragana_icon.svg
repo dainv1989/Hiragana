@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512"
+   height="512"
+   viewBox="0 0 512.00001 512.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   enable-background="new"
+   sodipodi:docname="hiragana_icon.svg"
+   inkscape:export-filename="/media/dainv/DATA/DaiNV/test/hiragana_icon.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4334">
+      <stop
+         style="stop-color:#a5febc;stop-opacity:0.51"
+         offset="0"
+         id="stop4336" />
+      <stop
+         id="stop4342"
+         offset="0.98312026"
+         style="stop-color:#ffffff;stop-opacity:1" />
+      <stop
+         style="stop-color:#ffff29;stop-opacity:0.2"
+         offset="1"
+         id="stop4338" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4334"
+       id="radialGradient4340"
+       cx="254.55368"
+       cy="511.99774"
+       fx="254.55368"
+       fy="511.99774"
+       r="256"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-1.5950107,0.01811048,-0.01135437,-0.99999373,668.79348,507.38444)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0371094"
+     inkscape:cx="263.71375"
+     inkscape:cy="241.13802"
+     inkscape:document-units="px"
+     inkscape:current-layer="svg2"
+     showgrid="false"
+     units="px"
+     borderlayer="false"
+     showborder="true"
+     inkscape:snap-center="true"
+     inkscape:snap-page="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <rect
+     style="opacity:1;fill:#0070bc;fill-opacity:1;stroke:none;stroke-opacity:1"
+     id="rect4317"
+     width="512"
+     height="512"
+     x="0"
+     y="0"
+     ry="100" />
+  <rect
+     style="opacity:0.5;fill:url(#radialGradient4340);fill-opacity:1;stroke:none;stroke-opacity:1"
+     id="rect4317-3"
+     width="512"
+     height="512"
+     x="0"
+     y="0"
+     ry="100" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="133.06215"
+     y="216.94914"
+     id="text4356"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4358"
+       x="133.06215"
+       y="216.94914" /></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="44.183594"
+     y="407.28174"
+     id="text4360"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4362"
+       x="44.183594"
+       y="407.28174"
+       style="font-size:450px;fill:#ffffff;fill-opacity:1">ひ</tspan></text>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Layer 1" />
+</svg>
