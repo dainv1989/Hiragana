@@ -29,6 +29,8 @@ public class HiraganaActivity extends AppCompatActivity {
     private static boolean is_playing = false;
     private static int current_chart = JPChar.HIRAGANA_CHART;
 
+    private Thread player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,12 +93,11 @@ public class HiraganaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (is_playing == false) {
-                    // TODO: play all sounds
-                    btnPlaySound.setImageResource(R.drawable.stop);
                     is_playing = true;
+                    playAllSounds();
+                    btnPlaySound.setImageResource(R.drawable.stop);
                 } else {
-                    stopPlaySound();
-                    is_playing = false;
+                    stopPlaying();
                 }
             }
         });
@@ -104,7 +105,8 @@ public class HiraganaActivity extends AppCompatActivity {
         btnExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stopPlaySound();
+                stopPlaying();
+
                 Intent intent = new Intent(context, ExcerciseActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
@@ -115,7 +117,8 @@ public class HiraganaActivity extends AppCompatActivity {
         btnWriting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stopPlaySound();
+                stopPlaying();
+
                 Intent intent = new Intent(context, CharActivity.class);
                 intent.putExtra("CHAR_TYPE", current_chart);
                 context.startActivity(intent);
@@ -123,26 +126,58 @@ public class HiraganaActivity extends AppCompatActivity {
         });
     }
 
-    private void playAllSounds() {
-        /* TODO: create new thread and send thread message to stop playing sound
-        int current_table = tabChartType.getSelectedTabPosition();
-        String sound_chars[] = JPChar.basic_chars;
-
-        if (current_table == JPChar.TABLE_DAKUTEN) {
-            sound_chars = JPChar.dakuten_chars;
-        } else if (current_table == JPChar.TABLE_COMBO) {
-            sound_chars = JPChar.combo_chars;
-        }
-
-        for (int i = 0; i < sound_chars.length; i++) {
-            if (sound_chars[i] == "")
-                continue;
-            JPChar.playSound(sound_chars[i], this);
-        }
-        */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        stopPlaying();
     }
 
-    private void stopPlaySound() {
+    private void playAllSounds() {
+        player = new Thread(new Runnable() {
+            int current_table = tabChartType.getSelectedTabPosition();
+            String sound_chars[] = JPChar.basic_chars;
+            Context context = getApplicationContext();
+
+            /* show play icon after finishing play all sounds */
+            Runnable showPlayButton = new Runnable() {
+                @Override
+                public void run() {
+                    stopPlaying();
+                }
+            };
+
+            @Override
+            public void run() {
+                if (current_table == JPChar.TABLE_DAKUTEN) {
+                    sound_chars = JPChar.dakuten_chars;
+                } else if (current_table == JPChar.TABLE_COMBO) {
+                    sound_chars = JPChar.combo_chars;
+                }
+
+                for (int i = 0; i < sound_chars.length; i++) {
+                    if (sound_chars[i] == "")
+                        continue;
+
+                    /* stop playing all sounds simply by setting is_playing var to false */
+                    if (is_playing == false)
+                        return;
+
+                    JPChar.playSound(sound_chars[i], context);
+                    /* waiting a while for a sound is finished playing */
+                    try {
+                        Thread.sleep(1500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                /* set stop status after finishing play all sounds */
+                runOnUiThread(showPlayButton);
+            }
+        });
+        player.start();
+    }
+
+    private void stopPlaying() {
         is_playing = false;
         btnPlaySound.setImageResource(R.drawable.play);
     }
