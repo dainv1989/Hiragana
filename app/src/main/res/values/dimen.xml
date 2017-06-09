@@ -15,6 +15,7 @@
     <dimen name="size_xlarge">100dp</dimen>
     <dimen name="size_xxlarge">180dp</dimen>
 
+    <dimen name="text_xgiant">200sp</dimen>
     <dimen name="text_giant">150sp</dimen>
     <dimen name="text_extreme">96sp</dimen>
     <dimen name="text_huge">44sp</dimen>
