@@ -26,9 +26,8 @@
             android:id="@+id/iconLight"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:paddingBottom="@dimen/padding_xlarge"
-            android:paddingTop="@dimen/padding_xlarge"
+            android:layout_height="@dimen/size_xlarge"
+            android:layout_gravity="center"
             android:scaleType="fitEnd"
             android:src="@drawable/light"/>
 
@@ -124,7 +123,6 @@
             android:paddingTop="@dimen/padding_small"
             android:paddingBottom="@dimen/padding_large"
             android:text="hiragana"
-            android:textSize="@dimen/text_small"
             android:textAllCaps="false"
             android:background="@drawable/button_bkg"/>
         <Button
@@ -138,7 +136,6 @@
             android:paddingTop="@dimen/padding_small"
             android:paddingBottom="@dimen/padding_large"
             android:text="katakana"
-            android:textSize="@dimen/text_small"
             android:textAllCaps="false"
             android:background="@drawable/button_bkg"/>
         <Button
@@ -151,8 +148,7 @@
             android:paddingTop="@dimen/padding_small"
             android:paddingBottom="@dimen/padding_large"
             android:layout_margin="@dimen/margin_large"
-            android:text="excercise"
-            android:textSize="@dimen/text_small"
+            android:text="@string/button_exercise"
             android:textAllCaps="false"
             android:background="@drawable/button_bkg"/>
     </LinearLayout>

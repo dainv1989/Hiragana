@@ -6,17 +6,16 @@
     tools:context=".AboutActivity">
 
     <TextView
-        android:id="@+id/txtAbout"
+        android:id="@+id/txtVersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerInParent="true"
-        android:padding="@dimen/padding_small"
-        android:text="@string/about_description" />
+        android:text="@string/null_string" />
 
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_above="@id/txtAbout"
+        android:layout_above="@id/txtVersion"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_xlarge"
         android:padding="@dimen/padding_large"
@@ -28,19 +27,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:text="@string/about_author"/>
-
-    <TextView
-        android:id="@+id/txtVersion"
-        android:layout_above="@id/txtAuthor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/null_string" />
+        android:text="@string/about_author" />
 
     <LinearLayout
         android:id="@+id/aboutBotNav"
-        android:layout_above="@id/txtVersion"
+        android:layout_above="@id/txtAuthor"
         android:layout_width="match_parent"
         android:layout_height="@dimen/botnav_height"
         android:gravity="center" >
@@ -49,13 +40,23 @@
             android:layout_width="@dimen/botnav_height"
             android:layout_height="@dimen/botnav_height"
             android:src="@drawable/vote"
-            android:padding="@dimen/padding_small"/>
+            android:padding="@dimen/padding_large"/>
 
         <ImageView
             android:id="@+id/aboutShare"
             android:layout_width="@dimen/botnav_height"
             android:layout_height="@dimen/botnav_height"
             android:src="@drawable/share"
-            android:padding="@dimen/padding_small"/>
+            android:padding="@dimen/padding_large"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtAbout"
+        android:layout_below="@id/txtVersion"
+        android:layout_above="@id/aboutBotNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_small"
+        android:text="@string/about_description" />
 </RelativeLayout>
