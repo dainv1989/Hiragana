@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/txtAppName"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_large"
+        android:layout_height="@dimen/logo_height"
         android:padding="@dimen/padding_large"
         android:src="@drawable/logo"/>
 
@@ -26,8 +26,8 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="@dimen/size_xlarge"
-            android:paddingTop="@dimen/padding_xlarge"
-            android:paddingBottom="@dimen/padding_xlarge"
+            android:paddingTop="@dimen/padding_large"
+            android:paddingBottom="@dimen/padding_large"
             android:layout_gravity="center"
             android:scaleType="fitEnd"
             android:src="@drawable/light"/>
@@ -42,7 +42,7 @@
             android:id="@+id/txtMemoRoma"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="@dimen/padding_large"
+            android:padding="@dimen/padding_normal"
             android:gravity="center_vertical"
             android:text="@string/null_string"
             android:textSize="@dimen/text_small"/>
@@ -57,7 +57,7 @@
                     android:id="@+id/txtMemoHira"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_large"
+                    android:padding="@dimen/padding_normal"
                     android:text="@string/null_string"
                     android:textSize="@dimen/text_huge"/>
                 <TextView
@@ -65,7 +65,7 @@
                     android:layout_below="@id/txtMemoHira"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_large"
+                    android:padding="@dimen/padding_normal"
                     android:text="@string/null_string"
                     android:textSize="@dimen/text_huge"/>
 
@@ -75,7 +75,7 @@
 
 
     <LinearLayout
-        android:id="@+id/bottomNav"
+        android:id="@+id/mainBottomNav"
         android:layout_width="match_parent"
         android:layout_height="@dimen/botnav_height"
         android:layout_alignParentBottom="true"
@@ -88,7 +88,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
-            android:padding="@dimen/padding_large"
+            android:padding="@dimen/padding_normal"
             android:src="@drawable/vote"/>
         <ImageView
             android:id="@+id/mainShare"
@@ -96,7 +96,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
-            android:padding="@dimen/padding_large"
+            android:padding="@dimen/padding_normal"
             android:src="@drawable/share"/>
         <ImageView
             android:id="@+id/mainInfo"
@@ -104,59 +104,52 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
-            android:padding="@dimen/padding_large"
+            android:padding="@dimen/padding_normal"
             android:src="@drawable/info"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/mainNav"
-        android:layout_above="@id/bottomNav"
-        android:layout_below="@id/topNav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_below="@+id/topNav"
+        android:layout_above="@id/mainBottomNav">
         <Button
             android:id="@+id/btnHira"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp"
-            android:minWidth="@dimen/size_xxlarge"
-            android:layout_margin="@dimen/margin_small"
-            android:paddingLeft="@dimen/padding_xxlarge"
-            android:paddingRight="@dimen/padding_xxlarge"
-            android:paddingTop="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_large"
+            android:minHeight="@dimen/button_minheight"
+            android:minWidth="@dimen/button_minwidth"
+            android:paddingLeft="@dimen/padding_large"
+            android:paddingRight="@dimen/padding_large"
+            android:layout_margin="@dimen/margin_normal"
             android:text="hiragana"
-            android:background="@drawable/button_bkg"
-            android:shadowColor="@android:color/transparent"/>
+            android:background="@color/accent"/>
+
         <Button
             android:id="@+id/btnKata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp"
-            android:minWidth="@dimen/size_xxlarge"
-            android:layout_margin="@dimen/margin_small"
-            android:paddingLeft="@dimen/padding_xxlarge"
-            android:paddingRight="@dimen/padding_xxlarge"
-            android:paddingTop="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_large"
+            android:minHeight="@dimen/button_minheight"
+            android:minWidth="@dimen/button_minwidth"
+            android:paddingLeft="@dimen/padding_large"
+            android:paddingRight="@dimen/padding_large"
+            android:layout_margin="@dimen/margin_normal"
             android:text="katakana"
-            android:background="@drawable/button_bkg"
-            android:shadowColor="@android:color/transparent"/>
+            android:background="@color/accent"/>
+
         <Button
             android:id="@+id/btnExer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp"
-            android:minWidth="@dimen/size_xxlarge"
-            android:paddingLeft="@dimen/padding_xxlarge"
-            android:paddingRight="@dimen/padding_xxlarge"
-            android:paddingTop="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_large"
-            android:layout_margin="@dimen/margin_small"
+            android:minHeight="@dimen/button_minheight"
+            android:minWidth="@dimen/button_minwidth"
+            android:paddingLeft="@dimen/padding_large"
+            android:paddingRight="@dimen/padding_large"
+            android:layout_margin="@dimen/margin_normal"
             android:text="@string/button_exercise"
-            android:background="@drawable/button_bkg"
-            android:shadowColor="@android:color/transparent"/>
+            android:background="@color/accent" />
     </LinearLayout>
 </RelativeLayout>

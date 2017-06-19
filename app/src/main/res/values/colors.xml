@@ -10,4 +10,5 @@
     <color name="divider">#BDBDBD</color>
 
     <color name="header_text">#33ccff</color>
+    <color name="translucent_bar">#33000000</color>
 </resources>

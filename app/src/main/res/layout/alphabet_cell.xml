@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingTop="@dimen/padding_xlarge"
+        android:paddingTop="@dimen/padding_large"
         android:paddingBottom="@dimen/padding_small"
         android:text="@string/null_string"
         android:textSize="@dimen/text_large"/>
@@ -21,6 +21,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="@dimen/padding_small"
-        android:paddingBottom="@dimen/padding_xlarge"
+        android:paddingBottom="@dimen/padding_large"
         android:text="@string/null_string"/>
 </LinearLayout>
