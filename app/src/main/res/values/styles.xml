@@ -4,8 +4,19 @@
     <!-- style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar" -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="TabText" parent="Widget.AppCompat.ActionBar.TabText">
+        <item name="android:textAppearance">@android:style/TextAppearance.Small</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColorHighlight">@color/header_text</item>
+        <item name="android:textColorLink">@color/header_text</item>
+        <item name="android:textColorPrimary">@color/header_text</item>
+        <item name="android:textColorSecondary">@color/header_text</item>
     </style>
 </resources>

@@ -88,13 +88,13 @@
         android:layout_height="@dimen/topnav_height"
         android:layout_alignParentTop="true"
         app:tabGravity="fill"
-        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"/>
+        app:tabTextAppearance="@style/TabText"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pagerChart"
         android:layout_below="@id/tabChartType"
         android:layout_above="@id/hiraBotNav"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </RelativeLayout>
 
