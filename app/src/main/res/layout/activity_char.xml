@@ -32,7 +32,7 @@
             android:id="@+id/imgSwitchKana"
             android:layout_width="@dimen/size_large"
             android:layout_height="@dimen/size_large"
-            android:src="@drawable/change"
+            android:src="@mipmap/change"
             android:padding="@dimen/padding_large"/>
 
         <ImageView
@@ -40,7 +40,7 @@
             android:layout_width="@dimen/size_large"
             android:layout_height="@dimen/size_large"
             android:padding="@dimen/padding_large"
-            android:src="@drawable/speaker"/>
+            android:src="@mipmap/change"/>
     </LinearLayout>
 
     <com.dainv.hiragana.view.GifImageView

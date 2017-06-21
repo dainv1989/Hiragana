@@ -22,7 +22,7 @@
                 android:id="@+id/btnPlayAll"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:src="@drawable/play"/>
+                android:src="@mipmap/play"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -40,7 +40,7 @@
                 android:id="@+id/btnSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:src="@drawable/change"/>
+                android:src="@mipmap/change"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -58,7 +58,7 @@
                 android:id="@+id/btnHiraExer"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:src="@drawable/mind"/>
+                android:src="@mipmap/mind"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/padding_large"
-                android:src="@drawable/pencil"/>
+                android:src="@mipmap/pencil"/>
         </LinearLayout>
     </LinearLayout>
 

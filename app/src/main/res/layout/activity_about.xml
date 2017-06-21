@@ -24,7 +24,7 @@
             android:id="@+id/aboutRateApp"
             android:layout_width="@dimen/botnav_height"
             android:layout_height="match_parent"
-            android:src="@drawable/vote"
+            android:src="@mipmap/vote"
             android:padding="@dimen/padding_normal"
             android:scaleType="centerInside"/>
 
@@ -32,7 +32,7 @@
             android:id="@+id/aboutShare"
             android:layout_width="@dimen/botnav_height"
             android:layout_height="match_parent"
-            android:src="@drawable/share"
+            android:src="@mipmap/share"
             android:padding="@dimen/padding_normal"
             android:scaleType="centerInside"/>
     </LinearLayout>

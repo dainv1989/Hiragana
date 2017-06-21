@@ -95,7 +95,7 @@ public class HiraganaActivity extends AppCompatActivity {
                 if (is_playing == false) {
                     is_playing = true;
                     playAllSounds();
-                    btnPlaySound.setImageResource(R.drawable.stop);
+                    btnPlaySound.setImageResource(R.mipmap.stop);
                 } else {
                     stopPlaying();
                 }
@@ -179,7 +179,7 @@ public class HiraganaActivity extends AppCompatActivity {
 
     private void stopPlaying() {
         is_playing = false;
-        btnPlaySound.setImageResource(R.drawable.play);
+        btnPlaySound.setImageResource(R.mipmap.play);
     }
 
     private void updateChartView() {
