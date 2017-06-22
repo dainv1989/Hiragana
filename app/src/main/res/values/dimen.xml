@@ -3,6 +3,7 @@
     <dimen name="logo_height">96dp</dimen>
     <dimen name="botnav_height">56dp</dimen>
     <dimen name="topnav_height">36dp</dimen>
+    <dimen name="icon_height">24dp</dimen>
 
     <dimen name="padding_small">4dp</dimen>
     <dimen name="padding_normal">8dp</dimen>
@@ -19,7 +20,6 @@
 
     <dimen name="text_xgiant">200sp</dimen>
     <dimen name="text_giant">144sp</dimen>
-    <dimen name="text_extreme">96sp</dimen>
     <dimen name="text_huge">40sp</dimen>
     <dimen name="text_large">32sp</dimen>
     <dimen name="text_normal">24sp</dimen>

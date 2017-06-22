@@ -5,6 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".ExcerciseActivity">
 
+    <TextView
+        android:id="@+id/txtExerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/topnav_height"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="@string/score_title"
+        android:textAllCaps="true"
+        android:textColor="@color/accent"/>
+
     <LinearLayout
         android:id="@+id/groupQuestions"
         android:layout_width="match_parent"
@@ -64,10 +75,11 @@
     <TextView
         android:id="@+id/txtScore"
         android:layout_above="@id/groupQuestions"
+        android:layout_below="@id/txtExerTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/padding_large"
         android:gravity="center"
         android:text="0/0"
-        android:textSize="@dimen/text_large"/>
+        android:textSize="@dimen/text_huge"/>
 </RelativeLayout>

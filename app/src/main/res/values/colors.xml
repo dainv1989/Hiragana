@@ -3,12 +3,11 @@
     <color name="primary">#607D8B</color>
     <color name="primary_dark">#455A64</color>
     <color name="primary_light">#CFD8DC</color>
-    <color name="accent">#33ccff</color>
+    <color name="accent">#4285F4</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
-    <color name="icons">#FFFFFF</color>
-    <color name="divider">#BDBDBD</color>
+    <color name="white_text">#FFFFFF</color>
 
-    <color name="header_text">#33ccff</color>
+    <color name="header_text">#4285F4</color>
     <color name="translucent_bar">#33000000</color>
 </resources>

@@ -13,7 +13,8 @@
         android:minHeight="@dimen/topnav_height"
         android:layout_alignParentTop="true"
         android:gravity="center"
-        android:text="YOUR SCORE"
+        android:text="@string/score_title"
+        android:textAllCaps="true"
         android:textColor="@color/accent"/>
 
     <TextView
@@ -37,11 +38,15 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="12dp"
+            android:paddingLeft="12dp"
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/imgReplay"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/icon_height"
                 android:src="@mipmap/replay" />
             <TextView
                 android:layout_width="match_parent"
@@ -55,11 +60,15 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="12dp"
+            android:paddingLeft="12dp"
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/imgGoHome"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/icon_height"
                 android:src="@mipmap/home" />
             <TextView
                 android:layout_width="match_parent"
@@ -70,12 +79,10 @@
         </LinearLayout>
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listQA"
-        android:layout_above="@id/scoreBotNav"
-        android:layout_below="@id/txtTotalScore"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-    </ListView>
+    <ImageView
+        android:id="@+id/imgScoreEmotion"
+        android:layout_width="@dimen/size_xlarge"
+        android:layout_height="@dimen/size_xlarge"
+        android:layout_centerInParent="true"
+        android:src="@drawable/happy"/>
 </RelativeLayout>

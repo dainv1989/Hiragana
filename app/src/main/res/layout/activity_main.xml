@@ -126,7 +126,9 @@
             android:paddingRight="@dimen/padding_large"
             android:layout_margin="@dimen/margin_normal"
             android:text="hiragana"
-            android:background="@color/accent"/>
+            android:textAllCaps="true"
+            android:textColor="@color/white_text"
+            android:background="@drawable/button_bkg"/>
 
         <Button
             android:id="@+id/btnKata"
@@ -138,7 +140,9 @@
             android:paddingRight="@dimen/padding_large"
             android:layout_margin="@dimen/margin_normal"
             android:text="katakana"
-            android:background="@color/accent"/>
+            android:textAllCaps="true"
+            android:textColor="@color/white_text"
+            android:background="@drawable/button_bkg"/>
 
         <Button
             android:id="@+id/btnExer"
@@ -150,6 +154,8 @@
             android:paddingRight="@dimen/padding_large"
             android:layout_margin="@dimen/margin_normal"
             android:text="@string/button_exercise"
-            android:background="@color/accent" />
+            android:textAllCaps="true"
+            android:textColor="@color/white_text"
+            android:background="@drawable/button_bkg"/>
     </LinearLayout>
 </RelativeLayout>

@@ -17,6 +17,7 @@ public class ScoreActivity extends AppCompatActivity {
 
     private ImageView imgReplay;
     private ImageView imgGoHome;
+    private ImageView imgEmotion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class ScoreActivity extends AppCompatActivity {
         tvScore = (TextView)findViewById(R.id.txtTotalScore);
         imgReplay = (ImageView)findViewById(R.id.imgReplay);
         imgGoHome = (ImageView)findViewById(R.id.imgGoHome);
+        imgEmotion = (ImageView)findViewById(R.id.imgScoreEmotion);
 
         int score = intent.getIntExtra("SCORE", 0);
         int total = intent.getIntExtra("TOTAL", 0);
