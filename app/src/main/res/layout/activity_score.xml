@@ -6,38 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".ScoreActivity">
 
+    <ImageView
+        android:id="@+id/imgScoreEmotion"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_xlarge"
+        android:layout_centerInParent="true"
+        android:src="@drawable/happy"/>
+
+    <TextView
+        android:id="@+id/txtTotalScore"
+        android:layout_above="@id/imgScoreEmotion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_normal"
+        android:text="10/10"
+        android:textSize="@dimen/text_huge"/>
+
     <TextView
         android:id="@+id/txtScoreTitle"
+        android:layout_above="@id/txtTotalScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="@dimen/topnav_height"
-        android:layout_alignParentTop="true"
         android:gravity="center"
         android:text="@string/score_title"
         android:textAllCaps="true"
         android:textColor="@color/accent"/>
 
-    <TextView
-        android:id="@+id/txtTotalScore"
-        android:layout_below="@id/txtScoreTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="10/10"
-        android:textSize="@dimen/text_huge"/>
-
     <LinearLayout
         android:id="@+id/scoreBotNav"
+        android:layout_below="@id/imgScoreEmotion"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/botnav_height"
-        android:gravity="center_vertical"
-        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
             android:paddingRight="12dp"
@@ -46,7 +53,8 @@
             <ImageView
                 android:id="@+id/imgReplay"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/icon_height"
+                android:layout_height="@dimen/botnav_height"
+                android:padding="@dimen/padding_normal"
                 android:src="@mipmap/replay" />
             <TextView
                 android:layout_width="match_parent"
@@ -59,7 +67,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
             android:paddingRight="12dp"
@@ -68,7 +76,8 @@
             <ImageView
                 android:id="@+id/imgGoHome"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/icon_height"
+                android:layout_height="@dimen/botnav_height"
+                android:padding="@dimen/padding_normal"
                 android:src="@mipmap/home" />
             <TextView
                 android:layout_width="match_parent"
@@ -78,11 +87,4 @@
                 android:textSize="@dimen/text_tiny" />
         </LinearLayout>
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imgScoreEmotion"
-        android:layout_width="@dimen/size_xlarge"
-        android:layout_height="@dimen/size_xlarge"
-        android:layout_centerInParent="true"
-        android:src="@drawable/happy"/>
 </RelativeLayout>

@@ -33,6 +33,18 @@ public class ScoreActivity extends AppCompatActivity {
         int score = intent.getIntExtra("SCORE", 0);
         int total = intent.getIntExtra("TOTAL", 0);
 
+        if (score >= total) {
+            imgEmotion.setImageResource(R.drawable.love);
+        } else if (score >= total * 0.7) {
+            imgEmotion.setImageResource(R.drawable.happy);
+        } else if (score >= total * 0.4) {
+            imgEmotion.setImageResource(R.drawable.baby);
+        } else if (score > 0) {
+            imgEmotion.setImageResource(R.drawable.scared);
+        } else {
+            imgEmotion.setImageResource(R.drawable.crying);
+        }
+
         tvScore.setText(score + "/" + total);
 
         final Context context = this;
