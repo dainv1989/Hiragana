@@ -109,7 +109,11 @@ public class HiraganaActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(context, ExcerciseActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
+                if (current_chart == JPChar.HIRAGANA_CHART) {
+                    intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
+                } else {
+                    intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_KATA);
+                }
                 context.startActivity(intent);
             }
         });

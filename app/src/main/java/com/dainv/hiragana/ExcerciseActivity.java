@@ -28,6 +28,7 @@ public class ExcerciseActivity extends AppCompatActivity {
     private static int score = 0;
     private static final int TOTAL_QUESTION = 10;
     private static boolean is_generated = false;
+    private static int question_type = JPChar.QTYPE_READ_HIRA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +41,10 @@ public class ExcerciseActivity extends AppCompatActivity {
         tvAnswer3 = (TextView)findViewById(R.id.txtAnswer3);
         tvScore = (TextView)findViewById(R.id.txtScore);
 
+        question_type = getIntent().getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
+
         if (is_generated == false) {
-            questions = JPChar.generateQuestions(TOTAL_QUESTION, JPChar.QTYPE_READ_HIRA);
+            questions = JPChar.generateQuestions(TOTAL_QUESTION, question_type);
             is_generated = true;
         }
 
@@ -69,6 +72,14 @@ public class ExcerciseActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Disable back button press behavior during exercise start
+     */
+    @Override
+    public void onBackPressed() {
+        return;
+    }
+
     private void showQuestion(QuestionItem question) {
         tvQuestion.setText(question.getQuestion());
         tvAnswer1.setText(question.getAnswers().get(0));
@@ -86,8 +97,11 @@ public class ExcerciseActivity extends AppCompatActivity {
             /* show score screen */
             Intent intent = new Intent(this, ScoreActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+            intent.putExtra("QUESTION_TYPE", question_type);
             intent.putExtra("SCORE", score);
             intent.putExtra("TOTAL", questions.size());
+
             startActivity(intent);
 
             /* reset information */

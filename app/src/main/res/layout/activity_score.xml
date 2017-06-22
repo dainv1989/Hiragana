@@ -28,10 +28,12 @@
         android:layout_above="@id/txtTotalScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/topnav_height"
+        android:paddingTop="@dimen/padding_large"
+        android:paddingBottom="@dimen/padding_large"
         android:gravity="center"
         android:text="@string/score_title"
         android:textAllCaps="true"
+        android:textSize="@dimen/text_large"
         android:textColor="@color/accent"/>
 
     <LinearLayout

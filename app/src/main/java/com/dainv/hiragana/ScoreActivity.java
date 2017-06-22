@@ -19,20 +19,24 @@ public class ScoreActivity extends AppCompatActivity {
     private ImageView imgGoHome;
     private ImageView imgEmotion;
 
+    private static int question_type = JPChar.QTYPE_READ_HIRA;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
-        Intent intent = getIntent();
 
         tvScore = (TextView)findViewById(R.id.txtTotalScore);
         imgReplay = (ImageView)findViewById(R.id.imgReplay);
         imgGoHome = (ImageView)findViewById(R.id.imgGoHome);
         imgEmotion = (ImageView)findViewById(R.id.imgScoreEmotion);
 
+        Intent intent = getIntent();
         int score = intent.getIntExtra("SCORE", 0);
         int total = intent.getIntExtra("TOTAL", 0);
+        question_type = intent.getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
 
+        /* set emotion face based on score */
         if (score >= total) {
             imgEmotion.setImageResource(R.drawable.love);
         } else if (score >= total * 0.7) {
@@ -53,7 +57,7 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(context, ExcerciseActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
+                intent.putExtra("QUESTION_TYPE", question_type);
                 context.startActivity(intent);
             }
         });
