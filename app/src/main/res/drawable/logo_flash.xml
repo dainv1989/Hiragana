@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+
+    <item android:drawable="@color/primary"/>
+
+    <item android:height="@dimen/size_large"
+        android:width="@dimen/size_large"
+        android:drawable="@drawable/hi"
+        android:gravity="center">
+    </item>
+
+</layer-list>
