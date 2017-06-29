@@ -19,7 +19,6 @@
         android:layout_below="@id/txtAppName"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_xxlarge"
-        android:paddingTop="@dimen/padding_large"
         android:orientation="horizontal">
 
         <ImageView
@@ -114,7 +113,7 @@
             android:src="@mipmap/info"/>
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/mainNav"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -124,44 +123,41 @@
         android:layout_above="@id/mainBottomNav">
         <Button
             android:id="@+id/btnHira"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/button_minheight"
-            android:minWidth="@dimen/button_minwidth"
+            android:layout_width="@dimen/size_large"
+            android:layout_height="@dimen/size_large"
             android:paddingLeft="@dimen/padding_large"
             android:paddingRight="@dimen/padding_large"
             android:layout_margin="@dimen/margin_normal"
             android:text="hiragana"
             android:textAllCaps="true"
             android:textColor="@color/white_text"
-            android:background="@drawable/button_bkg"/>
+            android:background="@drawable/round_solid_bkg"/>
 
         <Button
             android:id="@+id/btnKata"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/button_minheight"
-            android:minWidth="@dimen/button_minwidth"
-            android:paddingLeft="@dimen/padding_large"
-            android:paddingRight="@dimen/padding_large"
+            android:layout_below="@id/btnHira"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
             android:layout_margin="@dimen/margin_normal"
             android:text="katakana"
             android:textAllCaps="true"
             android:textColor="@color/white_text"
-            android:background="@drawable/button_bkg"/>
+            android:background="@drawable/round_solid_bkg"/>
 
         <Button
             android:id="@+id/btnExer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/button_minheight"
-            android:minWidth="@dimen/button_minwidth"
+            android:layout_toRightOf="@id/btnHira"
+            android:layout_width="@dimen/size_xlarge"
+            android:layout_height="@dimen/size_xlarge"
             android:paddingLeft="@dimen/padding_large"
             android:paddingRight="@dimen/padding_large"
-            android:layout_margin="@dimen/margin_normal"
+            android:layout_margin="@dimen/margin_large"
             android:text="@string/button_exercise"
+            android:textSize="@dimen/text_small"
             android:textAllCaps="true"
             android:textColor="@color/white_text"
-            android:background="@drawable/button_bkg"/>
-    </LinearLayout>
+            android:background="@drawable/round_solid_bkg"/>
+    </RelativeLayout>
 </RelativeLayout>
