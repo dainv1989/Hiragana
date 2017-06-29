@@ -6,7 +6,7 @@
 
     <item android:height="@dimen/size_large"
         android:width="@dimen/size_large"
-        android:drawable="@drawable/hi"
+        android:drawable="@drawable/ninja"
         android:gravity="center">
     </item>
 
