@@ -11,7 +11,8 @@
         android:id="@+id/txtAppName"
         android:layout_width="match_parent"
         android:layout_height="@dimen/logo_height"
-        android:padding="@dimen/padding_large"
+        android:paddingTop="@dimen/padding_large"
+        android:paddingBottom="@dimen/padding_xlarge"
         android:src="@drawable/logo"/>
 
     <LinearLayout
@@ -25,9 +26,8 @@
             android:id="@+id/iconLight"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:layout_height="@dimen/size_xlarge"
-            android:paddingTop="@dimen/padding_large"
-            android:paddingBottom="@dimen/padding_large"
+            android:layout_height="96dp"
+            android:padding="12dp"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
             android:src="@drawable/ninja"/>

@@ -7,41 +7,21 @@
     tools:context=".ExcerciseActivity">
 
     <TextView
-        android:id="@+id/txtExerTitle"
+        android:id="@+id/txtNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/topnav_height"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:text="@string/score_title"
-        android:textAllCaps="true"
-        android:textColor="@color/accent"/>
-
-    <LinearLayout
-        android:id="@+id/groupQuestions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/txtQuestion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/padding_xlarge"
-            android:paddingBottom="@dimen/padding_xlarge"
-            android:paddingLeft="@dimen/padding_large"
-            android:paddingRight="@dimen/padding_large"
-            android:gravity="center"
-            android:text="ぎょ"
-            android:textSize="@dimen/text_giant" />
-    </LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/padding_small"
+        android:text="Note: Back button is disable until you finish this exercise."
+        android:textSize="@dimen/text_tiny" />
 
     <LinearLayout
         android:id="@+id/groupAnswers"
-        android:layout_below="@id/groupQuestions"
+        android:layout_above="@id/txtNote"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_normal"
         android:orientation="horizontal"
         android:gravity="center">
         <TextView
@@ -73,14 +53,106 @@
             android:background="@drawable/selector_text"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtScore"
-        android:layout_above="@id/groupQuestions"
-        android:layout_below="@id/txtExerTitle"
+    <RelativeLayout
+        android:id="@+id/groupScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/leftTopNav"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_large"
+            android:orientation="vertical"
+            android:layout_gravity="start">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="@dimen/padding_normal"
+                android:layout_gravity="start"
+                android:src="@mipmap/correct"/>
+
+            <TextView
+                android:id="@+id/txtCorrectCount"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:text="10"
+                android:textSize="@dimen/text_large"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rightTopNav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/padding_large"
+            android:orientation="vertical"
+            android:layout_gravity="end" >
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="@dimen/padding_normal"
+                android:layout_gravity="end"
+                android:src="@mipmap/wrong"/>
+
+            <TextView
+                android:id="@+id/txtWrongCount"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="10"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:textSize="@dimen/text_large"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_toRightOf="@id/leftTopNav"
+            android:layout_toLeftOf="@id/rightTopNav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_large"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/topnav_height"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="EXERCISE"
+                android:textSize="@dimen/text_small"
+                android:textAllCaps="true"
+                android:textColor="@color/accent"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="@dimen/padding_small"
+                android:layout_gravity="center"
+                android:src="@mipmap/speaker_enable"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/groupQuestions"
+        android:layout_above="@id/groupAnswers"
+        android:layout_below="@id/groupScore"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/padding_large"
         android:gravity="center"
-        android:text="0/0"
-        android:textSize="@dimen/text_huge"/>
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_large"
+            android:gravity="center"
+            android:text="ぎょ"
+            android:textSize="@dimen/text_giant" />
+    </LinearLayout>
 </RelativeLayout>

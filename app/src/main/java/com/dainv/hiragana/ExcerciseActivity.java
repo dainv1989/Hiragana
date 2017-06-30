@@ -22,6 +22,7 @@ public class ExcerciseActivity extends AppCompatActivity {
     private TextView tvAnswer3;
 
     private TextView tvScore;
+    private TextView tvWrongCount;
 
     private static List<QuestionItem> questions;
     private static int question_index = 0;
@@ -35,11 +36,13 @@ public class ExcerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excercise);
 
-        tvQuestion = (TextView)findViewById(R.id.txtQuestion);
-        tvAnswer1 = (TextView)findViewById(R.id.txtAnswer1);
-        tvAnswer2 = (TextView)findViewById(R.id.txtAnswer2);
-        tvAnswer3 = (TextView)findViewById(R.id.txtAnswer3);
-        tvScore = (TextView)findViewById(R.id.txtScore);
+        tvQuestion      = (TextView)findViewById(R.id.txtQuestion);
+        tvAnswer1       = (TextView)findViewById(R.id.txtAnswer1);
+        tvAnswer2       = (TextView)findViewById(R.id.txtAnswer2);
+        tvAnswer3       = (TextView)findViewById(R.id.txtAnswer3);
+
+        tvScore         = (TextView)findViewById(R.id.txtCorrectCount);
+        tvWrongCount    = (TextView)findViewById(R.id.txtWrongCount);
 
         question_type = getIntent().getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
 
@@ -85,7 +88,10 @@ public class ExcerciseActivity extends AppCompatActivity {
         tvAnswer1.setText(question.getAnswers().get(0));
         tvAnswer2.setText(question.getAnswers().get(1));
         tvAnswer3.setText(question.getAnswers().get(2));
-        tvScore.setText(score + "/" + questions.size());
+
+        /* show score information */
+        tvScore.setText(score + "");
+        tvWrongCount.setText((question_index - score) + "");
     }
 
     private void checkAnswer(String answer) {
