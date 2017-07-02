@@ -15,16 +15,17 @@
         android:layout_alignParentBottom="true">
 
         <LinearLayout
+            android:id="@+id/btnPlayAll"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:paddingTop="8dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="4dp"
             android:paddingRight="12dp"
             android:paddingLeft="12dp"
             android:orientation="vertical">
             <ImageView
-                android:id="@+id/btnPlayAll"
+                android:id="@+id/imgPlayAll"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/icon_height"
                 android:src="@mipmap/play"/>
@@ -37,16 +38,16 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnSwitch"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:paddingTop="8dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="4dp"
             android:paddingRight="12dp"
             android:paddingLeft="12dp"
             android:orientation="vertical">
             <ImageView
-                android:id="@+id/btnSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/icon_height"
                 android:src="@mipmap/change"/>
@@ -59,16 +60,16 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnHiraExer"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:paddingTop="8dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="4dp"
             android:paddingRight="12dp"
             android:paddingLeft="12dp"
             android:orientation="vertical">
             <ImageView
-                android:id="@+id/btnHiraExer"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/icon_height"
                 android:src="@mipmap/mind"/>
@@ -81,19 +82,31 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnPencil"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:visibility="gone">
             <ImageView
-                android:id="@+id/btnPencil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/padding_large"
                 android:src="@mipmap/pencil"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:text="stroke"
+                android:textSize="@dimen/text_tiny"/>
         </LinearLayout>
     </LinearLayout>
+
+    <View
+        android:layout_height="1dp"
+        android:layout_above="@id/hiraBotNav"
+        android:layout_width="match_parent"
+        android:background="#c0c0c0"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabChartType"
@@ -101,7 +114,14 @@
         android:layout_height="@dimen/topnav_height"
         android:layout_alignParentTop="true"
         app:tabGravity="fill"
-        app:tabTextAppearance="@style/TabText"/>
+        app:tabTextAppearance="@style/TabText"
+        app:tabSelectedTextColor="@color/header_text"/>
+
+    <View
+        android:layout_height="1dp"
+        android:layout_below="@id/tabChartType"
+        android:layout_width="match_parent"
+        android:background="#c0c0c0"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pagerChart"

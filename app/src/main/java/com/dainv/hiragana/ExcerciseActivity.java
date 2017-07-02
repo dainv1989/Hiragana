@@ -22,7 +22,6 @@ public class ExcerciseActivity extends AppCompatActivity {
     private TextView tvAnswer3;
 
     private TextView tvScore;
-    private TextView tvWrongCount;
 
     private static List<QuestionItem> questions;
     private static int question_index = 0;
@@ -42,7 +41,6 @@ public class ExcerciseActivity extends AppCompatActivity {
         tvAnswer3       = (TextView)findViewById(R.id.txtAnswer3);
 
         tvScore         = (TextView)findViewById(R.id.txtCorrectCount);
-        tvWrongCount    = (TextView)findViewById(R.id.txtWrongCount);
 
         question_type = getIntent().getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
 
@@ -91,7 +89,6 @@ public class ExcerciseActivity extends AppCompatActivity {
 
         /* show score information */
         tvScore.setText(score + "");
-        tvWrongCount.setText((question_index - score) + "");
     }
 
     private void checkAnswer(String answer) {

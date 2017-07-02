@@ -6,19 +6,9 @@
     android:background="@color/primary_light"
     tools:context=".ExcerciseActivity">
 
-    <TextView
-        android:id="@+id/txtNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal"
-        android:padding="@dimen/padding_small"
-        android:text="Note: Back button is disable until you finish this exercise."
-        android:textSize="@dimen/text_tiny" />
-
     <RelativeLayout
         android:id="@+id/groupAnswers"
-        android:layout_above="@id/txtNote"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_normal"
@@ -31,7 +21,7 @@
             android:layout_margin="@dimen/margin_normal"
             android:layout_alignParentLeft="true"
             android:text="@string/null_string"
-            android:textSize="@dimen/text_normal"
+            android:textSize="20sp"
             android:background="@drawable/selector_text"/>
 
         <TextView
@@ -42,7 +32,7 @@
             android:layout_alignParentRight="true"
             android:layout_margin="@dimen/margin_normal"
             android:text="@string/null_string"
-            android:textSize="@dimen/text_normal"
+            android:textSize="20sp"
             android:background="@drawable/selector_text"/>
 
         <TextView
@@ -53,7 +43,7 @@
             android:gravity="center"
             android:layout_margin="@dimen/margin_normal"
             android:text="@string/null_string"
-            android:textSize="@dimen/text_normal"
+            android:textSize="20sp"
             android:background="@drawable/selector_text"/>
     </RelativeLayout>
 
@@ -64,7 +54,7 @@
 
         <LinearLayout
             android:id="@+id/leftTopNav"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_normal"
@@ -88,55 +78,13 @@
                 android:textSize="@dimen/text_large"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/rightTopNav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:padding="@dimen/padding_normal"
-            android:orientation="vertical"
-            android:layout_gravity="end" >
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:padding="@dimen/padding_normal"
-                android:layout_gravity="end"
-                android:src="@mipmap/wrong"/>
-
-            <TextView
-                android:id="@+id/txtWrongCount"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:text="10"
-                android:layout_gravity="end"
-                android:gravity="center"
-                android:textSize="@dimen/text_large"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_toRightOf="@id/leftTopNav"
-            android:layout_toLeftOf="@id/rightTopNav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_normal"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="@dimen/padding_normal"
-                android:text="exercise"
-                android:textAllCaps="true" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:padding="@dimen/padding_normal"
-                android:layout_gravity="center"
-                android:src="@mipmap/speaker_enable"/>
-        </LinearLayout>
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:padding="@dimen/padding_large"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center"
+            android:src="@mipmap/speaker_enable"/>
     </RelativeLayout>
 
     <LinearLayout

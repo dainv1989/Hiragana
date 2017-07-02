@@ -11,15 +11,17 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.view.ChartFragment;
 
 public class HiraganaActivity extends AppCompatActivity {
 
-    private ImageView btnSwitchChart;
-    private ImageView btnWriting;
-    private ImageView btnExercise;
+    private LinearLayout btnSwitchChart;
+    private LinearLayout btnWriting;
+    private LinearLayout btnExercise;
+    private LinearLayout loPlaySound;
     private ImageView btnPlaySound;
 
     private TabLayout tabChartType;
@@ -36,10 +38,11 @@ public class HiraganaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hiragana);
 
-        btnSwitchChart = (ImageView)findViewById(R.id.btnSwitch);
-        btnPlaySound = (ImageView)findViewById(R.id.btnPlayAll);
-        btnExercise = (ImageView)findViewById(R.id.btnHiraExer);
-        btnWriting = (ImageView)findViewById(R.id.btnPencil);
+        btnSwitchChart = (LinearLayout)findViewById(R.id.btnSwitch);
+        loPlaySound = (LinearLayout)findViewById(R.id.btnPlayAll);
+        btnPlaySound = (ImageView)findViewById(R.id.imgPlayAll);
+        btnExercise = (LinearLayout)findViewById(R.id.btnHiraExer);
+        btnWriting = (LinearLayout)findViewById(R.id.btnPencil);
 
         final Context context = this;
         Intent intent = getIntent();
@@ -89,7 +92,7 @@ public class HiraganaActivity extends AppCompatActivity {
             }
         });
 
-        btnPlaySound.setOnClickListener(new View.OnClickListener() {
+        loPlaySound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (is_playing == false) {
