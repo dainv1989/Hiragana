@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light"
+    tools:context=".SelectExerciseActivity"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/btnSelectHira"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:gravity="center"
+        android:padding="@dimen/padding_normal"
+        android:text="@string/button_hiragana"
+        android:textAllCaps="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/selector_text"/>
+
+    <TextView
+        android:id="@+id/btnSelectKata"
+        android:layout_below="@id/btnSelectHira"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/padding_normal"
+        android:text="@string/button_katakana"
+        android:textAllCaps="true"
+        android:background="@drawable/selector_text"/>
+</RelativeLayout>

@@ -4,7 +4,8 @@
         android:right="1dp"
         android:top="1dp"
         android:bottom="1dp">
-        <shape android:shape="oval">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp"/>
             <stroke android:color="@color/red_ninja"
                 android:width="2dp"/>
             <size android:width="@dimen/size_large"
@@ -16,7 +17,8 @@
         android:right="3dp"
         android:top="3dp"
         android:bottom="3dp">
-        <shape android:shape="oval">
+        <shape android:shape="rectangle">
+            <corners android:radius="9dp"/>
             <solid android:color="@color/primary_light" />
             <size android:width="@dimen/size_large"
                 android:height="@dimen/size_large"/>

@@ -36,6 +36,9 @@
         <activity
             android:name=".ScoreActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".SelectExerciseActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -89,9 +89,7 @@ public class MainActivity extends AppCompatActivity {
         btnExer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ExcerciseActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                intent.putExtra("EXERCISE_TYPE", 0);
+                Intent intent = new Intent(context, SelectExerciseActivity.class);
                 context.startActivity(intent);
             }
         });

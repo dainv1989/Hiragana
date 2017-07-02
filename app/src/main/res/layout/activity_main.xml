@@ -88,6 +88,14 @@
         android:padding="@dimen/padding_small"
         android:gravity="center_horizontal">
         <ImageView
+            android:id="@+id/mainSetting"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:padding="@dimen/padding_normal"
+            android:src="@mipmap/setting"/>
+        <ImageView
             android:id="@+id/mainVote"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -130,8 +138,7 @@
             android:layout_margin="@dimen/margin_normal"
             android:text="hiragana"
             android:textAllCaps="true"
-            android:textColor="@color/white_text"
-            android:background="@drawable/round_solid_bkg"/>
+            android:background="@drawable/selector_text"/>
 
         <Button
             android:id="@+id/btnKata"
@@ -142,9 +149,7 @@
             android:paddingRight="@dimen/padding_normal"
             android:layout_margin="@dimen/margin_normal"
             android:text="katakana"
-            android:textAllCaps="true"
-            android:textColor="@color/white_text"
-            android:background="@drawable/round_solid_bkg"/>
+            android:background="@drawable/selector_text"/>
 
         <Button
             android:id="@+id/btnExer"
@@ -155,9 +160,6 @@
             android:paddingRight="@dimen/padding_large"
             android:layout_margin="@dimen/margin_large"
             android:text="@string/button_exercise"
-            android:textSize="@dimen/text_small"
-            android:textAllCaps="true"
-            android:textColor="@color/white_text"
-            android:background="@drawable/round_solid_bkg"/>
+            android:background="@drawable/selector_text"/>
     </RelativeLayout>
 </RelativeLayout>
