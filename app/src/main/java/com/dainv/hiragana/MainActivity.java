@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int HIRAGANA_CHART = 1;
     private static final int KATAKANA_CHART = 2;
 
-    private Button btnHira;
-    private Button btnKata;
-    private Button btnExer;
+    private TextView btnHira;
+    private TextView btnKata;
+    private TextView btnExer;
 
     private TextView tvMemoRoma;
     private TextView tvMemoHira;
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnHira = (Button)findViewById(R.id.btnHira);
-        btnKata = (Button)findViewById(R.id.btnKata);
-        btnExer = (Button)findViewById(R.id.btnExer);
+        btnHira = (TextView)findViewById(R.id.btnHira);
+        btnKata = (TextView)findViewById(R.id.btnKata);
+        btnExer = (TextView)findViewById(R.id.btnExer);
 
         tvMemoHira = (TextView)findViewById(R.id.txtMemoHira);
         tvMemoKata = (TextView)findViewById(R.id.txtMemoKata);
