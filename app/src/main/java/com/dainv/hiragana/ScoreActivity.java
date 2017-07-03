@@ -20,6 +20,8 @@ public class ScoreActivity extends AppCompatActivity {
     private ImageView imgEmotion;
 
     private static int question_type = JPChar.QTYPE_READ_HIRA;
+    private static int mark = 0;
+    private static int total = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +34,12 @@ public class ScoreActivity extends AppCompatActivity {
         imgEmotion = (ImageView)findViewById(R.id.imgScoreEmotion);
 
         Intent intent = getIntent();
-        int score = intent.getIntExtra("SCORE", 0);
-        int total = intent.getIntExtra("TOTAL", 0);
+        mark = intent.getIntExtra("SCORE", 0);
+        total = intent.getIntExtra("TOTAL", 0);
         question_type = intent.getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
 
-        /* set emotion face based on score */
-        if (score >= total) {
-            imgEmotion.setImageResource(R.drawable.love);
-        } else if (score >= total * 0.7) {
-            imgEmotion.setImageResource(R.drawable.happy);
-        } else if (score >= total * 0.4) {
-            imgEmotion.setImageResource(R.drawable.baby);
-        } else if (score > 0) {
-            imgEmotion.setImageResource(R.drawable.scared);
-        } else {
-            imgEmotion.setImageResource(R.drawable.crying);
-        }
-
-        tvScore.setText(score + "/" + total);
+        showEmotion(mark);
+        tvScore.setText(mark + "/" + total);
 
         final Context context = this;
         imgReplay.setOnClickListener(new View.OnClickListener() {
@@ -71,5 +61,24 @@ public class ScoreActivity extends AppCompatActivity {
                 context.startActivity(intent);
             }
         });
+    }
+
+    private void showEmotion(int score) {
+        /* set emotion face based on score */
+        if (score == total) {
+            imgEmotion.setImageResource(R.drawable.love);
+        } else if ((score > total * 0.8) && (score < total)) {
+            imgEmotion.setImageResource(R.drawable.smile);
+        } else if ((score > total * 0.6) && (score <= total * 0.8)) {
+            imgEmotion.setImageResource(R.drawable.happy);
+        } else if ((score > total * 0.4) && (score <= total * 0.6)) {
+            imgEmotion.setImageResource(R.drawable.sceptic);
+        } else if ((score > total * 0.2) && (score <= total * 0.4)) {
+            imgEmotion.setImageResource(R.drawable.confused);
+        } else if ((score > 0) && (score <= total * 0.2)) {
+            imgEmotion.setImageResource(R.drawable.sad);
+        } else {
+            imgEmotion.setImageResource(R.drawable.tongue_out);
+        }
     }
 }
