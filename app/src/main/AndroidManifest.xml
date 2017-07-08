@@ -38,6 +38,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SelectExerciseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MoreActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SettingActivity"
             android:screenOrientation="portrait"/>
     </application>
 

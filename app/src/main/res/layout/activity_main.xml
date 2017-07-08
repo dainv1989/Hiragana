@@ -84,7 +84,6 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/mainBottomNav"
         android:layout_width="match_parent"
@@ -100,8 +99,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:padding="@dimen/padding_normal"
-            android:src="@mipmap/setting"
-            android:visibility="gone"/>
+            android:src="@mipmap/setting" />
         <ImageView
             android:id="@+id/mainVote"
             android:layout_width="0dp"
@@ -168,10 +166,26 @@
             android:layout_height="@dimen/size_xlarge"
             android:paddingLeft="@dimen/padding_large"
             android:paddingRight="@dimen/padding_large"
-            android:layout_margin="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_large"
             android:gravity="center"
             android:text="@string/button_exercise"
             android:textAllCaps="true"
+            android:background="@drawable/selector_text"/>
+
+        <ImageView
+            android:id="@+id/btnMore"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_below="@id/btnExer"
+            android:layout_toRightOf="@id/btnExer"
+            android:layout_marginTop="-8dp"
+            android:layout_marginLeft="-16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="@dimen/padding_large"
+            android:src="@mipmap/more"
+            android:textSize="@dimen/text_normal"
             android:background="@drawable/selector_text"/>
     </RelativeLayout>
 </RelativeLayout>

@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView btnHira;
     private TextView btnKata;
     private TextView btnExer;
+    private ImageView btnMore;
 
     private TextView tvMemoRoma;
     private TextView tvMemoHira;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnHira = (TextView)findViewById(R.id.btnHira);
         btnKata = (TextView)findViewById(R.id.btnKata);
         btnExer = (TextView)findViewById(R.id.btnExer);
+        btnMore = (ImageView)findViewById(R.id.btnMore);
 
         tvMemoHira = (TextView)findViewById(R.id.txtMemoHira);
         tvMemoKata = (TextView)findViewById(R.id.txtMemoKata);
@@ -90,6 +92,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SelectExerciseActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MoreActivity.class);
                 context.startActivity(intent);
             }
         });
