@@ -6,8 +6,9 @@
 
     <item android:height="@dimen/size_large"
         android:width="@dimen/size_large"
-        android:drawable="@drawable/ninja"
         android:gravity="center">
+        <bitmap android:src="@mipmap/ninja"
+            android:gravity="center"
+            android:tileMode="disabled"/>
     </item>
-
 </layer-list>

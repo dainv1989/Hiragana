@@ -13,7 +13,8 @@
         android:paddingTop="@dimen/padding_large"
         android:paddingBottom="@dimen/padding_small"
         android:text="@string/null_string"
-        android:textSize="@dimen/text_large"/>
+        android:textSize="@dimen/text_large"
+        android:textColor="@color/sub_text"/>
 
     <TextView
         android:id="@+id/txtRomaji"

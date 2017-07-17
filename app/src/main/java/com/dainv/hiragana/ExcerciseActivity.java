@@ -73,14 +73,6 @@ public class ExcerciseActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Disable back button press behavior during exercise start
-     */
-    @Override
-    public void onBackPressed() {
-        return;
-    }
-
     private void showQuestion(QuestionItem question) {
         tvQuestion.setText(question.getQuestion());
         tvAnswer1.setText(question.getAnswers().get(0));

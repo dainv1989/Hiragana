@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_light"
+    android:background="@drawable/noise_bkg"
     tools:context=".HiraganaActivity">
 
     <LinearLayout
@@ -106,10 +106,10 @@
     </LinearLayout>
 
     <View
-        android:layout_height="1dp"
         android:layout_above="@id/hiraBotNav"
+        android:layout_height="1px"
         android:layout_width="match_parent"
-        android:background="#c0c0c0"/>
+        android:background="@color/divider"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabChartType"
@@ -121,10 +121,10 @@
         app:tabSelectedTextColor="@color/header_text"/>
 
     <View
-        android:layout_height="1dp"
         android:layout_below="@id/tabChartType"
+        android:layout_height="1px"
         android:layout_width="match_parent"
-        android:background="#c0c0c0"/>
+        android:background="@color/divider"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pagerChart"
