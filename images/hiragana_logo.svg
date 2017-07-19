@@ -98,7 +98,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0677141"
-     inkscape:cx="115.53294"
+     inkscape:cx="61.828528"
      inkscape:cy="107.79281"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -127,39 +127,43 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-249.37499)">
+    <g
+       id="g4504"
+       transform="translate(7.4292087)">
+      <text
+         transform="scale(0.97823629,1.0222479)"
+         id="text5124"
+         y="272.67755"
+         x="12.248997"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.50978279px;line-height:1.25;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';letter-spacing:0px;word-spacing:0px;fill:#cf3721;fill-opacity:1;stroke:none;stroke-width:0.32825598;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:1.25;font-family:'MV Boli';-inkscape-font-specification:'MV Boli Bold';fill:#cf3721;fill-opacity:1;stroke:none;stroke-width:0.32825598;stroke-opacity:1"
+           y="272.67755"
+           x="12.248997"
+           id="tspan5122"
+           sodipodi:role="line">Hihi</tspan></text>
+      <text
+         id="text4502"
+         y="279.32355"
+         x="56.940468"
+         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#258039;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.39999962px;line-height:1.25;font-family:'MV Boli';-inkscape-font-specification:'MV Boli';fill:#258039;fill-opacity:1;stroke-width:0.26458332"
+           y="279.32355"
+           x="56.940468"
+           id="tspan4500"
+           sodipodi:role="line">kaka</tspan></text>
+    </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.50978279px;line-height:1.25;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';letter-spacing:0px;word-spacing:0px;fill:#cf3721;fill-opacity:1;stroke:none;stroke-width:0.32825598;stroke-opacity:1"
-       x="22.526844"
-       y="275.26575"
-       id="text5124"
-       transform="scale(0.97823629,1.0222479)"><tspan
-         sodipodi:role="line"
-         id="tspan5122"
-         x="22.526844"
-         y="275.26575"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:1.25;font-family:'MV Boli';-inkscape-font-specification:'MV Boli Bold';fill:#cf3721;fill-opacity:1;stroke:none;stroke-width:0.32825598;stroke-opacity:1">Hihi</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#258039;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="66.994644"
-       y="281.96942"
-       id="text4502"><tspan
-         sodipodi:role="line"
-         id="tspan4500"
-         x="66.994644"
-         y="281.96942"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.39999962px;line-height:1.25;font-family:'MV Boli';-inkscape-font-specification:'MV Boli';fill:#258039;fill-opacity:1;stroke-width:0.26458332">kaka</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script Bold';letter-spacing:0px;word-spacing:0px;fill:#3a3d3f;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="30.232037"
-       y="287.93198"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111078px;line-height:1.25;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script Bold';letter-spacing:0px;word-spacing:0px;fill:#3a3d3f;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="2.4895988"
+       y="289.59946"
        id="text4503"><tspan
          sodipodi:role="line"
          id="tspan4501"
-         x="30.232037"
-         y="287.93198"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444447px;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script Bold';fill:#3a3d3f;fill-opacity:1;stroke-width:0.26458332">Learning Hiragana &amp; Katakana</tspan></text>
+         x="2.4895988"
+         y="289.59946"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111078px;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script Bold';fill:#3a3d3f;fill-opacity:1;stroke-width:0.26458332">learning Hiragana &amp; Katakana</tspan></text>
   </g>
 </svg>

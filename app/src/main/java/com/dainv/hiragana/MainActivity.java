@@ -3,6 +3,7 @@ package com.dainv.hiragana;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import com.dainv.hiragana.model.JPChar;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG="MainActivity";
@@ -31,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvMemoHira;
     private TextView tvMemoKata;
 
-    private ImageView imgLight;
+    private ImageView imgNinja;
     private ImageView imgVote;
     private ImageView imgShare;
     private ImageView imgInfo;
+
+    private Timer timer;
+    private TimerTask task;
 
     private static ArrayList<String> lstRoma = null;
     private static ArrayList<String> lstHira = null;
@@ -55,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         tvMemoKata = (TextView)findViewById(R.id.txtMemoKata);
         tvMemoRoma = (TextView)findViewById(R.id.txtMemoRoma);
 
-        imgLight = (ImageView)findViewById(R.id.iconLight);
+        imgNinja = (ImageView)findViewById(R.id.imgNinja);
         imgInfo = (ImageView)findViewById(R.id.mainInfo);
         imgShare = (ImageView)findViewById(R.id.mainShare);
         imgVote = (ImageView)findViewById(R.id.mainVote);
@@ -67,7 +73,24 @@ public class MainActivity extends AppCompatActivity {
             JPChar.getFullChars(lstRoma, lstHira, lstKata);
             is_init = true;
         }
+
         generateMemo();     /* show a random char for memo panel */
+        timer = new Timer();
+        final Runnable runAnimation = new Runnable() {
+            @Override
+            public void run() {
+                animateNinja();
+                generateMemo();
+            }
+        };
+
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(runAnimation);
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, 5000);
 
         final Context context = this;
         btnHira.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /* gerenate new memo when user clicks on image */
-        imgLight.setOnClickListener(new View.OnClickListener() {
+        imgNinja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 generateMemo();
@@ -173,5 +196,15 @@ public class MainActivity extends AppCompatActivity {
         tvMemoRoma.setText(lstRoma.get(index));
         tvMemoHira.setText(lstHira.get(index));
         tvMemoKata.setText(lstKata.get(index));
+    }
+
+    private void animateNinja() {
+        imgNinja.setImageResource(R.drawable.ninja_animation);
+        AnimationDrawable ninjaAnim = (AnimationDrawable)imgNinja.getDrawable();
+        ninjaAnim.stop();
+        ninjaAnim.start();
+        
+        if(!ninjaAnim.isRunning())
+            imgNinja.setImageResource(R.drawable.selector_ninja_icon);
     }
 }
