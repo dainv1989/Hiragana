@@ -1,6 +1,9 @@
 package com.dainv.hiragana;
 
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,6 +15,7 @@ import com.dainv.hiragana.model.QuestionItem;
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ExcerciseActivity extends AppCompatActivity {
@@ -85,8 +89,11 @@ public class ExcerciseActivity extends AppCompatActivity {
 
     private void checkAnswer(String answer) {
         QuestionItem question = questions.get(question_index);
-        if (question.isCorrect(answer))
+        boolean is_correct =question.isCorrect(answer);
+
+        if (is_correct)
             score++;
+        playSound(is_correct);
 
         if (question_index == (questions.size() - 1)) {
             /* show score screen */
@@ -107,6 +114,35 @@ public class ExcerciseActivity extends AppCompatActivity {
             /* show next question in question list */
             question_index++;
             showQuestion(questions.get(question_index));
+        }
+    }
+
+    private static final String correctSound = "audio/ding.mp3";
+    private static final String wrongSound = "audio/ohoh.mp3";
+
+    private void playSound(boolean correct) {
+        AssetManager assetManager = this.getAssets();
+        final MediaPlayer player = new MediaPlayer();
+        String audioFile = correctSound;
+        if (!correct)
+            audioFile = wrongSound;
+
+        try {
+            AssetFileDescriptor fd = assetManager.openFd(audioFile);
+            player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
+            player.prepare();
+            player.start();
+
+            /* release resource after playing audio */
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    player.release();
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.v(this.getClass().getSimpleName(), "open sound file failed");
         }
     }
 }

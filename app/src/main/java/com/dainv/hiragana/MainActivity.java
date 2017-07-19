@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -39,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgShare;
     private ImageView imgInfo;
 
-    private Timer timer;
-    private TimerTask task;
+    private static Timer timer = null;
+    private static TimerTask task = null;
+    private static Runnable runAnimation;
 
     private static ArrayList<String> lstRoma = null;
     private static ArrayList<String> lstHira = null;
@@ -75,22 +77,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         generateMemo();     /* show a random char for memo panel */
-        timer = new Timer();
-        final Runnable runAnimation = new Runnable() {
+        runAnimation = new Runnable() {
             @Override
             public void run() {
                 animateNinja();
                 generateMemo();
             }
         };
-
-        task = new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(runAnimation);
-            }
-        };
-        timer.scheduleAtFixedRate(task, 0, 5000);
+        setNinjaTimer(5);
 
         final Context context = this;
         btnHira.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 generateMemo();
+                setNinjaTimer(5);
             }
         });
 
@@ -184,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         generateMemo();
+        setNinjaTimer(5);
     }
 
     private void generateMemo() {
@@ -200,11 +196,38 @@ public class MainActivity extends AppCompatActivity {
 
     private void animateNinja() {
         imgNinja.setImageResource(R.drawable.ninja_animation);
-        AnimationDrawable ninjaAnim = (AnimationDrawable)imgNinja.getDrawable();
+        final AnimationDrawable ninjaAnim = (AnimationDrawable)imgNinja.getDrawable();
         ninjaAnim.stop();
         ninjaAnim.start();
-        
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ninjaAnim.stop();
+            }
+        }, 250); /* 250ms is sum of animation time */
+
         if(!ninjaAnim.isRunning())
             imgNinja.setImageResource(R.drawable.selector_ninja_icon);
+    }
+
+    /**
+     * Set timer to auto generate memo
+     * @param seconds
+     */
+    private void setNinjaTimer(int seconds) {
+        if (timer == null)
+            timer = new Timer();
+
+        if (task != null)
+            task.cancel();
+
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(runAnimation);
+            }
+        };
+        timer.schedule(task, 0, seconds * 1000);
     }
 }

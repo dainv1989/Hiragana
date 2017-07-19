@@ -79,6 +79,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/imgSpeaker"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:padding="@dimen/padding_large"
