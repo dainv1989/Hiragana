@@ -12,8 +12,8 @@
             android:title="@string/pref_ninja_timer_title"
             android:summary="@string/pref_ninja_timer_summary"
             android:dialogTitle="@string/pref_ninja_timer_summary"
-            android:entries="@array/pref_ninja_timer_values"
-            android:entryValues="@array/pref_ninja_timer_entries"
+            android:entries="@array/pref_ninja_timer_entries"
+            android:entryValues="@array/pref_ninja_timer_values"
             android:defaultValue="5"/>
 
         <SwitchPreference
