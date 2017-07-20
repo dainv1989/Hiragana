@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_category_ninja">
+        <SwitchPreference
+            android:key="@string/pref_ninja_touch_sound_key"
+            android:title="@string/pref_ninja_touch_sound_title"
+            android:summaryOn="@string/pref_ninja_touch_sound_on"
+            android:summaryOff="@string/pref_ninja_touch_sound_off"/>
 
+        <ListPreference
+            android:key="@string/pref_ninja_timer_key"
+            android:title="@string/pref_ninja_timer_title"
+            android:summary="@string/pref_ninja_timer_summary"
+            android:dialogTitle="@string/pref_ninja_timer_summary"
+            android:entries="@array/pref_ninja_timer_values"
+            android:entryValues="@array/pref_ninja_timer_entries"
+            android:defaultValue="5"/>
+
+        <SwitchPreference
+            android:key="@string/pref_ninja_random_mode_key"
+            android:title="@string/pref_ninja_update_mode"
+            android:summaryOn="@string/pref_ninja_random_mode_on"
+            android:summaryOff="@string/pref_ninja_random_mode_off"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_category_exercise">
+        <SwitchPreference
+            android:key="@string/pref_exercise_sound_key"
+            android:title="@string/pref_exercise_sound_title"
+            android:summaryOn="@string/pref_exercise_sound_on"
+            android:summaryOff="@string/pref_exercise_sound_off"/>
+        <ListPreference
+            android:key="@string/pref_exercise_question_key"
+            android:title="@string/pref_exercise_question_count"
+            android:summary="10"
+            android:dialogTitle="@string/pref_exercise_question_dialog"
+            android:entries="@array/pref_question_counts"
+            android:entryValues="@array/pref_question_counts"
+            android:defaultValue="10"/>
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -24,4 +24,51 @@
         Get it on Google Play at: </string>
 
     <string name="thank_statement">Thanks for using this app. Please share and encourage me on Google Play.</string>
+
+    <!-- [START] preference screen strings -->
+    <string name="title_setting">settings</string>
+    <string name="pref_category_ninja">NINJA ICON</string>
+
+    <string name="pref_ninja_touch_sound_title">play character sound</string>
+    <string name="pref_ninja_touch_sound_on">enable play character sound on touching ninja icon</string>
+    <string name="pref_ninja_touch_sound_off">disable play character sound on touching ninja icon</string>
+    <string name="pref_ninja_touch_sound_key">prefkey_ninja_touch_sound</string>
+
+    <string name="pref_ninja_timer_title">memo timer</string>
+    <string name="pref_ninja_timer_summary">display a new character every</string>
+    <string name="pref_ninja_timer_key">prefkey_ninja_timer</string>
+    <string-array name="pref_ninja_timer_entries">
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="pref_ninja_timer_values">
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>0</item>
+    </string-array>
+
+    <string name="pref_ninja_update_mode">update character mode</string>
+    <string name="pref_ninja_random_mode_on">random</string>
+    <string name="pref_ninja_random_mode_off">sequential</string>
+    <string name="pref_ninja_random_mode_key">prefkey_ninja_random</string>
+
+    <string name="pref_category_exercise">EXERCISE</string>
+    <string name="pref_exercise_question_count">number of questions in an exercise</string>
+    <string name="pref_exercise_question_dialog">select number of questions</string>
+    <string name="pref_exercise_question_key">prefkey_question_count</string>
+    <string-array name="pref_question_counts">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+
+    <string name="pref_exercise_sound_title">play sound on answering</string>
+    <string name="pref_exercise_sound_on">enable</string>
+    <string name="pref_exercise_sound_off">disable</string>
+    <string name="pref_exercise_sound_key">prefkey_exercise_sound_play</string>
+    <!-- [END preference screen -->
 </resources>

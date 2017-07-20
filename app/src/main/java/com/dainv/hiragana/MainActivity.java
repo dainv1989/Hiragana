@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgVote;
     private ImageView imgShare;
     private ImageView imgInfo;
+    private ImageView imgSetting;
 
     private static Timer timer = null;
     private static TimerTask task = null;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         imgInfo = (ImageView)findViewById(R.id.mainInfo);
         imgShare = (ImageView)findViewById(R.id.mainShare);
         imgVote = (ImageView)findViewById(R.id.mainVote);
+        imgSetting = (ImageView)findViewById(R.id.mainSetting);
 
         if (is_init == false) {
             lstRoma = new ArrayList<>();
@@ -127,6 +129,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 generateMemo();
                 setNinjaTimer(5);
+            }
+        });
+
+        imgSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SettingActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -195,20 +205,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void animateNinja() {
-        imgNinja.setImageResource(R.drawable.ninja_animation);
-        final AnimationDrawable ninjaAnim = (AnimationDrawable)imgNinja.getDrawable();
+        AnimationDrawable ninjaAnim = (AnimationDrawable)imgNinja.getDrawable();
         ninjaAnim.stop();
         ninjaAnim.start();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ninjaAnim.stop();
-            }
-        }, 250); /* 250ms is sum of animation time */
-
-        if(!ninjaAnim.isRunning())
-            imgNinja.setImageResource(R.drawable.selector_ninja_icon);
     }
 
     /**
