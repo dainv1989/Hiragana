@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.model.QuestionItem;
+import com.dainv.hiragana.model.Settings;
 
 import org.w3c.dom.Text;
 
@@ -26,6 +28,10 @@ public class ExcerciseActivity extends AppCompatActivity {
     private TextView tvAnswer3;
 
     private TextView tvScore;
+
+    private ImageView imgSpeaker;
+
+    private static Settings settings = null;
 
     private static List<QuestionItem> questions;
     private static int question_index = 0;
@@ -45,6 +51,15 @@ public class ExcerciseActivity extends AppCompatActivity {
         tvAnswer3       = (TextView)findViewById(R.id.txtAnswer3);
 
         tvScore         = (TextView)findViewById(R.id.txtCorrectCount);
+
+        imgSpeaker      = (ImageView)findViewById(R.id.imgSpeaker);
+
+        settings = new Settings(getApplicationContext());
+        if(settings.getExerciseSoundConfig()) {
+            imgSpeaker.setImageResource(R.mipmap.speaker_enable);
+        } else {
+            imgSpeaker.setImageResource(R.mipmap.speaker_disable);
+        }
 
         question_type = getIntent().getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
 
@@ -73,6 +88,22 @@ public class ExcerciseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer(tvAnswer3.getText().toString());
+            }
+        });
+
+        imgSpeaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (settings == null)
+                    return;
+
+                if(settings.getExerciseSoundConfig()) {
+                    imgSpeaker.setImageResource(R.mipmap.speaker_disable);
+                    settings.setExerciseSoundConfig(false);
+                } else {
+                    imgSpeaker.setImageResource(R.mipmap.speaker_enable);
+                    settings.setExerciseSoundConfig(true);
+                }
             }
         });
     }
@@ -121,6 +152,10 @@ public class ExcerciseActivity extends AppCompatActivity {
     private static final String wrongSound = "audio/ohoh.mp3";
 
     private void playSound(boolean correct) {
+        /* do not play sound if setting sound is off */
+        if ((settings != null) && (settings.getExerciseSoundConfig() == false))
+            return;
+
         AssetManager assetManager = this.getAssets();
         final MediaPlayer player = new MediaPlayer();
         String audioFile = correctSound;

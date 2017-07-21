@@ -37,6 +37,8 @@
     <string name="pref_ninja_timer_title">memo timer</string>
     <string name="pref_ninja_timer_summary">display a new character every</string>
     <string name="pref_ninja_timer_key">prefkey_ninja_timer</string>
+    <string name="pref_timer_unit">seconds</string>
+    <string name="pref_timer_off">off</string>
     <string-array name="pref_ninja_timer_entries">
         <item>3 seconds</item>
         <item>5 seconds</item>
@@ -59,6 +61,7 @@
     <string name="pref_exercise_question_count">number of questions in an exercise</string>
     <string name="pref_exercise_question_dialog">select number of questions</string>
     <string name="pref_exercise_question_key">prefkey_question_count</string>
+    <string name="pref_question_unit">questions</string>
     <string-array name="pref_question_counts">
         <item>5</item>
         <item>10</item>
