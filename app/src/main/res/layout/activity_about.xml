@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/logo_height"
         android:paddingTop="@dimen/padding_large"
-        android:paddingBottom="@dimen/padding_xlarge"
+        android:paddingBottom="@dimen/padding_large"
         android:layout_alignParentTop="true"
         android:src="@drawable/logo"/>
 
@@ -27,7 +27,7 @@
             android:id="@+id/aboutRateApp"
             android:layout_width="@dimen/botnav_height"
             android:layout_height="match_parent"
-            android:src="@mipmap/vote"
+            android:src="@drawable/selector_vote"
             android:padding="@dimen/padding_normal"
             android:scaleType="centerInside"/>
 
@@ -35,7 +35,7 @@
             android:id="@+id/aboutShare"
             android:layout_width="@dimen/botnav_height"
             android:layout_height="match_parent"
-            android:src="@mipmap/share"
+            android:src="@drawable/selector_share"
             android:padding="@dimen/padding_normal"
             android:scaleType="centerInside"/>
     </LinearLayout>

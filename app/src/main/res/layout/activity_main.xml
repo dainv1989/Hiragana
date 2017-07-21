@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/logo_height"
         android:paddingTop="@dimen/padding_large"
-        android:paddingBottom="@dimen/padding_xlarge"
+        android:paddingBottom="@dimen/padding_large"
         android:src="@drawable/logo"/>
 
     <LinearLayout
@@ -67,7 +67,7 @@
                 <View
                     android:layout_height="1dp"
                     android:layout_width="match_parent"
-                    android:background="@color/accent"/>
+                    android:background="@color/avocado"/>
 
                 <TextView
                     android:id="@+id/txtMemoKata"
@@ -87,7 +87,7 @@
     <LinearLayout
         android:id="@+id/mainBottomNav"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:padding="@dimen/padding_small"
@@ -99,7 +99,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:padding="@dimen/padding_normal"
-            android:src="@mipmap/setting" />
+            android:src="@drawable/selector_setting" />
         <ImageView
             android:id="@+id/mainVote"
             android:layout_width="0dp"
@@ -107,7 +107,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:padding="@dimen/padding_normal"
-            android:src="@mipmap/vote"/>
+            android:src="@drawable/selector_vote"/>
         <ImageView
             android:id="@+id/mainShare"
             android:layout_width="0dp"
@@ -115,7 +115,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:padding="@dimen/padding_normal"
-            android:src="@mipmap/share"/>
+            android:src="@drawable/selector_share"/>
         <ImageView
             android:id="@+id/mainInfo"
             android:layout_width="0dp"
@@ -123,7 +123,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:padding="@dimen/padding_normal"
-            android:src="@mipmap/info"/>
+            android:src="@drawable/selector_info"/>
     </LinearLayout>
 
     <RelativeLayout

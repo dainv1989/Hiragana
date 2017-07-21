@@ -13,4 +13,7 @@
 
     <color name="divider">#144B8A</color>
     <color name="header_text">#cf3721</color>
+
+    <color name="avocado">#258039</color>
+    <color name="aqua_blue">#31a9b8</color>
 </resources>
