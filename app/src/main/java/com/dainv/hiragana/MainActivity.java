@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dainv.hiragana.model.JPChar;
+import com.dainv.hiragana.model.Settings;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -50,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
     private static ArrayList<String> lstKata = null;
     private static boolean is_init = false;
 
+    /* determine whether play memo character sound or not */
+    private static boolean is_play_sound = false;
+
+    private static int memo_index = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
             is_init = true;
         }
 
-        generateMemo();     /* show a random char for memo panel */
         runAnimation = new Runnable() {
             @Override
             public void run() {
@@ -127,8 +130,19 @@ public class MainActivity extends AppCompatActivity {
         imgNinja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                generateMemo();
-                setNinjaTimer(5);
+                Settings settings = new Settings(getApplicationContext());
+                int interval = settings.getNinjaInterval();
+
+                /* enable play sound if it's selected in settings */
+                if(settings.getNinjaSoundConfig())
+                    is_play_sound = true;
+
+                if(interval > 0) {
+                    setNinjaTimer(5);
+                } else {
+                    animateNinja();
+                    generateMemo();
+                }
             }
         });
 
@@ -188,20 +202,42 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        generateMemo();
-        setNinjaTimer(5);
+
+        Settings settings = new Settings(getApplicationContext());
+        int interval = settings.getNinjaInterval();
+        if(interval > 0)
+            setNinjaTimer(interval);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(task != null)
+            task.cancel();
     }
 
     private void generateMemo() {
         if (is_init == false)
             return;
 
-        Random random = new Random();
-        int index = random.nextInt(lstRoma.size()); /* min is 0, max is 103 */
+        Settings settings = new Settings(this);
+        if(settings.getNinjaUpdateMode()) {
+            Random random = new Random();
+            memo_index = random.nextInt(lstRoma.size()); /* min is 0, max is 103 */
+        } else {
+            /* sequential character display */
+            memo_index++;
+            memo_index = (memo_index % lstRoma.size());
+        }
 
-        tvMemoRoma.setText(lstRoma.get(index));
-        tvMemoHira.setText(lstHira.get(index));
-        tvMemoKata.setText(lstKata.get(index));
+        tvMemoRoma.setText(lstRoma.get(memo_index));
+        tvMemoHira.setText(lstHira.get(memo_index));
+        tvMemoKata.setText(lstKata.get(memo_index));
+
+        if(is_play_sound) {
+            JPChar.playSound(lstRoma.get(memo_index), this);
+            is_play_sound = false;
+        }
     }
 
     private void animateNinja() {

@@ -4,10 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
 
 import com.dainv.hiragana.R;
-import com.dainv.hiragana.SettingFragment;
 
 /**
  * Created by dainv on 17/07/21.
@@ -37,32 +35,14 @@ public class Settings {
                 R.string.pref_ninja_touch_sound_key));
     }
 
-    public void setNinjaSoundConfig(boolean is_enable) {
-        setBooleanKey(resources.getString(
-                R.string.pref_ninja_touch_sound_key),
-                is_enable);
-    }
-
     public boolean getNinjaUpdateMode() {
         return getBooleanKey(resources.getString(
                 R.string.pref_ninja_random_mode_key));
     }
 
-    public void setNinjaUpdateMode(boolean is_random) {
-        setBooleanKey(resources.getString(
-                R.string.pref_ninja_random_mode_key),
-                is_random);
-    }
-
     public int getNinjaInterval() {
         return getIntKey(resources.getString(
                 R.string.pref_ninja_timer_key));
-    }
-
-    public void setNinjaInterval(int seconds) {
-        setIntKey(resources.getString(
-                R.string.pref_ninja_timer_key),
-                seconds);
     }
     /* [END] ninja icon settings */
 
@@ -100,13 +80,14 @@ public class Settings {
         return preferences.getBoolean(booleanKey, true);
     }
 
-    private void setIntKey(String intKey, int value) {
+    private void setIntKey(String strKey, int value) {
         editor = preferences.edit();
-        editor.putInt(intKey, value);
+        editor.putInt(strKey, value);
         editor.apply();
     }
 
-    private int getIntKey(String intKey) {
-        return preferences.getInt(intKey, 0);
+    private int getIntKey(String strKey) {
+        String value = preferences.getString(strKey, "0");
+        return Integer.parseInt(value);
     }
 }

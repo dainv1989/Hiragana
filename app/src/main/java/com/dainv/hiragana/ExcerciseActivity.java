@@ -15,8 +15,6 @@ import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.model.QuestionItem;
 import com.dainv.hiragana.model.Settings;
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -35,10 +33,14 @@ public class ExcerciseActivity extends AppCompatActivity {
 
     private static List<QuestionItem> questions;
     private static int question_index = 0;
-    private static int score = 0;
-    private static final int TOTAL_QUESTION = 10;
-    private static boolean is_generated = false;
     private static int question_type = JPChar.QTYPE_READ_HIRA;
+
+    /* decide whether generate new set of questions or not */
+    private static boolean is_generated = false;
+
+    private static int score = 0;
+
+    private static final int TOTAL_QUESTION = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,6 @@ public class ExcerciseActivity extends AppCompatActivity {
         tvAnswer1       = (TextView)findViewById(R.id.txtAnswer1);
         tvAnswer2       = (TextView)findViewById(R.id.txtAnswer2);
         tvAnswer3       = (TextView)findViewById(R.id.txtAnswer3);
-
         tvScore         = (TextView)findViewById(R.id.txtCorrectCount);
 
         imgSpeaker      = (ImageView)findViewById(R.id.imgSpeaker);
@@ -64,7 +65,14 @@ public class ExcerciseActivity extends AppCompatActivity {
         question_type = getIntent().getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
 
         if (is_generated == false) {
-            questions = JPChar.generateQuestions(TOTAL_QUESTION, question_type);
+            Settings settings = new Settings(this);
+            int quest_count = settings.getQuestionCount();
+
+            /* if there is something wrong, set question count to default value */
+            if (quest_count <= 0)
+                quest_count = TOTAL_QUESTION;
+
+            questions = JPChar.generateQuestions(quest_count, question_type);
             is_generated = true;
         }
 
@@ -106,6 +114,12 @@ public class ExcerciseActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        is_generated = false;
+        super.onBackPressed();
     }
 
     private void showQuestion(QuestionItem question) {

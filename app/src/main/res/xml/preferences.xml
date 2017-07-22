@@ -5,6 +5,8 @@
         <SwitchPreference
             android:key="@string/pref_ninja_touch_sound_key"
             android:title="@string/pref_ninja_touch_sound_title"
+            android:defaultValue="true"
+            android:checked="true"
             android:summaryOn="@string/pref_ninja_touch_sound_on"
             android:summaryOff="@string/pref_ninja_touch_sound_off"/>
 
@@ -20,6 +22,7 @@
         <SwitchPreference
             android:key="@string/pref_ninja_random_mode_key"
             android:title="@string/pref_ninja_update_mode"
+            android:defaultValue="true"
             android:summaryOn="@string/pref_ninja_random_mode_on"
             android:summaryOff="@string/pref_ninja_random_mode_off"/>
     </PreferenceCategory>
@@ -28,6 +31,7 @@
         <SwitchPreference
             android:key="@string/pref_exercise_sound_key"
             android:title="@string/pref_exercise_sound_title"
+            android:defaultValue="true"
             android:summaryOn="@string/pref_exercise_sound_on"
             android:summaryOff="@string/pref_exercise_sound_off"/>
         <ListPreference

@@ -7,8 +7,6 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 
-import com.dainv.hiragana.model.Settings;
-
 /**
  * Created by dainv on 17/07/20.
  */
