@@ -16,7 +16,7 @@
 
     <string name="null_string">null</string>
 
-    <string name="about_author">Dai Nguyen \u00a9 2017</string>
+    <string name="about_author">\u00a9 2017 Dai Nguyen</string>
     <string name="about_quote">進み続けてさえいれば、遅くとも関係ない。\n\
         It does not matter how slowly you go as long as you do not stop. \
         (Confucius)</string>
