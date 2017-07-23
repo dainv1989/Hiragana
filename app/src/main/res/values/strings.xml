@@ -74,4 +74,7 @@
     <string name="pref_exercise_sound_off">disable</string>
     <string name="pref_exercise_sound_key">prefkey_exercise_sound_play</string>
     <!-- [END preference screen -->
+
+    <string name="adsid_banner">ca-app-pub-5518862868429114/7553503657</string>
+    <string name="adsid_fullscreen">ca-app-pub-5518862868429114/2699589385</string>
 </resources>

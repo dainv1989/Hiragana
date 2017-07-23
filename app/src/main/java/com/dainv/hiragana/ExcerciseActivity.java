@@ -14,6 +14,9 @@ import android.widget.TextView;
 import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.model.QuestionItem;
 import com.dainv.hiragana.model.Settings;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,6 +31,8 @@ public class ExcerciseActivity extends AppCompatActivity {
     private TextView tvScore;
 
     private ImageView imgSpeaker;
+
+    private AdView adView;
 
     private static Settings settings = null;
 
@@ -54,6 +59,24 @@ public class ExcerciseActivity extends AppCompatActivity {
         tvScore         = (TextView)findViewById(R.id.txtCorrectCount);
 
         imgSpeaker      = (ImageView)findViewById(R.id.imgSpeaker);
+
+        adView = (AdView)findViewById(R.id.adsExerBanner);
+        adView.setVisibility(View.GONE);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("1F17B575D2A0B81A953E526D33694A52")
+                .build();
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                adView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                adView.setVisibility(View.GONE);
+            }
+        });
+        adView.loadAd(adRequest);
 
         settings = new Settings(getApplicationContext());
         if(settings.getExerciseSoundConfig()) {
@@ -120,6 +143,27 @@ public class ExcerciseActivity extends AppCompatActivity {
     public void onBackPressed() {
         is_generated = false;
         super.onBackPressed();
+    }
+
+    @Override
+    public void onPause() {
+        if (adView != null)
+            adView.pause();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        if (adView != null)
+            adView.resume();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null)
+            adView.destroy();
+        super.onDestroy();
     }
 
     private void showQuestion(QuestionItem question) {
