@@ -31,6 +31,7 @@ public class ExcerciseActivity extends AppCompatActivity {
     private TextView tvScore;
 
     private ImageView imgSpeaker;
+    private ImageView imgSound;
 
     private AdView adView;
 
@@ -59,6 +60,8 @@ public class ExcerciseActivity extends AppCompatActivity {
         tvScore         = (TextView)findViewById(R.id.txtCorrectCount);
 
         imgSpeaker      = (ImageView)findViewById(R.id.imgSpeaker);
+        imgSound        = (ImageView)findViewById(R.id.imgBigSpeaker);
+        imgSound.setVisibility(View.INVISIBLE);
 
         adView = (AdView)findViewById(R.id.adsExerBanner);
         adView.setVisibility(View.GONE);
@@ -86,6 +89,18 @@ public class ExcerciseActivity extends AppCompatActivity {
         }
 
         question_type = getIntent().getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
+        if ((question_type == JPChar.QTYPE_SOUND_HIRA) ||
+            (question_type == JPChar.QTYPE_SOUND_KATA)) {
+            imgSound.setVisibility(View.VISIBLE);
+            tvQuestion.setVisibility(View.INVISIBLE);
+
+            imgSound.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // // TODO: play sound
+                }
+            });
+        }
 
         if (is_generated == false) {
             Settings settings = new Settings(this);

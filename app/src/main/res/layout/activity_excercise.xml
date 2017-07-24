@@ -100,14 +100,29 @@
             android:src="@mipmap/speaker_enable"/>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/txtQuestion"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_above="@id/groupAnswers"
         android:layout_below="@id/groupScore"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_large"
-        android:gravity="center"
-        android:text="ぎょ"
-        android:textSize="@dimen/text_giant" />
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_large"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="ぎょ"
+            android:textSize="@dimen/text_giant"/>
+
+        <ImageView
+            android:id="@+id/imgBigSpeaker"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:padding="16dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/selector_speaker"/>
+    </RelativeLayout>
 </RelativeLayout>

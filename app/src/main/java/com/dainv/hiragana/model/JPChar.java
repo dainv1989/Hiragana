@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Hong-Quyen on 5/22/2017.
+ * Created by dainv on 5/22/2017.
  */
 
 public final class JPChar {
@@ -223,6 +223,9 @@ public final class JPChar {
 
     public static final int QTYPE_READ_HIRA = 0;
     public static final int QTYPE_READ_KATA = 1;
+    public static final int QTYPE_SOUND_HIRA = 2;
+    public static final int QTYPE_SOUND_KATA = 3;
+
     public static final int TOTAL_ANSWERS = 3;
 
     public static List<QuestionItem> generateQuestions(int count, int type) {
@@ -236,11 +239,13 @@ public final class JPChar {
 
         switch (type) {
             case QTYPE_READ_HIRA:
+            case QTYPE_SOUND_HIRA:
                 dictionary.addAll(lstHiraBasic);
                 dictionary.addAll(lstHiraDakuten);
                 dictionary.addAll(lstHiraCombo);
                 break;
             case QTYPE_READ_KATA:
+            case QTYPE_SOUND_KATA:
                 dictionary.addAll(lstKataBasic);
                 dictionary.addAll(lstKataDakuten);
                 dictionary.addAll(lstKataCombo);
@@ -257,17 +262,33 @@ public final class JPChar {
         question_count = 0;
         while (question_count < count) {
             if (dictionary.get(i).getRomaji() != "") {
+                String romaji;
                 QuestionItem question = new QuestionItem();
+                ArrayList<String> answers = new ArrayList<>();
+
                 question.setQuestion(dictionary.get(i).getJpchar());
                 question.setCorrectAnswer(dictionary.get(i).getRomaji());
+                romaji = dictionary.get(i).getRomaji();
 
-                ArrayList<String> answers = new ArrayList<>();
-                answers.add(dictionary.get(i).getRomaji());
+                if ((type == QTYPE_SOUND_HIRA) ||
+                    (type == QTYPE_SOUND_KATA)) {
+                    question.setQuestion(dictionary.get(i).getRomaji());
+                    question.setCorrectAnswer(dictionary.get(i).getJpchar());
+                    romaji = dictionary.get(i).getJpchar();
+                }
+                answers.add(romaji);
 
                 int answer_count = 1;
+                int index;
                 while (answer_count < TOTAL_ANSWERS) {
-                    int index = random.nextInt(TOTAL_CHARS);
-                    String romaji = dictionary.get(index).getRomaji();
+                    index = random.nextInt(TOTAL_CHARS);
+                    romaji = dictionary.get(index).getRomaji();
+
+                    if ((type == QTYPE_SOUND_HIRA) ||
+                        (type == QTYPE_SOUND_KATA)) {
+                        romaji = dictionary.get(index).getJpchar();
+                    }
+
                     if ((index != i) && (romaji != "")) {
                         answers.add(romaji);
                         answer_count++;

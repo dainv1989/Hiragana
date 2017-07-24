@@ -4,30 +4,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/noise_bkg"
-    tools:context=".SelectExerciseActivity"
-    android:gravity="center">
+    tools:context=".SelectExerciseActivity">
 
     <TextView
-        android:id="@+id/btnSelectHira"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:id="@+id/txtExerciseTitle"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_alignParentTop="true"
         android:gravity="center"
-        android:padding="@dimen/padding_normal"
-        android:layout_marginBottom="@dimen/margin_normal"
-        android:text="@string/button_hiragana"
+        android:text="@string/title_exercise"
         android:textAllCaps="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/selector_text"/>
+        android:textColor="@android:color/white"
+        android:background="@drawable/noise_grey_bkg"/>
 
-    <TextView
-        android:id="@+id/btnSelectKata"
-        android:layout_below="@id/btnSelectHira"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:padding="@dimen/padding_normal"
-        android:text="@string/button_katakana"
-        android:textAllCaps="true"
-        android:background="@drawable/selector_text"/>
+    <LinearLayout
+        android:id="@+id/groupExerTypes"
+        android:layout_below="@id/txtExerciseTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgExerSoundInfo"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:padding="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/question"/>
+
+            <Switch
+                android:id="@+id/swcExerSound"
+                android:layout_toLeftOf="@id/imgExerSoundInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="sound test"
+                android:textAlignment="gravity"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/groupExercises"
+        android:layout_below="@id/groupExerTypes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btnSelectHira"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:gravity="center"
+            android:padding="@dimen/padding_normal"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:text="@string/button_hiragana"
+            android:textAllCaps="true"
+            android:background="@drawable/selector_text"/>
+
+        <TextView
+            android:id="@+id/btnSelectKata"
+            android:layout_below="@id/btnSelectHira"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:gravity="center"
+            android:padding="@dimen/padding_normal"
+            android:text="@string/button_katakana"
+            android:textAllCaps="true"
+            android:background="@drawable/selector_text"/>
+    </LinearLayout>
 </RelativeLayout>

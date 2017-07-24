@@ -8,6 +8,7 @@
     <string name="hira_chart_title">hiragana chart</string>
     <string name="kata_chart_title">katakana chart</string>
     <string name="score_title">your score</string>
+    <string name="title_exercise">exercise</string>
 
     <string name="basic_header">basic</string>
     <string name="combo_header">combo</string>
