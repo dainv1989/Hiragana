@@ -32,7 +32,9 @@ public class SelectExerciseActivity extends AppCompatActivity {
 
         imgReading = (ImageView)findViewById(R.id.imgReadingTest);
         imgListening = (ImageView)findViewById(R.id.imgSoundTest);
+
         /* init selected state */
+        exercise_type = READING_TEST;
         imgReading.setSelected(true);
         imgListening.setSelected(false);
 
