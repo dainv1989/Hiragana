@@ -7,8 +7,8 @@ android {
         applicationId "com.dainv.hiragana"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 63
-        versionName "1.1"
+        versionCode 66
+        versionName "1.2"
     }
     buildTypes {
         release {

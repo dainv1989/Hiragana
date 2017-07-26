@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.dainv.hiragana.model.JPChar;
@@ -16,9 +15,12 @@ public class SelectExerciseActivity extends AppCompatActivity {
     private TextView tvSelectHira;
     private TextView tvSelectKata;
 
-    private Switch swExerSound;
+    private ImageView imgReading;
+    private ImageView imgListening;
 
-    private ImageView imgSoundExerInfo;
+    private final static int READING_TEST = 1000;
+    private final static int LISTENING_TEST = 2000;
+    private static int exercise_type = READING_TEST;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +30,27 @@ public class SelectExerciseActivity extends AppCompatActivity {
         tvSelectHira = (TextView)findViewById(R.id.btnSelectHira);
         tvSelectKata = (TextView)findViewById(R.id.btnSelectKata);
 
-        swExerSound = (Switch)findViewById(R.id.swcExerSound);
-        swExerSound.setChecked(false);
+        imgReading = (ImageView)findViewById(R.id.imgReadingTest);
+        imgListening = (ImageView)findViewById(R.id.imgSoundTest);
+        /* init selected state */
+        imgReading.setSelected(true);
+        imgListening.setSelected(false);
 
-        imgSoundExerInfo = (ImageView)findViewById(R.id.imgExerSoundInfo);
-        imgSoundExerInfo.setOnClickListener(new View.OnClickListener() {
+        imgReading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: display help
+                exercise_type = READING_TEST;
+                imgReading.setSelected(true);
+                imgListening.setSelected(false);
+            }
+        });
+
+        imgListening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exercise_type = LISTENING_TEST;
+                imgListening.setSelected(true);
+                imgReading.setSelected(false);
             }
         });
 
@@ -46,7 +61,7 @@ public class SelectExerciseActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, ExcerciseActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
-                if (swExerSound.isChecked())
+                if (exercise_type == LISTENING_TEST)
                     intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_SOUND_HIRA);
                 else
                     intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
@@ -61,7 +76,7 @@ public class SelectExerciseActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, ExcerciseActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
-                if (swExerSound.isChecked())
+                if (exercise_type == LISTENING_TEST)
                     intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_SOUND_KATA);
                 else
                     intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_KATA);

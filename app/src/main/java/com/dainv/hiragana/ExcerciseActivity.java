@@ -1,5 +1,6 @@
 package com.dainv.hiragana;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
@@ -53,6 +54,8 @@ public class ExcerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excercise);
 
+        final Context context = this;
+
         tvQuestion      = (TextView)findViewById(R.id.txtQuestion);
         tvAnswer1       = (TextView)findViewById(R.id.txtAnswer1);
         tvAnswer2       = (TextView)findViewById(R.id.txtAnswer2);
@@ -66,7 +69,6 @@ public class ExcerciseActivity extends AppCompatActivity {
         adView = (AdView)findViewById(R.id.adsExerBanner);
         adView.setVisibility(View.GONE);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("1F17B575D2A0B81A953E526D33694A52")
                 .build();
         adView.setAdListener(new AdListener() {
             @Override
@@ -89,18 +91,6 @@ public class ExcerciseActivity extends AppCompatActivity {
         }
 
         question_type = getIntent().getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
-        if ((question_type == JPChar.QTYPE_SOUND_HIRA) ||
-            (question_type == JPChar.QTYPE_SOUND_KATA)) {
-            imgSound.setVisibility(View.VISIBLE);
-            tvQuestion.setVisibility(View.INVISIBLE);
-
-            imgSound.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // // TODO: play sound
-                }
-            });
-        }
 
         if (is_generated == false) {
             Settings settings = new Settings(this);
@@ -115,6 +105,19 @@ public class ExcerciseActivity extends AppCompatActivity {
         }
 
         showQuestion(questions.get(question_index));
+
+        if ((question_type == JPChar.QTYPE_SOUND_HIRA) ||
+            (question_type == JPChar.QTYPE_SOUND_KATA)) {
+            imgSound.setVisibility(View.VISIBLE);
+            tvQuestion.setVisibility(View.INVISIBLE);
+        }
+
+        imgSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JPChar.playSound(tvQuestion.getText().toString(), context);
+            }
+        });
 
         tvAnswer1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,6 +192,12 @@ public class ExcerciseActivity extends AppCompatActivity {
 
         /* show score information */
         tvScore.setText(score + "");
+
+        /* play sound if question is listening test */
+        if ((question_type == JPChar.QTYPE_SOUND_HIRA) ||
+            (question_type == JPChar.QTYPE_SOUND_KATA)) {
+            JPChar.playSound(tvQuestion.getText().toString(), this);
+        }
     }
 
     private void checkAnswer(String answer) {

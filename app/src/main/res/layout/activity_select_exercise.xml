@@ -17,51 +17,75 @@
         android:textColor="@android:color/white"
         android:background="@drawable/noise_grey_bkg"/>
 
-    <LinearLayout
-        android:id="@+id/groupExerTypes"
+    <TextView
+        android:id="@+id/txtExerciseType"
         android:layout_below="@id/txtExerciseTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="36dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center"
+        android:text="select exercise type"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/groupExerciseTypes"
+        android:layout_below="@id/txtExerciseType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:gravity="center">
 
             <ImageView
-                android:id="@+id/imgExerSoundInfo"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:id="@+id/imgReadingTest"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:padding="16dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/question"/>
+                android:src="@drawable/selector_glasses"
+                android:background="@drawable/selector_aqua_bkg"/>
+        </LinearLayout>
 
-            <Switch
-                android:id="@+id/swcExerSound"
-                android:layout_toLeftOf="@id/imgExerSoundInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="56dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:text="sound test"
-                android:textAlignment="gravity"/>
-        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgSoundTest"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:padding="16dp"
+                android:src="@drawable/selector_headphone"
+                android:background="@drawable/selector_aqua_bkg"/>
+        </LinearLayout>
     </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/groupExercises"
-        android:layout_below="@id/groupExerTypes"
+        android:layout_below="@id/groupExerciseTypes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtCharset"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:gravity="center"
+            android:text="select character set"/>
 
         <TextView
             android:id="@+id/btnSelectHira"
