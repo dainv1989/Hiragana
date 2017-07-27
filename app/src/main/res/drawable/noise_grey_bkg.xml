@@ -6,8 +6,8 @@
         </shape>
     </item>
 
-    <item>
+    <!--item>
         <bitmap android:src="@drawable/noise"
             android:tileMode="repeat"/>
-    </item>
+    </item-->
 </layer-list>
