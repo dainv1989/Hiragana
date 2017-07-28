@@ -94,7 +94,6 @@ public class ExcerciseActivity extends AppCompatActivity {
         question_type = getIntent().getIntExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
 
         if (is_generated == false) {
-            Settings settings = new Settings(this);
             int quest_count = settings.getQuestionCount();
 
             /* if there is something wrong, set question count to default value */

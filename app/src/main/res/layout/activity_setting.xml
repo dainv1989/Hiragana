@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/noise_bkg"
+    android:background="@color/primary_light"
     tools:context=".SettingActivity">
 
     <TextView
@@ -15,7 +15,7 @@
         android:text="@string/title_setting"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:background="@drawable/noise_grey_bkg"/>
+        android:background="@color/aqua_dark"/>
 
     <fragment android:name="com.dainv.hiragana.SettingFragment"
         android:id="@+id/fragSetting"

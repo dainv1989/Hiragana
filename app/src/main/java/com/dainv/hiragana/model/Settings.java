@@ -19,12 +19,9 @@ public class Settings {
     private static SharedPreferences preferences = null;
 
     public Settings(Context context) {
-        this.context = context;
-
-        if (resources == null)
+        if (this.context != context) {
+            this.context = context;
             resources = context.getResources();
-
-        if (preferences == null) {
             preferences = PreferenceManager.getDefaultSharedPreferences(context);
         }
     }
@@ -87,7 +84,7 @@ public class Settings {
     }
 
     private int getIntKey(String strKey) {
-        String value = preferences.getString(strKey, "0");
-        return Integer.parseInt(value);
+        Integer value = preferences.getInt(strKey, 10);
+        return value.intValue();
     }
 }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/noise_bkg"
+    android:background="@color/primary_light"
     tools:context=".AboutActivity">
 
     <ImageView
@@ -11,14 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/logo_height"
         android:paddingTop="@dimen/padding_large"
-        android:paddingBottom="@dimen/padding_large"
+        android:paddingBottom="@dimen/padding_normal"
         android:layout_alignParentTop="true"
         android:src="@drawable/logo"/>
 
     <LinearLayout
         android:id="@+id/aboutBotNav"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/botnav_height"
+        android:layout_height="52dp"
         android:padding="@dimen/padding_small"
         android:gravity="center"
         android:orientation="horizontal"
@@ -39,6 +39,12 @@
             android:padding="@dimen/padding_normal"
             android:scaleType="centerInside"/>
     </LinearLayout>
+
+    <View
+        android:layout_above="@id/aboutBotNav"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/aqua_blue"/>
 
     <TextView
         android:id="@+id/txtThankInfo"

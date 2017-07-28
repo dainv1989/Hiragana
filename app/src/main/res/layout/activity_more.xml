@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/noise_bkg"
+    android:background="@color/primary_light"
     tools:context=".MoreActivity">
 
     <TextView

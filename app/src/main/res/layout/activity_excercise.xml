@@ -4,7 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/noise_bkg"
+    android:background="@color/primary_light"
     tools:context=".ExcerciseActivity">
 
     <RelativeLayout
@@ -23,7 +23,8 @@
             android:layout_margin="@dimen/margin_normal"
             android:layout_alignParentLeft="true"
             android:text="@string/null_string"
-            android:textSize="20sp"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
             android:background="@drawable/selector_text"/>
 
         <TextView
@@ -34,7 +35,8 @@
             android:layout_alignParentRight="true"
             android:layout_margin="@dimen/margin_normal"
             android:text="@string/null_string"
-            android:textSize="20sp"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
             android:background="@drawable/selector_text"/>
 
         <TextView
@@ -45,7 +47,8 @@
             android:gravity="center"
             android:layout_margin="@dimen/margin_normal"
             android:text="@string/null_string"
-            android:textSize="20sp"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
             android:background="@drawable/selector_text"/>
     </RelativeLayout>
 
@@ -87,6 +90,7 @@
                 android:layout_gravity="start"
                 android:gravity="center"
                 android:text="10"
+                android:textColor="@color/primary_text"
                 android:textSize="@dimen/text_large"/>
         </LinearLayout>
 
@@ -115,6 +119,7 @@
             android:gravity="center"
             android:layout_centerInParent="true"
             android:text="ぎょ"
+            android:textColor="@color/primary_text"
             android:textSize="@dimen/text_giant"/>
 
         <ImageView
