@@ -79,12 +79,12 @@ public class Settings {
 
     private void setIntKey(String strKey, int value) {
         editor = preferences.edit();
-        editor.putInt(strKey, value);
+        editor.putString(strKey, Integer.toString(value));
         editor.apply();
     }
 
     private int getIntKey(String strKey) {
-        Integer value = preferences.getInt(strKey, 10);
-        return value.intValue();
+        String value = preferences.getString(strKey, "10");
+        return Integer.parseInt(value);
     }
 }

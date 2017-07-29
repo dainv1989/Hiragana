@@ -59,7 +59,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/adsid_banner"/>
+        ads:adUnitId="@string/adsid_banner"
+        android:background="@color/primary"/>
 
     <RelativeLayout
         android:id="@+id/groupScore"

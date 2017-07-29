@@ -15,6 +15,8 @@
     <color name="header_text">#cf3721</color>
 
     <color name="avocado">#258039</color>
+    <color name="avocado_light">#34b550</color>
     <color name="aqua_blue">#31a9b8</color>
     <color name="aqua_dark">#2d9dab</color>
+    <color name="aqua_darker">#268490</color>
 </resources>

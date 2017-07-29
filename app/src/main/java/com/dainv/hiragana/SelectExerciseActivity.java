@@ -87,7 +87,6 @@ public class SelectExerciseActivity extends AppCompatActivity {
         });
 
         final Context context = this;
-        final Resources resources = context.getResources();
         tvSelectHira.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +129,6 @@ public class SelectExerciseActivity extends AppCompatActivity {
                     /* update to application settings */
                     if (settings != null) {
                         settings.setQuestionCount(qa_counts[index]);
-                        Log.v("====", ";;;; " + index + "---" + qa_counts[index]);
                     }
                 }
             });

@@ -37,9 +37,10 @@ public class CharActivity extends AppCompatActivity {
     private static int display_char_type = 0;
     private static String current_char = "a";
 
+    private static int last_selected_index = 0;
+
     private RecyclerView bottomCharScroll;
     private GifImageView gifCharDisplay;
-    private TextView tvStroke;
 
     private ImageView imgPlaySound;
     private ImageView imgSwitchChar;
@@ -58,7 +59,6 @@ public class CharActivity extends AppCompatActivity {
         imgPlaySound = (ImageView)findViewById(R.id.imgCharSound);
         gifCharDisplay = (GifImageView)findViewById(R.id.gifCharDisplay);
         bottomCharScroll = (RecyclerView)findViewById(R.id.bottomCharScroll);
-        tvStroke = (TextView)findViewById(R.id.txtStroke);
 
         gifCharDisplay.setGifImageAsset(currentCharAsset);
 
@@ -76,9 +76,16 @@ public class CharActivity extends AppCompatActivity {
                 JPChar.playSound(current_char, getApplicationContext());
             }
         });
+
+        imgSwitchChar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // todo: switch between hiragana and katakana
+            }
+        });
     }
 
-    public class CharAdapter extends RecyclerView.Adapter<CharAdapter.ViewHolder> {
+    private class CharAdapter extends RecyclerView.Adapter<CharAdapter.ViewHolder> {
         private String[] dataset;
 
         public class ViewHolder extends RecyclerView.ViewHolder
@@ -96,10 +103,11 @@ public class CharActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int position = getAdapterPosition();
+
                 if (position != RecyclerView.NO_POSITION) {
-                    currentCharAsset = "hira/" + this.view.getText() + ".gif";
+                    currentCharAsset = "hira/" + ((TextView) view).getText() + ".gif";
                     gifCharDisplay.setGifImageAsset(currentCharAsset);
-                    current_char = "" + this.view.getText();
+                    current_char = "" + ((TextView) view).getText();
                 }
             }
         }

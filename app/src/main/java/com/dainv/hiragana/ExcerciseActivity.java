@@ -102,6 +102,9 @@ public class ExcerciseActivity extends AppCompatActivity {
 
             questions = JPChar.generateQuestions(quest_count, question_type);
             is_generated = true;
+            /* reset score after generation question set */
+            score = 0;
+            question_index = 0;
         }
 
         showQuestion(questions.get(question_index));

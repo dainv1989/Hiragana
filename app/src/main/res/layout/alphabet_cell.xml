@@ -14,7 +14,7 @@
         android:paddingBottom="@dimen/padding_small"
         android:text="@string/null_string"
         android:textSize="@dimen/text_large"
-        android:textColor="@color/sub_text"/>
+        android:textColor="@color/primary_text"/>
 
     <TextView
         android:id="@+id/txtRomaji"
@@ -23,5 +23,7 @@
         android:gravity="center"
         android:paddingTop="@dimen/padding_small"
         android:paddingBottom="@dimen/padding_large"
-        android:text="@string/null_string"/>
+        android:text="@string/null_string"
+        android:textSize="15dp"
+        android:textColor="@color/sub_text"/>
 </LinearLayout>

@@ -9,31 +9,39 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bottomCharScroll"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="72dp"
+        android:paddingLeft="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
         android:layout_alignParentBottom="true"
         android:scrollbars="none" />
 
-    <View
-        android:layout_above="@id/bottomCharScroll"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#c0c0c0"/>
+    <com.dainv.hiragana.view.GifImageView
+        android:id="@+id/gifCharDisplay"
+        android:layout_width="160dp"
+        android:layout_height="128dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/txtStrokeHeader"
+        android:layout_above="@id/gifCharDisplay"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
         android:padding="@dimen/padding_small"
+        android:gravity="center"
         android:text="@string/stroke_header"
-        android:gravity="center_horizontal"/>
+        android:textColor="@color/primary_text"/>
 
     <LinearLayout
         android:id="@+id/groupButtons"
         android:layout_above="@id/bottomCharScroll"
+        android:layout_below="@id/gifCharDisplay"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_large"
         android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/imgSwitchKana"
@@ -47,24 +55,8 @@
             android:layout_width="@dimen/size_large"
             android:layout_height="@dimen/size_large"
             android:padding="@dimen/padding_large"
-            android:src="@mipmap/change"/>
+            android:src="@drawable/selector_speaker"/>
     </LinearLayout>
 
-    <com.dainv.hiragana.view.GifImageView
-        android:layout_above="@id/groupButtons"
-        android:id="@+id/gifCharDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center" />
 
-    <TextView
-        android:id="@+id/txtStroke"
-        android:layout_above="@id/gifCharDisplay"
-        android:layout_below="@id/txtStrokeHeader"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="あ"
-        android:textSize="@dimen/text_xgiant"/>
 </RelativeLayout>

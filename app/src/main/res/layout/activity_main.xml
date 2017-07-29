@@ -136,8 +136,8 @@
     <View
         android:layout_above="@id/mainBottomNav"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/aqua_blue"/>
+        android:layout_height="1px"
+        android:background="@color/red_ninja"/>
 
     <RelativeLayout
         android:id="@+id/mainNav"

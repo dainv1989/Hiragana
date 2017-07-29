@@ -2,9 +2,12 @@
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="64dp"
-    android:layout_height="64dp"
+    android:layout_height="56dp"
     android:padding="@dimen/padding_small"
     android:gravity="center"
+    android:layout_gravity="center"
     android:text="@string/null_string"
-    android:textSize="@dimen/text_normal">
+    android:textSize="@dimen/text_normal"
+    android:textColor="@android:color/white"
+    android:background="@drawable/selector_rectangle3">
 </TextView>
