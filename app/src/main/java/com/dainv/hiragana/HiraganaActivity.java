@@ -82,15 +82,15 @@ public class HiraganaActivity extends AppCompatActivity {
         btnSwitchChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnPlaySound.setSelected(false);
+                btnSwitchChart.setSelected(true);
+
                 if (current_chart == JPChar.HIRAGANA_CHART)
                     current_chart = JPChar.KATAKANA_CHART;
                 else
                     current_chart = JPChar.HIRAGANA_CHART;
                 updateChartView();
                 pagerAdapter.notifyDataSetChanged();
-
-                btnPlaySound.setSelected(false);
-                btnSwitchChart.setSelected(true);
             }
         });
 
@@ -98,6 +98,9 @@ public class HiraganaActivity extends AppCompatActivity {
         btnPlaySound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnPlaySound.setSelected(true);
+                btnSwitchChart.setSelected(false);
+
                 if (is_playing == false) {
                     is_playing = true;
                     playAllSounds();
@@ -105,9 +108,6 @@ public class HiraganaActivity extends AppCompatActivity {
                 } else {
                     stopPlaying();
                 }
-
-                btnPlaySound.setSelected(true);
-                btnSwitchChart.setSelected(false);
             }
         });
 

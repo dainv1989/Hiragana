@@ -21,7 +21,7 @@
             android:paddingRight="16dp"
             android:gravity="center_vertical"
             android:text="number of questions per exercise"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="@color/primary_text"/>
 
         <LinearLayout
@@ -111,7 +111,7 @@
             android:paddingRight="16dp"
             android:gravity="center_vertical"
             android:text="select exercise type"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="@color/primary_text"/>
 
         <LinearLayout
@@ -130,8 +130,8 @@
 
                 <ImageView
                     android:id="@+id/imgReadingTest"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:padding="16dp"
                     android:src="@drawable/selector_glasses"
                     android:background="@drawable/selector_aqua_bkg"/>
@@ -146,8 +146,8 @@
 
                 <ImageView
                     android:id="@+id/imgSoundTest"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:padding="16dp"
                     android:src="@drawable/selector_headphone"
                     android:background="@drawable/selector_aqua_bkg"/>
@@ -169,7 +169,7 @@
             android:paddingRight="16dp"
             android:gravity="center_vertical"
             android:text="select character set"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="@color/primary_text"/>
 
         <LinearLayout
@@ -188,12 +188,12 @@
 
                 <TextView
                     android:id="@+id/btnSelectHira"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:gravity="center"
                     android:padding="@dimen/padding_small"
                     android:text="@string/button_hiragana"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:background="@drawable/selector_text"/>
@@ -208,12 +208,12 @@
 
                 <TextView
                     android:id="@+id/btnSelectKata"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:gravity="center"
                     android:padding="@dimen/padding_normal"
                     android:text="@string/button_katakana"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:background="@drawable/selector_text"/>

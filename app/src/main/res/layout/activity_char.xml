@@ -33,13 +33,14 @@
         android:layout_above="@id/bottomCharScroll"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_large"
+        android:padding="4dp"
         android:orientation="horizontal"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/imgSwitchKana"
-            android:layout_width="@dimen/size_large"
-            android:layout_height="@dimen/size_large"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:src="@mipmap/refresh"
             android:padding="@dimen/padding_large"
             android:layout_marginRight="8dp"
@@ -47,8 +48,8 @@
 
         <ImageView
             android:id="@+id/imgCharSound"
-            android:layout_width="@dimen/size_large"
-            android:layout_height="@dimen/size_large"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:padding="@dimen/padding_large"
             android:layout_marginLeft="8dp"
             android:src="@drawable/selector_speaker"
@@ -63,44 +64,60 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtCharTitle"
-            android:layout_below="@id/adsCharBanner"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:text="character"
-            android:textColor="@color/primary_text"/>
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtCharTitle"
+                android:layout_below="@id/adsCharBanner"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:text="character"
+                android:textColor="@color/primary_text"/>
 
-        <TextView
-            android:id="@+id/txtCharStatic"
-            android:layout_below="@id/txtCharTitle"
-            android:layout_width="160dp"
-            android:layout_height="120dp"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:padding="8dp"
-            android:text="あ"
-            android:textSize="80sp"
-            android:textColor="@color/primary_text"
-            android:background="@android:color/white"/>
+            <TextView
+                android:id="@+id/txtCharStatic"
+                android:layout_below="@id/txtCharTitle"
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:padding="8dp"
+                android:text="あ"
+                android:textSize="80sp"
+                android:textColor="@color/primary_text"
+                android:background="@android:color/white"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtStrokeHeader"
-            android:layout_below="@id/txtCharStatic"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:padding="@dimen/padding_small"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/stroke_header"
-            android:textColor="@color/primary_text"/>
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtStrokeHeader"
+                android:layout_below="@id/txtCharStatic"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:padding="@dimen/padding_small"
+                android:gravity="center"
+                android:text="@string/stroke_header"
+                android:textColor="@color/primary_text"/>
 
-        <com.dainv.hiragana.view.GifImageView
-            android:id="@+id/gifCharDisplay"
-            android:layout_below="@id/txtStrokeHeader"
-            android:layout_above="@id/groupButtons"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true" />
+            <com.dainv.hiragana.view.GifImageView
+                android:id="@+id/gifCharDisplay"
+                android:layout_below="@id/txtStrokeHeader"
+                android:layout_above="@id/groupButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
