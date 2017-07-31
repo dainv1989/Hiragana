@@ -165,6 +165,6 @@ public class SelectExerciseActivity extends AppCompatActivity {
         /* set selected text to large size */
         textView.setSelected(true);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.text_large));
+                getResources().getDimensionPixelSize(R.dimen.text_normal));
     }
 }

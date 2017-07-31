@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_light"
     tools:context=".CharActivity">
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adsCharBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/adsid_banner"
+        android:background="@color/primary"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bottomCharScroll"
@@ -17,27 +28,9 @@
         android:layout_alignParentBottom="true"
         android:scrollbars="none" />
 
-    <com.dainv.hiragana.view.GifImageView
-        android:id="@+id/gifCharDisplay"
-        android:layout_width="160dp"
-        android:layout_height="128dp"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center" />
-
-    <TextView
-        android:id="@+id/txtStrokeHeader"
-        android:layout_above="@id/gifCharDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:padding="@dimen/padding_small"
-        android:gravity="center"
-        android:text="@string/stroke_header"
-        android:textColor="@color/primary_text"/>
-
     <LinearLayout
         android:id="@+id/groupButtons"
         android:layout_above="@id/bottomCharScroll"
-        android:layout_below="@id/gifCharDisplay"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_large"
         android:orientation="horizontal"
@@ -47,16 +40,67 @@
             android:id="@+id/imgSwitchKana"
             android:layout_width="@dimen/size_large"
             android:layout_height="@dimen/size_large"
-            android:src="@mipmap/change"
-            android:padding="@dimen/padding_large"/>
+            android:src="@mipmap/refresh"
+            android:padding="@dimen/padding_large"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/selector_aqua_bkg"/>
 
         <ImageView
             android:id="@+id/imgCharSound"
             android:layout_width="@dimen/size_large"
             android:layout_height="@dimen/size_large"
             android:padding="@dimen/padding_large"
-            android:src="@drawable/selector_speaker"/>
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/selector_speaker"
+            android:background="@drawable/selector_aqua_bkg"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_below="@id/adsCharBanner"
+        android:layout_above="@id/groupButtons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/txtCharTitle"
+            android:layout_below="@id/adsCharBanner"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="character"
+            android:textColor="@color/primary_text"/>
+
+        <TextView
+            android:id="@+id/txtCharStatic"
+            android:layout_below="@id/txtCharTitle"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:padding="8dp"
+            android:text="あ"
+            android:textSize="80sp"
+            android:textColor="@color/primary_text"
+            android:background="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/txtStrokeHeader"
+            android:layout_below="@id/txtCharStatic"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:padding="@dimen/padding_small"
+            android:gravity="center"
+            android:text="@string/stroke_header"
+            android:textColor="@color/primary_text"/>
+
+        <com.dainv.hiragana.view.GifImageView
+            android:id="@+id/gifCharDisplay"
+            android:layout_below="@id/txtStrokeHeader"
+            android:layout_above="@id/groupButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 
 import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.view.GifImageView;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class CharActivity extends AppCompatActivity {
 
@@ -37,13 +41,15 @@ public class CharActivity extends AppCompatActivity {
     private static int display_char_type = 0;
     private static String current_char = "a";
 
-    private static int last_selected_index = 0;
-
     private RecyclerView bottomCharScroll;
     private GifImageView gifCharDisplay;
 
     private ImageView imgPlaySound;
     private ImageView imgSwitchChar;
+
+    private TextView txtCharStatic;
+
+    private AdView adView;
 
     private String currentCharAsset = "hira/a.gif";
 
@@ -57,6 +63,9 @@ public class CharActivity extends AppCompatActivity {
 
         imgSwitchChar = (ImageView)findViewById(R.id.imgSwitchKana);
         imgPlaySound = (ImageView)findViewById(R.id.imgCharSound);
+
+        txtCharStatic = (TextView)findViewById(R.id.txtCharStatic);
+
         gifCharDisplay = (GifImageView)findViewById(R.id.gifCharDisplay);
         bottomCharScroll = (RecyclerView)findViewById(R.id.bottomCharScroll);
 
@@ -83,10 +92,52 @@ public class CharActivity extends AppCompatActivity {
                 // todo: switch between hiragana and katakana
             }
         });
+
+        adView = (AdView)findViewById(R.id.adsCharBanner);
+        adView.setVisibility(View.GONE);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("1F17B575D2A0B81A953E526D33694A52")
+                .build();
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                adView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                adView.setVisibility(View.GONE);
+            }
+        });
+        adView.loadAd(adRequest);
+    }
+
+    @Override
+    public void onPause() {
+        if (adView != null)
+            adView.pause();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        if (adView != null)
+            adView.resume();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null)
+            adView.destroy();
+        super.onDestroy();
     }
 
     private class CharAdapter extends RecyclerView.Adapter<CharAdapter.ViewHolder> {
+
         private String[] dataset;
+
+        private int selected_position = 0;
 
         public class ViewHolder extends RecyclerView.ViewHolder
                 implements View.OnClickListener {
@@ -105,6 +156,11 @@ public class CharActivity extends AppCompatActivity {
                 int position = getAdapterPosition();
 
                 if (position != RecyclerView.NO_POSITION) {
+                    /* update old as well as new selected position view */
+                    notifyItemChanged(selected_position);
+                    selected_position = position;
+                    notifyItemChanged(selected_position);
+
                     currentCharAsset = "hira/" + ((TextView) view).getText() + ".gif";
                     gifCharDisplay.setGifImageAsset(currentCharAsset);
                     current_char = "" + ((TextView) view).getText();
@@ -128,6 +184,12 @@ public class CharActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.view.setText(dataset[position]);
+
+            if (position == selected_position) {
+                holder.itemView.setSelected(true);
+            } else {
+                holder.itemView.setSelected(false);
+            }
         }
 
         @Override

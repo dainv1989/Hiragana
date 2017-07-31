@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/hiraBotNav"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
 
@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:padding="12dp"
+            android:padding="8dp"
             android:src="@mipmap/play"
             android:background="@drawable/selector_rectangle2"/>
 
@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:padding="12dp"
+            android:padding="8dp"
             android:src="@mipmap/change"
             android:background="@drawable/selector_rectangle2"/>
 
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:padding="12dp"
+            android:padding="8dp"
             android:src="@mipmap/mind"
             android:background="@drawable/selector_rectangle2"/>
 
@@ -46,8 +46,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:padding="12dp"
-            android:visibility="gone"
+            android:padding="8dp"
             android:src="@mipmap/pencil"
             android:background="@drawable/selector_rectangle2"/>
     </LinearLayout>
