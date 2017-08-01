@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dainv.hiragana.model.JPChar;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class ScoreActivity extends AppCompatActivity {
 
@@ -18,7 +21,7 @@ public class ScoreActivity extends AppCompatActivity {
     private ImageView imgGoHome;
     private ImageView imgEmotion;
 
-    /* private InterstitialAd adsFullScreen; */
+    private InterstitialAd adsFullScreen;
 
     private static int question_type = JPChar.QTYPE_READ_HIRA;
     private static int mark = 0;
@@ -63,11 +66,10 @@ public class ScoreActivity extends AppCompatActivity {
             }
         });
 
-        /*
         adsFullScreen = new InterstitialAd(this);
         adsFullScreen.setAdUnitId(getResources().getString(R.string.adsid_fullscreen));
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("1F17B575D2A0B81A953E526D33694A52")
+                //.addTestDevice("1F17B575D2A0B81A953E526D33694A52")
                 .build();
         adsFullScreen.loadAd(adRequest);
         adsFullScreen.setAdListener(new AdListener() {
@@ -76,7 +78,6 @@ public class ScoreActivity extends AppCompatActivity {
                 adsFullScreen.show();
             }
         });
-        */
     }
 
     private void showEmotion(int score) {

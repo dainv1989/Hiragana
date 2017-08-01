@@ -69,7 +69,7 @@ public class ExcerciseActivity extends AppCompatActivity {
         adView = (AdView)findViewById(R.id.adsExerBanner);
         adView.setVisibility(View.GONE);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("1F17B575D2A0B81A953E526D33694A52")
+                //.addTestDevice("1F17B575D2A0B81A953E526D33694A52")
                 .build();
         adView.setAdListener(new AdListener() {
             @Override
