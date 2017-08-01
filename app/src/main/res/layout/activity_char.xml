@@ -44,7 +44,7 @@
             android:src="@mipmap/refresh"
             android:padding="@dimen/padding_large"
             android:layout_marginRight="8dp"
-            android:background="@drawable/selector_aqua_bkg"/>
+            android:background="@drawable/selector_round_aqua_red"/>
 
         <ImageView
             android:id="@+id/imgCharSound"
@@ -52,8 +52,8 @@
             android:layout_height="64dp"
             android:padding="@dimen/padding_large"
             android:layout_marginLeft="8dp"
-            android:src="@drawable/selector_speaker"
-            android:background="@drawable/selector_aqua_bkg"/>
+            android:src="@mipmap/speaker_light"
+            android:background="@drawable/selector_round_aqua_red"/>
     </LinearLayout>
 
     <LinearLayout
@@ -91,7 +91,7 @@
                 android:text="あ"
                 android:textSize="80sp"
                 android:textColor="@color/primary_text"
-                android:background="@android:color/white"/>
+                android:background="@drawable/rectangle_stroke_black"/>
         </LinearLayout>
 
         <LinearLayout

@@ -21,9 +21,6 @@ import com.google.android.gms.ads.AdView;
 
 public class CharActivity extends AppCompatActivity {
 
-    private static final int HIRAGANA_CHART = 1;
-    private static final int KATAKANA_CHART = 2;
-
     private static final String basic_chars[] = {
             "a", "i", "u", "e", "o",
             "ka", "ki", "ku", "ke", "ko",
@@ -97,7 +94,15 @@ public class CharActivity extends AppCompatActivity {
         gifCharDisplay = (GifImageView)findViewById(R.id.gifCharDisplay);
         bottomCharScroll = (RecyclerView)findViewById(R.id.bottomCharScroll);
 
-        gifCharDisplay.setGifImageAsset(currentCharAsset);
+        if (display_char_type == JPChar.HIRAGANA_CHART) {
+            currentCharAsset = "hira/a.gif";
+            gifCharDisplay.setGifImageAsset(currentCharAsset);
+            txtCharStatic.setText(basic_hira[0]);
+        } else {
+            currentCharAsset = "kata/a.gif";
+            gifCharDisplay.setGifImageAsset(currentCharAsset);
+            txtCharStatic.setText(basic_kata[0]);
+        }
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false); /* horizontal display list */
@@ -117,18 +122,18 @@ public class CharActivity extends AppCompatActivity {
         imgSwitchChar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(display_char_type == HIRAGANA_CHART) {
+                if(display_char_type == JPChar.HIRAGANA_CHART) {
                     txtCharStatic.setText(basic_kata[selected_position]);
                     currentCharAsset = "kata/" + basic_chars[selected_position] + ".gif";
                     gifCharDisplay.setGifImageAsset(currentCharAsset);
 
-                    display_char_type = KATAKANA_CHART;
+                    display_char_type = JPChar.KATAKANA_CHART;
                 } else {
                     txtCharStatic.setText(basic_hira[selected_position]);
                     currentCharAsset = "hira/" + basic_chars[selected_position] + ".gif";
                     gifCharDisplay.setGifImageAsset(currentCharAsset);
 
-                    display_char_type = HIRAGANA_CHART;
+                    display_char_type = JPChar.HIRAGANA_CHART;
                 }
             }
         });
@@ -198,7 +203,7 @@ public class CharActivity extends AppCompatActivity {
                     selected_position = position;
                     notifyItemChanged(selected_position);
 
-                    if(display_char_type == HIRAGANA_CHART) {
+                    if(display_char_type == JPChar.HIRAGANA_CHART) {
                         txtCharStatic.setText(basic_hira[selected_position]);
                         currentCharAsset = "hira/" + basic_chars[selected_position] + ".gif";
                         gifCharDisplay.setGifImageAsset(currentCharAsset);

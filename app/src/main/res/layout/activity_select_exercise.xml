@@ -132,9 +132,9 @@
                     android:id="@+id/imgReadingTest"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:padding="16dp"
+                    android:padding="20dp"
                     android:src="@drawable/selector_glasses"
-                    android:background="@drawable/selector_aqua_bkg"/>
+                    android:background="@drawable/selector_stroke_aqua_red"/>
             </LinearLayout>
 
             <LinearLayout
@@ -148,9 +148,9 @@
                     android:id="@+id/imgSoundTest"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:padding="16dp"
+                    android:padding="20dp"
                     android:src="@drawable/selector_headphone"
-                    android:background="@drawable/selector_aqua_bkg"/>
+                    android:background="@drawable/selector_stroke_aqua_red"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -196,7 +196,7 @@
                     android:textSize="14sp"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
-                    android:background="@drawable/selector_text"/>
+                    android:background="@drawable/selector_round_aqua_red"/>
             </LinearLayout>
 
             <LinearLayout
@@ -216,7 +216,7 @@
                     android:textSize="14sp"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
-                    android:background="@drawable/selector_text"/>
+                    android:background="@drawable/selector_round_aqua_red"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

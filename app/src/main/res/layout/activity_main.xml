@@ -159,7 +159,7 @@
             android:text="hiragana"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:background="@drawable/selector_text"/>
+            android:background="@drawable/selector_round_red_aqua"/>
 
         <TextView
             android:id="@+id/btnKata"
@@ -173,7 +173,7 @@
             android:text="katakana"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:background="@drawable/selector_text"/>
+            android:background="@drawable/selector_round_red_aqua"/>
 
         <TextView
             android:id="@+id/btnExer"
@@ -188,7 +188,7 @@
             android:text="@string/button_exercise"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:background="@drawable/selector_text"/>
+            android:background="@drawable/selector_round_red_aqua"/>
 
         <ImageView
             android:id="@+id/btnMore"
@@ -204,6 +204,6 @@
             android:visibility="gone"
             android:src="@mipmap/more"
             android:textSize="@dimen/text_normal"
-            android:background="@drawable/selector_text"/>
+            android:background="@drawable/selector_round_red_aqua"/>
     </RelativeLayout>
 </RelativeLayout>

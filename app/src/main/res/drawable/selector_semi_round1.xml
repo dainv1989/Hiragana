@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/semi_round_avocado_bkg1" android:state_selected="true"/>
-    <item android:drawable="@drawable/semi_round_avocado_bkg1" android:state_pressed="true"/>
+    <item android:drawable="@drawable/semi_round_red_bkg1" android:state_selected="true"/>
+    <item android:drawable="@drawable/semi_round_red_bkg1" android:state_pressed="true"/>
     <item android:drawable="@drawable/semi_round_aqua_bkg1"/>
 </selector>
