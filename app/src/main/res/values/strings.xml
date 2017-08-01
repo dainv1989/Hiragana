@@ -25,6 +25,8 @@
         Get it on Google Play at: </string>
 
     <string name="thank_statement">Thanks for using this app. Please share and encourage me on Google Play.</string>
+    <string name="parrot_app_intro">Learn basic Japanese vocabulary and expressions with Parrot Japanese.</string>
+    <string name="parrot_app_name">(touch to see on Google Play)</string>
 
     <!-- [START] preference screen strings -->
     <string name="title_setting">settings</string>
