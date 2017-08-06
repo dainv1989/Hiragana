@@ -17,7 +17,7 @@
    id="svg4577"
    inkscape:version="0.92.1 r15371"
    sodipodi:docname="hiragana_logo.svg"
-   inkscape:export-filename="D:\tmp\hiragana\images\hiragana_logo.png"
+   inkscape:export-filename="E:\Github\Hiragana\images\hiragana_logo.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -98,15 +98,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0677141"
-     inkscape:cx="321.43228"
-     inkscape:cy="35.532831"
+     inkscape:cx="347.78902"
+     inkscape:cy="105.66933"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:pagecheckerboard="true"
-     inkscape:window-width="1600"
-     inkscape:window-height="838"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -127,79 +127,74 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-249.37499)">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.50978279px;line-height:1.25;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';letter-spacing:0px;word-spacing:0px;fill:#cf3721;fill-opacity:1;stroke:none;stroke-width:0.32825598;stroke-opacity:1"
-       x="1.4515524"
-       y="277.3363"
-       id="text5124"
-       transform="scale(0.97823629,1.0222479)"><tspan
-         sodipodi:role="line"
-         id="tspan5122"
-         x="1.4515524"
-         y="277.3363"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:1.25;font-family:'MV Boli';-inkscape-font-specification:'MV Boli Bold';fill:#cf3721;fill-opacity:1;stroke:none;stroke-width:0.32825598;stroke-opacity:1">Hihi</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#258039;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="82.890526"
-       y="284.08612"
-       id="text4502"><tspan
-         sodipodi:role="line"
-         id="tspan4500"
-         x="82.890526"
-         y="284.08612"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.39999962px;line-height:1.25;font-family:'MV Boli';-inkscape-font-specification:'MV Boli';fill:#258039;fill-opacity:1;stroke-width:0.26458332">kaka</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111078px;line-height:1.25;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script Bold';letter-spacing:0px;word-spacing:0px;fill:#3a3d3f;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="2.4895988"
-       y="294.36203"
-       id="text4503"><tspan
-         sodipodi:role="line"
-         id="tspan4501"
-         x="2.4895988"
-         y="294.36203"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111078px;font-family:'Segoe Script';-inkscape-font-specification:'Segoe Script Bold';fill:#3a3d3f;fill-opacity:1;stroke-width:0.26458332">learning Hiragana &amp; Katakana</tspan></text>
     <g
-       aria-label="ひ"
-       style="font-style:normal;font-weight:normal;font-size:25.39999962px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       id="text4507" />
-    <g
-       aria-label="ひ"
-       transform="scale(1.7905745,0.55847998)"
-       style="font-style:normal;font-weight:normal;font-size:15.09732151px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.37743303"
-       id="text4514" />
-    <g
-       id="g4568"
-       transform="translate(0,4.7625002)">
-      <path
-         inkscape:connector-curvature="0"
-         id="path8"
-         d="m 78.116968,270.61277 c -0.601789,-0.18058 -1.241298,0.16394 -1.421892,0.7681 -0.02009,0.068 -2.136838,6.82771 -10.317289,6.82771 -8.126158,0 -10.232136,-6.55339 -10.318433,-6.83229 -0.182887,-0.60292 -0.823532,-0.94297 -1.420748,-0.76352 -0.605219,0.18122 -0.948689,0.81838 -0.768096,1.42247 0.02572,0.0847 2.64433,8.45934 12.507277,8.45934 9.862946,0 12.48156,-8.37476 12.507277,-8.45993 0.180597,-0.6035 -0.162886,-1.24072 -0.768096,-1.42188 z"
-         style="fill:#f5be41;fill-opacity:1;stroke-width:0.57149994" />
+       id="g4519"
+       transform="translate(0,6.9684572)">
       <text
-         id="text4540"
-         y="271.01419"
-         x="58.200272"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.86666489px;line-height:1.25;font-family:'Kristen ITC';-inkscape-font-specification:'Kristen ITC';letter-spacing:0px;word-spacing:0px;fill:#f5be41;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         transform="scale(0.97823629,1.0222479)"
+         id="text5124"
+         y="268.12473"
+         x="14.087727"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:monospace;-inkscape-font-specification:'monospace Bold';letter-spacing:0px;word-spacing:0px;fill:#3a3d3f;fill-opacity:1;stroke:none;stroke-width:0.32825598;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.86666489px;font-family:'Kristen ITC';-inkscape-font-specification:'Kristen ITC';fill:#f5be41;fill-opacity:1;stroke-width:0.26458332"
-           y="271.01419"
-           x="58.200272"
-           id="tspan4538"
-           sodipodi:role="line">!</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#3a3d3f;fill-opacity:1;stroke:none;stroke-width:0.32825598;stroke-opacity:1"
+           y="268.12473"
+           x="14.087727"
+           id="tspan5122"
+           sodipodi:role="line">Hihi     kaka </tspan></text>
       <text
-         id="text4540-6"
-         y="270.79462"
-         x="64.985802"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.86666489px;line-height:1.25;font-family:'Kristen ITC';-inkscape-font-specification:'Kristen ITC';letter-spacing:0px;word-spacing:0px;fill:#f5be41;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         id="text4503"
+         y="283.70651"
+         x="12.657627"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;line-height:1.25;font-family:monospace;-inkscape-font-specification:'monospace Bold';letter-spacing:0px;word-spacing:0px;fill:#55718d;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.86666489px;font-family:'Kristen ITC';-inkscape-font-specification:'Kristen ITC';fill:#f5be41;fill-opacity:1;stroke-width:0.26458332"
-           y="270.79462"
-           x="64.985802"
-           id="tspan4538-4"
-           sodipodi:role="line">!</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.3499999px;font-family:monospace;-inkscape-font-specification:'monospace Bold';fill:#55718d;fill-opacity:1;stroke-width:0.26458332"
+           y="283.70651"
+           x="12.657627"
+           id="tspan4501"
+           sodipodi:role="line">mastering Hiragana &amp; Katakana</tspan></text>
+      <g
+         id="text4507"
+         style="font-style:normal;font-weight:normal;font-size:25.39999962px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         aria-label="ひ" />
+      <g
+         id="text4514"
+         style="font-style:normal;font-weight:normal;font-size:15.09732151px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.37743303"
+         transform="scale(1.7905745,0.55847998)"
+         aria-label="ひ" />
+      <g
+         transform="translate(52.650877,-10.407749)"
+         id="g4518">
+        <path
+           style="fill:#cf3721;fill-opacity:1;stroke-width:0.57149994"
+           d="m 26.821636,277.85331 c -0.601789,-0.18058 -1.241298,0.16394 -1.421892,0.7681 -0.02009,0.068 -2.136838,6.82771 -10.317289,6.82771 -8.126158,0 -10.232136,-6.55339 -10.318433,-6.83229 -0.182887,-0.60292 -0.823532,-0.94297 -1.420748,-0.76352 -0.605219,0.18122 -0.948689,0.81838 -0.768096,1.42247 0.02572,0.0847 2.64433,8.45934 12.507277,8.45934 9.862946,0 12.48156,-8.37476 12.507277,-8.45993 0.180597,-0.6035 -0.162886,-1.24072 -0.768096,-1.42188 z"
+           id="path8"
+           inkscape:connector-curvature="0" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.32098007px;line-height:1.25;font-family:'Kristen ITC';-inkscape-font-specification:'Kristen ITC';letter-spacing:0px;word-spacing:0px;fill:#cf3721;fill-opacity:1;stroke:none;stroke-width:0.24469516"
+           x="6.38591"
+           y="300.88086"
+           id="text4540"
+           transform="scale(1.0812773,0.92483214)"><tspan
+             sodipodi:role="line"
+             id="tspan4538"
+             x="6.38591"
+             y="300.88086"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.32098007px;font-family:'Kristen ITC';-inkscape-font-specification:'Kristen ITC';fill:#cf3721;fill-opacity:1;stroke-width:0.24469516">!</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30.74806786px;line-height:1.25;font-family:'Kristen ITC';-inkscape-font-specification:'Kristen ITC';letter-spacing:0px;word-spacing:0px;fill:#cf3721;fill-opacity:1;stroke:none;stroke-width:0.24021928"
+           x="12.429789"
+           y="306.24744"
+           id="text4540-6"
+           transform="scale(1.1014242,0.90791544)"><tspan
+             sodipodi:role="line"
+             id="tspan4538-4"
+             x="12.429789"
+             y="306.24744"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30.74806786px;font-family:'Kristen ITC';-inkscape-font-specification:'Kristen ITC';fill:#cf3721;fill-opacity:1;stroke-width:0.24021928">!</tspan></text>
+      </g>
     </g>
   </g>
 </svg>
