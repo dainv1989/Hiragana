@@ -160,13 +160,8 @@
             android:gravity="center"
             android:text="hiragana"
             android:textAllCaps="true"
-<<<<<<< HEAD
             android:textColor="@color/primary_text"
-            android:background="@drawable/selector_text"/>
-=======
-            android:textColor="@android:color/white"
             android:background="@drawable/selector_round_red_aqua"/>
->>>>>>> d22799b7190b1ac2e0b8fcca12bc9c8666718cdd
 
         <TextView
             android:id="@+id/btnKata"
@@ -179,13 +174,8 @@
             android:gravity="center"
             android:text="katakana"
             android:textAllCaps="true"
-<<<<<<< HEAD
             android:textColor="@color/primary_text"
-            android:background="@drawable/selector_text"/>
-=======
-            android:textColor="@android:color/white"
             android:background="@drawable/selector_round_red_aqua"/>
->>>>>>> d22799b7190b1ac2e0b8fcca12bc9c8666718cdd
 
         <TextView
             android:id="@+id/btnExer"
@@ -199,13 +189,9 @@
             android:gravity="center"
             android:text="@string/button_exercise"
             android:textAllCaps="true"
-<<<<<<< HEAD
             android:textColor="@color/primary_text"
-            android:background="@drawable/selector_text"/>
-=======
-            android:textColor="@android:color/white"
             android:background="@drawable/selector_round_red_aqua"/>
->>>>>>> d22799b7190b1ac2e0b8fcca12bc9c8666718cdd
+
 
         <ImageView
             android:id="@+id/btnMore"
