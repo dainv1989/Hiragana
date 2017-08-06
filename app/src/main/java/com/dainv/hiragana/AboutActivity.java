@@ -17,6 +17,7 @@ public class AboutActivity extends AppCompatActivity {
     private TextView tvVersion;
     private ImageView imgVote;
     private ImageView imgShare;
+    private ImageView imgParrot;
 
     private String versionName = "1.0";
 
@@ -28,6 +29,7 @@ public class AboutActivity extends AppCompatActivity {
         tvVersion = (TextView)findViewById(R.id.txtVersion);
         imgVote = (ImageView)findViewById(R.id.aboutRateApp);
         imgShare = (ImageView)findViewById(R.id.aboutShare);
+        imgParrot = (ImageView)findViewById(R.id.imgParrot);
 
         final Context context = this;
         PackageManager packageManager = this.getPackageManager();
@@ -49,7 +51,7 @@ public class AboutActivity extends AppCompatActivity {
                     startActivity(market);
                 }
                 catch (ActivityNotFoundException e) {
-                    uri = Uri.parse("http://play.google.com/store/apps/details?id=" + packageName);
+                    uri = Uri.parse("https://play.google.com/store/apps/details?id=" + packageName);
                     market = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(market);
                     e.printStackTrace();
@@ -62,14 +64,32 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String shareText = context.getResources().getString(R.string.share_content);
-                String appUrl = " http://play.google.com/store/apps/details?id=" +
+                String appUrl = " https://play.google.com/store/apps/details?id=" +
                         context.getPackageName();
 
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/html");
+                shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareText + appUrl);
 
                 startActivity(Intent.createChooser(shareIntent, "Share via"));
+            }
+        });
+
+        imgParrot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String packageName = "com.dainv.parrotjapanese";
+                Uri uri = Uri.parse("market://details?id=" + packageName);
+                Intent market = new Intent(Intent.ACTION_VIEW, uri);
+                try {
+                    startActivity(market);
+                }
+                catch (ActivityNotFoundException e) {
+                    uri = Uri.parse("https://play.google.com/store/apps/details?id=" + packageName);
+                    market = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(market);
+                    e.printStackTrace();
+                }
             }
         });
     }
