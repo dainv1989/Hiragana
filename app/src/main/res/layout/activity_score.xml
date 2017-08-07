@@ -59,7 +59,7 @@
                 android:padding="16dp"
                 android:layout_marginRight="8dp"
                 android:src="@mipmap/replay"
-                android:background="@drawable/selector_round_aqua_red"/>
+                android:background="@drawable/selector_round_red"/>
 
             <ImageView
                 android:id="@+id/imgGoHome"
@@ -68,6 +68,6 @@
                 android:padding="16dp"
                 android:layout_marginLeft="8dp"
                 android:src="@mipmap/home"
-                android:background="@drawable/selector_round_aqua_red"/>
+                android:background="@drawable/selector_round_red"/>
     </LinearLayout>
 </LinearLayout>

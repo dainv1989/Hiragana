@@ -4,7 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_light"
+    android:background="@drawable/noise_bkg"
     tools:context=".ExcerciseActivity">
 
     <RelativeLayout
@@ -24,8 +24,8 @@
             android:layout_alignParentLeft="true"
             android:text="@string/null_string"
             android:textSize="24sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/selector_round_aqua_red"/>
+            android:textColor="@color/primary_text"
+            android:background="@drawable/selector_round_red"/>
 
         <TextView
             android:id="@+id/txtAnswer3"
@@ -36,8 +36,8 @@
             android:layout_margin="@dimen/margin_normal"
             android:text="@string/null_string"
             android:textSize="24sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/selector_round_aqua_red"/>
+            android:textColor="@color/primary_text"
+            android:background="@drawable/selector_round_red"/>
 
         <TextView
             android:id="@+id/txtAnswer2"
@@ -48,8 +48,8 @@
             android:layout_margin="@dimen/margin_normal"
             android:text="@string/null_string"
             android:textSize="24sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/selector_round_aqua_red"/>
+            android:textColor="@color/primary_text"
+            android:background="@drawable/selector_round_red"/>
     </RelativeLayout>
 
     <com.google.android.gms.ads.AdView

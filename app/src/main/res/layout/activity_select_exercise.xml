@@ -19,7 +19,7 @@
             android:layout_height="36dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="number of questions per exercise"
             android:textSize="14sp"
             android:textColor="@color/primary_text"/>
@@ -31,69 +31,65 @@
             android:layout_height="56dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/txtQACount5"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
+                android:layout_width="56dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="5"
                 android:textSize="@dimen/text_normal"
-                android:textColor="@color/primary_light"
-                android:background="@drawable/selector_semi_round1"/>
+                android:textColor="@color/primary_text"
+                android:background="@drawable/selector_rectangle3"/>
 
             <View
-                android:layout_width="2dp"
+                android:layout_width="8dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary_light"/>
 
             <TextView
                 android:id="@+id/txtQACount10"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
+                android:layout_width="56dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="10"
                 android:textSize="@dimen/text_small"
-                android:textColor="@color/primary_light"
-                android:background="@drawable/selector_rectangle"/>
+                android:textColor="@color/primary_text"
+                android:background="@drawable/selector_rectangle3"/>
 
             <View
-                android:layout_width="2dp"
+                android:layout_width="8dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary_light"/>
 
             <TextView
                 android:id="@+id/txtQACount15"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
+                android:layout_width="56dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="15"
                 android:textSize="@dimen/text_small"
-                android:textColor="@color/primary_light"
-                android:background="@drawable/selector_rectangle"/>
+                android:textColor="@color/primary_text"
+                android:background="@drawable/selector_rectangle3"/>
 
             <View
-                android:layout_width="2dp"
+                android:layout_width="8dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary_light"/>
 
             <TextView
                 android:id="@+id/txtQACount20"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
+                android:layout_width="56dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:text="20"
                 android:textSize="@dimen/text_small"
-                android:textColor="@color/primary_light"
-                android:background="@drawable/selector_semi_round2"/>
+                android:textColor="@color/primary_text"
+                android:background="@drawable/selector_rectangle3"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -109,7 +105,7 @@
             android:layout_height="36dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="select exercise type"
             android:textSize="14sp"
             android:textColor="@color/primary_text"/>
@@ -167,7 +163,7 @@
             android:layout_height="36dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="select character set"
             android:textSize="14sp"
             android:textColor="@color/primary_text"/>
@@ -195,8 +191,8 @@
                     android:text="@string/button_hiragana"
                     android:textSize="14sp"
                     android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/selector_round_aqua_red"/>
+                    android:textColor="@color/primary_text"
+                    android:background="@drawable/selector_round_red"/>
             </LinearLayout>
 
             <LinearLayout
@@ -215,8 +211,8 @@
                     android:text="@string/button_katakana"
                     android:textSize="14sp"
                     android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/selector_round_aqua_red"/>
+                    android:textColor="@color/primary_text"
+                    android:background="@drawable/selector_round_red"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
