@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@color/primary_light">
+    android:background="@drawable/noise_bkg">
 
     <ImageView
         android:id="@+id/txtAppName"
@@ -108,7 +108,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerInside"
             android:padding="@dimen/padding_normal"
-            android:src="@drawable/selector_setting" />
+            android:src="@drawable/selector_setting"/>
         <ImageView
             android:id="@+id/mainVote"
             android:layout_width="0dp"
@@ -134,12 +134,6 @@
             android:padding="@dimen/padding_normal"
             android:src="@drawable/selector_info"/>
     </LinearLayout>
-
-    <View
-        android:layout_above="@id/mainBottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#adadad"/>
 
     <RelativeLayout
         android:id="@+id/mainNav"
