@@ -3,6 +3,7 @@ package com.dainv.hiragana;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -42,8 +43,13 @@ public class SelectExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_exercise);
 
+        Typeface font = Typeface.createFromAsset(getAssets(), "font/FreeMonoBold.ttf");
+
         tvSelectHira = (TextView)findViewById(R.id.btnSelectHira);
         tvSelectKata = (TextView)findViewById(R.id.btnSelectKata);
+
+        tvSelectHira.setTypeface(font);
+        tvSelectKata.setTypeface(font);
 
         tvQACountSettings.add(0, (TextView)findViewById(R.id.txtQACount5));
         tvQACountSettings.add(1, (TextView)findViewById(R.id.txtQACount10));
