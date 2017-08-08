@@ -3,6 +3,7 @@ package com.dainv.hiragana;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -67,6 +68,19 @@ public class MainActivity extends AppCompatActivity {
         tvMemoHira = (TextView)findViewById(R.id.txtMemoHira);
         tvMemoKata = (TextView)findViewById(R.id.txtMemoKata);
         tvMemoRoma = (TextView)findViewById(R.id.txtMemoRoma);
+
+        try {
+            Typeface font = Typeface.createFromAsset(getAssets(), "font/FreeMonoBold.ttf");
+            if (font != null) {
+                btnHira.setTypeface(font);
+                btnKata.setTypeface(font);
+                btnExer.setTypeface(font);
+                tvMemoRoma.setTypeface(font);
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
 
         imgNinja = (ImageView)findViewById(R.id.imgNinja);
         imgInfo = (ImageView)findViewById(R.id.mainInfo);

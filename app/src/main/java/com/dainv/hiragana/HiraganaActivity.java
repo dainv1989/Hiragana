@@ -11,7 +11,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.dainv.hiragana.model.JPChar;
 import com.dainv.hiragana.view.ChartFragment;
@@ -29,6 +28,8 @@ public class HiraganaActivity extends AppCompatActivity {
 
     private static boolean is_playing = false;
     private static int current_chart = JPChar.HIRAGANA_CHART;
+
+    private int numTabs = NUMBER_OF_TABS;
 
     private Thread player;
 
@@ -194,8 +195,6 @@ public class HiraganaActivity extends AppCompatActivity {
 
     private final static int NUMBER_OF_TABS = 3;
     private class PagerAdapter extends FragmentStatePagerAdapter {
-        private int numTabs = NUMBER_OF_TABS;
-
         public PagerAdapter(FragmentManager fm) {
             super(fm);
         }

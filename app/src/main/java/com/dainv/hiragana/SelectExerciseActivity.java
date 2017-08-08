@@ -2,11 +2,10 @@ package com.dainv.hiragana;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,8 +18,16 @@ import java.util.ArrayList;
 
 public class SelectExerciseActivity extends AppCompatActivity {
 
-    private TextView tvSelectHira;
-    private TextView tvSelectKata;
+    private ImageView imgSelectHira;
+    private ImageView imgSelectKata;
+
+    private ImageView imgReading;
+    private ImageView imgInverseReading;
+    private ImageView imgListening;
+
+    private TextView txtQuestionNum;
+    private TextView txtQuestionType;
+    private TextView txtCharset;
 
     private static final int QA_COUNT_SETTING_NUMBER = 4;
 
@@ -31,9 +38,6 @@ public class SelectExerciseActivity extends AppCompatActivity {
 
     private Settings settings = null;
 
-    private ImageView imgReading;
-    private ImageView imgListening;
-
     private final static int READING_TEST = 1000;
     private final static int LISTENING_TEST = 2000;
     private static int exercise_type = READING_TEST;
@@ -43,21 +47,34 @@ public class SelectExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_exercise);
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "font/FreeMonoBold.ttf");
+        /* [start] set custom font */
+        txtCharset      = (TextView)findViewById(R.id.txtCharset);
+        txtQuestionNum  = (TextView)findViewById(R.id.txtQuestionCount);
+        txtQuestionType = (TextView)findViewById(R.id.txtExerciseType);
 
-        tvSelectHira = (TextView)findViewById(R.id.btnSelectHira);
-        tvSelectKata = (TextView)findViewById(R.id.btnSelectKata);
+        try {
+            Typeface font = Typeface.createFromAsset(getAssets(), "font/FreeMonoBold.ttf");
+            txtCharset.setTypeface(font);
+            txtQuestionNum.setTypeface(font);
+            txtQuestionType.setTypeface(font);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        /* [end] set custom font */
 
-        tvSelectHira.setTypeface(font);
-        tvSelectKata.setTypeface(font);
+        imgSelectHira       = (ImageView)findViewById(R.id.btnSelectHira);
+        imgSelectKata       = (ImageView)findViewById(R.id.btnSelectKata);
 
         tvQACountSettings.add(0, (TextView)findViewById(R.id.txtQACount5));
         tvQACountSettings.add(1, (TextView)findViewById(R.id.txtQACount10));
         tvQACountSettings.add(2, (TextView)findViewById(R.id.txtQACount15));
         tvQACountSettings.add(3, (TextView)findViewById(R.id.txtQACount20));
 
-        imgReading = (ImageView)findViewById(R.id.imgReadingTest);
-        imgListening = (ImageView)findViewById(R.id.imgSoundTest);
+        imgReading          = (ImageView)findViewById(R.id.imgReadingTest);
+        imgInverseReading   = (ImageView)findViewById(R.id.imgReverseRead);
+        imgListening        = (ImageView)findViewById(R.id.imgSoundTest);
 
         /* get application settings */
         settings = new Settings(getApplicationContext());
@@ -80,6 +97,7 @@ public class SelectExerciseActivity extends AppCompatActivity {
                 exercise_type = READING_TEST;
                 imgReading.setSelected(true);
                 imgListening.setSelected(false);
+                imgInverseReading.setSelected(false);
             }
         });
 
@@ -89,11 +107,22 @@ public class SelectExerciseActivity extends AppCompatActivity {
                 exercise_type = LISTENING_TEST;
                 imgListening.setSelected(true);
                 imgReading.setSelected(false);
+                imgInverseReading.setSelected(false);
+            }
+        });
+
+        imgInverseReading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // todo: set exercise type
+                imgInverseReading.setSelected(true);
+                imgListening.setSelected(false);
+                imgReading.setSelected(false);
             }
         });
 
         final Context context = this;
-        tvSelectHira.setOnClickListener(new View.OnClickListener() {
+        imgSelectHira.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ExcerciseActivity.class);
@@ -108,7 +137,7 @@ public class SelectExerciseActivity extends AppCompatActivity {
             }
         });
 
-        tvSelectKata.setOnClickListener(new View.OnClickListener() {
+        imgSelectKata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ExcerciseActivity.class);
@@ -146,11 +175,14 @@ public class SelectExerciseActivity extends AppCompatActivity {
         if (size < QA_COUNT_SETTING_NUMBER)
             return;
 
+        int color = ContextCompat.getColor(this, R.color.primary_text);
+
         for (int i = 0; i < QA_COUNT_SETTING_NUMBER; i++) {
             TextView txtView = tvQACountSettings.get(i);
             txtView.setSelected(false);
             txtView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     getResources().getDimensionPixelSize(R.dimen.text_small));
+            txtView.setTextColor(color);
         }
     }
 
@@ -172,5 +204,7 @@ public class SelectExerciseActivity extends AppCompatActivity {
         textView.setSelected(true);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.text_normal));
+        int color = ContextCompat.getColor(this, R.color.red_ninja);
+        textView.setTextColor(color);
     }
 }

@@ -9,5 +9,5 @@
     android:text="@string/null_string"
     android:textSize="20sp"
     android:textColor="@android:color/white"
-    android:background="@drawable/selector_rectangle3">
+    android:background="@drawable/selector_rectangle">
 </TextView>
