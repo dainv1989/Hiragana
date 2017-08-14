@@ -41,7 +41,7 @@
             android:id="@+id/imgSwitchKana"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@mipmap/refresh"
+            android:src="@drawable/selector_refresh"
             android:padding="@dimen/padding_large"
             android:layout_marginRight="8dp"
             android:background="@drawable/selector_round_red"/>
@@ -52,7 +52,7 @@
             android:layout_height="64dp"
             android:padding="@dimen/padding_large"
             android:layout_marginLeft="8dp"
-            android:src="@mipmap/speaker_light"
+            android:src="@drawable/selector_speaker_red"
             android:background="@drawable/selector_round_red"/>
     </LinearLayout>
 
@@ -78,6 +78,7 @@
                 android:layout_height="36dp"
                 android:gravity="center"
                 android:text="character"
+                android:fontFamily="sans-serif"
                 android:textColor="@color/primary_text"/>
 
             <TextView
@@ -90,6 +91,7 @@
                 android:padding="8dp"
                 android:text="あ"
                 android:textSize="80sp"
+                android:fontFamily="sans-serif"
                 android:textColor="@color/primary_text"
                 android:background="@drawable/rectangle_stroke_black"/>
         </LinearLayout>
@@ -109,6 +111,7 @@
                 android:padding="@dimen/padding_small"
                 android:gravity="center"
                 android:text="@string/stroke_header"
+                android:fontFamily="sans-serif"
                 android:textColor="@color/primary_text"/>
 
             <com.dainv.hiragana.view.GifImageView

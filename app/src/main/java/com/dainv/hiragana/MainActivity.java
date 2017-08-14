@@ -69,19 +69,6 @@ public class MainActivity extends AppCompatActivity {
         tvMemoKata = (TextView)findViewById(R.id.txtMemoKata);
         tvMemoRoma = (TextView)findViewById(R.id.txtMemoRoma);
 
-        try {
-            Typeface font = Typeface.createFromAsset(getAssets(), "font/FreeMonoBold.ttf");
-            if (font != null) {
-                btnHira.setTypeface(font);
-                btnKata.setTypeface(font);
-                btnExer.setTypeface(font);
-                tvMemoRoma.setTypeface(font);
-            }
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-
         imgNinja = (ImageView)findViewById(R.id.imgNinja);
         imgInfo = (ImageView)findViewById(R.id.mainInfo);
         imgShare = (ImageView)findViewById(R.id.mainShare);

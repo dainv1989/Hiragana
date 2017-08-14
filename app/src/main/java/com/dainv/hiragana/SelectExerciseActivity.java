@@ -47,23 +47,6 @@ public class SelectExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_exercise);
 
-        /* [start] set custom font */
-        txtCharset      = (TextView)findViewById(R.id.txtCharset);
-        txtQuestionNum  = (TextView)findViewById(R.id.txtQuestionCount);
-        txtQuestionType = (TextView)findViewById(R.id.txtExerciseType);
-
-        try {
-            Typeface font = Typeface.createFromAsset(getAssets(), "font/FreeMonoBold.ttf");
-            txtCharset.setTypeface(font);
-            txtQuestionNum.setTypeface(font);
-            txtQuestionType.setTypeface(font);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        /* [end] set custom font */
-
         imgSelectHira       = (ImageView)findViewById(R.id.btnSelectHira);
         imgSelectKata       = (ImageView)findViewById(R.id.btnSelectKata);
 

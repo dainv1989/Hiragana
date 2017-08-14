@@ -3,6 +3,7 @@ package com.dainv.hiragana;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -230,12 +231,17 @@ public class CharActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
+            int color;
             holder.view.setText(dataset[position]);
 
             if (position == selected_position) {
                 holder.itemView.setSelected(true);
+                color = ContextCompat.getColor(getApplicationContext(), android.R.color.white);
+                ((TextView)holder.itemView).setTextColor(color);
             } else {
                 holder.itemView.setSelected(false);
+                color = ContextCompat.getColor(getApplicationContext(), R.color.primary_text);
+                ((TextView)holder.itemView).setTextColor(color);
             }
         }
 

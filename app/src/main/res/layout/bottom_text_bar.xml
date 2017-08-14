@@ -6,8 +6,9 @@
     android:padding="@dimen/padding_small"
     android:gravity="center"
     android:layout_gravity="center"
+    android:fontFamily="sans-serif"
     android:text="@string/null_string"
     android:textSize="20sp"
-    android:textColor="@android:color/white"
-    android:background="@drawable/selector_rectangle">
+    android:textColor="@color/primary_text"
+    android:background="@drawable/selector_rectangle_solid">
 </TextView>

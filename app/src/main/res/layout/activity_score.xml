@@ -58,7 +58,7 @@
                 android:layout_height="64dp"
                 android:padding="16dp"
                 android:layout_marginRight="8dp"
-                android:src="@mipmap/replay"
+                android:src="@drawable/selector_replay"
                 android:background="@drawable/selector_round_red"/>
 
             <ImageView
@@ -67,7 +67,7 @@
                 android:layout_height="64dp"
                 android:padding="16dp"
                 android:layout_marginLeft="8dp"
-                android:src="@mipmap/home"
+                android:src="@drawable/selector_home"
                 android:background="@drawable/selector_round_red"/>
     </LinearLayout>
 </LinearLayout>
