@@ -141,7 +141,7 @@ public class HiraganaActivity extends AppCompatActivity {
     private void playAllSounds() {
         player = new Thread(new Runnable() {
             int current_table = tabChartType.getSelectedTabPosition();
-            String sound_chars[] = JPChar.basic_chars;
+            String sound_chars[] = JPChar.getBasicChars();
             Context context = getApplicationContext();
 
             /* show play icon after finishing play all sounds */
@@ -155,17 +155,17 @@ public class HiraganaActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (current_table == JPChar.TABLE_DAKUTEN) {
-                    sound_chars = JPChar.dakuten_chars;
+                    sound_chars = JPChar.getDakutenChars();
                 } else if (current_table == JPChar.TABLE_COMBO) {
-                    sound_chars = JPChar.combo_chars;
+                    sound_chars = JPChar.getComboChars();
                 }
 
                 for (int i = 0; i < sound_chars.length; i++) {
-                    if (sound_chars[i] == "")
+                    if (sound_chars[i].equals(""))
                         continue;
 
                     /* stop playing all sounds simply by setting is_playing var to false */
-                    if (is_playing == false)
+                    if (!is_playing)
                         return;
 
                     JPChar.playSound(sound_chars[i], context);

@@ -20,7 +20,7 @@ public final class JPChar {
 
     private final static String TAG = "JPChar";
 
-    public static final String basic_chars[] = {
+    private static final String basic_chars[] = {
             "a", "i", "u", "e", "o",
             "ka", "ki", "ku", "ke", "ko",
             "sa", "shi", "su", "se", "so",
@@ -34,7 +34,7 @@ public final class JPChar {
             "n"
     };
 
-    public static final String dakuten_chars[] = {
+    private static final String dakuten_chars[] = {
             "ga", "gi", "gu", "ge", "go",
             "za", "ji", "zu", "ze", "zo",
             "da", "di", "du", "de", "do",
@@ -42,7 +42,7 @@ public final class JPChar {
             "pa", "pi", "pu", "pe", "po"
     };
 
-    public static final String combo_chars[] = {
+    private static final String combo_chars[] = {
             "kya", "kyu", "kyo",
             "sha", "shu", "sho",
             "cha", "chu", "cho",
@@ -56,7 +56,7 @@ public final class JPChar {
             "pya", "pyu", "pyo"
     };
 
-    public static final String basic_hira[] = {
+    private static final String basic_hira[] = {
             "あ", "い", "う", "え", "お",
             "か", "き", "く", "け", "こ",
             "さ", "し", "す", "せ", "そ",
@@ -70,7 +70,7 @@ public final class JPChar {
             "ん"
     };
 
-    public static final String dakuten_hira[] = {
+    private static final String dakuten_hira[] = {
             "が", "ぎ", "ぐ", "げ", "ご",
             "ざ", "じ", "ず", "ぜ", "ぞ",
             "だ", "ぢ", "づ", "で", "ど",
@@ -78,7 +78,7 @@ public final class JPChar {
             "ぱ", "ぴ", "ぷ", "ぺ", "ぽ"
     };
 
-    public static final String combo_hira[] = {
+    private static final String combo_hira[] = {
             "きゃ", "きゅ", "きょ",
             "しゃ", "しゅ", "しょ",
             "ちゃ", "ちゅ", "ちょ",
@@ -92,7 +92,7 @@ public final class JPChar {
             "びゃ", "ぴゅ", "ぴょ"
     };
 
-    public static final String basic_kata[] = {
+    private static final String basic_kata[] = {
             "ア", "イ", "ウ", "エ", "オ",
             "カ", "キ", "ク", "ケ", "コ",
             "サ", "シ", "ス", "セ", "ソ",
@@ -106,7 +106,7 @@ public final class JPChar {
             "ン"
     };
 
-    public static final String dakuten_kata[] = {
+    private static final String dakuten_kata[] = {
             "ガ", "ギ", "グ", "ゲ", "ゴ",
             "ザ", "ジ", "ズ", "ゼ", "ゾ",
             "ダ", "ヂ", "ヅ", "デ", "ド",
@@ -114,7 +114,7 @@ public final class JPChar {
             "パ", "ピ", "プ", "ペ", "ポ"
     };
 
-    public static final String combo_kata[] = {
+    private static final String combo_kata[] = {
             "キャ", "キュ", "キョ",
             "シャ", "シュ", "ショ",
             "チャ", "チュ", "チョ",
@@ -143,6 +143,18 @@ public final class JPChar {
     public static List<AlphabetItem> lstKataCombo;
 
     private static boolean is_init = false;
+
+    public static String[] getBasicChars() {
+        return basic_chars;
+    }
+
+    public static String[] getComboChars() {
+        return combo_chars;
+    }
+
+    public static String[] getDakutenChars() {
+        return dakuten_chars;
+    }
 
     public static void initAlphabetChart() {
         if (is_init == true)
@@ -225,8 +237,10 @@ public final class JPChar {
     public static final int QTYPE_READ_KATA = 1;
     public static final int QTYPE_SOUND_HIRA = 2;
     public static final int QTYPE_SOUND_KATA = 3;
+    public static final int QTYPE_READ_HIRA_INV = 4;
+    public static final int QTYPE_READ_KATA_INV = 5;
 
-    public static final int TOTAL_ANSWERS = 3;
+    private static final int TOTAL_ANSWERS = 3;
 
     public static List<QuestionItem> generateQuestions(int count, int type) {
         int question_count = 0;
@@ -240,12 +254,14 @@ public final class JPChar {
         switch (type) {
             case QTYPE_READ_HIRA:
             case QTYPE_SOUND_HIRA:
+            case QTYPE_READ_HIRA_INV:
                 dictionary.addAll(lstHiraBasic);
                 dictionary.addAll(lstHiraDakuten);
                 dictionary.addAll(lstHiraCombo);
                 break;
             case QTYPE_READ_KATA:
             case QTYPE_SOUND_KATA:
+            case QTYPE_READ_KATA_INV:
                 dictionary.addAll(lstKataBasic);
                 dictionary.addAll(lstKataDakuten);
                 dictionary.addAll(lstKataCombo);
@@ -263,18 +279,21 @@ public final class JPChar {
         while (question_count < count) {
             if (dictionary.get(i).getRomaji() != "") {
                 String romaji;
+                AlphabetItem alphabet = dictionary.get(i);
                 QuestionItem question = new QuestionItem();
                 ArrayList<String> answers = new ArrayList<>();
 
-                question.setQuestion(dictionary.get(i).getJpchar());
-                question.setCorrectAnswer(dictionary.get(i).getRomaji());
-                romaji = dictionary.get(i).getRomaji();
+                question.setQuestion(alphabet.getJpchar());
+                question.setCorrectAnswer(alphabet.getRomaji());
+                romaji = alphabet.getRomaji();
 
                 if ((type == QTYPE_SOUND_HIRA) ||
-                    (type == QTYPE_SOUND_KATA)) {
-                    question.setQuestion(dictionary.get(i).getRomaji());
-                    question.setCorrectAnswer(dictionary.get(i).getJpchar());
-                    romaji = dictionary.get(i).getJpchar();
+                    (type == QTYPE_SOUND_KATA) ||
+                    (type == QTYPE_READ_HIRA_INV) ||
+                    (type == QTYPE_READ_KATA_INV)) {
+                    question.setQuestion(alphabet.getRomaji());
+                    question.setCorrectAnswer(alphabet.getJpchar());
+                    romaji = alphabet.getJpchar();
                 }
                 answers.add(romaji);
 
@@ -285,7 +304,9 @@ public final class JPChar {
                     romaji = dictionary.get(index).getRomaji();
 
                     if ((type == QTYPE_SOUND_HIRA) ||
-                        (type == QTYPE_SOUND_KATA)) {
+                        (type == QTYPE_SOUND_KATA) ||
+                        (type == QTYPE_READ_HIRA_INV) ||
+                        (type == QTYPE_READ_KATA_INV)) {
                         romaji = dictionary.get(index).getJpchar();
                     }
 

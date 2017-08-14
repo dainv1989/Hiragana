@@ -2,7 +2,6 @@ package com.dainv.hiragana;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -25,10 +24,6 @@ public class SelectExerciseActivity extends AppCompatActivity {
     private ImageView imgInverseReading;
     private ImageView imgListening;
 
-    private TextView txtQuestionNum;
-    private TextView txtQuestionType;
-    private TextView txtCharset;
-
     private static final int QA_COUNT_SETTING_NUMBER = 4;
 
     private ArrayList<TextView> tvQACountSettings = new ArrayList<>(QA_COUNT_SETTING_NUMBER);
@@ -40,6 +35,8 @@ public class SelectExerciseActivity extends AppCompatActivity {
 
     private final static int READING_TEST = 1000;
     private final static int LISTENING_TEST = 2000;
+    private final static int READING_TEST_INV = 3000;
+
     private static int exercise_type = READING_TEST;
 
     @Override
@@ -97,7 +94,7 @@ public class SelectExerciseActivity extends AppCompatActivity {
         imgInverseReading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // todo: set exercise type
+                exercise_type = READING_TEST_INV;
                 imgInverseReading.setSelected(true);
                 imgListening.setSelected(false);
                 imgReading.setSelected(false);
@@ -113,6 +110,8 @@ public class SelectExerciseActivity extends AppCompatActivity {
 
                 if (exercise_type == LISTENING_TEST)
                     intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_SOUND_HIRA);
+                else if (exercise_type == READING_TEST_INV)
+                    intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA_INV);
                 else
                     intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_HIRA);
 
@@ -128,6 +127,8 @@ public class SelectExerciseActivity extends AppCompatActivity {
 
                 if (exercise_type == LISTENING_TEST)
                     intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_SOUND_KATA);
+                else if (exercise_type == READING_TEST_INV)
+                    intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_KATA_INV);
                 else
                     intent.putExtra("QUESTION_TYPE", JPChar.QTYPE_READ_KATA);
                 startActivity(intent);
