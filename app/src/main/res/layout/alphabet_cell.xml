@@ -24,6 +24,6 @@
         android:paddingTop="@dimen/padding_small"
         android:paddingBottom="@dimen/padding_large"
         android:text="@string/null_string"
-        android:textSize="15dp"
+        android:textSize="16dp"
         android:textColor="@color/sub_text"/>
 </LinearLayout>
